@@ -17,6 +17,7 @@ const NavBar = () => {
           <p>Service</p>
           <p>Features</p>
           <p>FAQs</p>
+          
           <p>About Us</p>
           <p>Contact Us</p>
       </div>

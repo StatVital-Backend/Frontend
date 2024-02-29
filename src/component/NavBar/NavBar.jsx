@@ -1,9 +1,28 @@
 import React from 'react'
+import style from './index.module.css'
+import logo from '../../assets/statVitalLogo.jpeg'
+
 
 const NavBar = () => {
   return (
-    <div ></div>
-  )
+    <div className="mainContainer">
+
+      <div className='flex'>
+        <img className="w-16" src={logo} alt="logo wa"/>
+      <p class="text-blue-500 text-2xl">statVital</p>
+      </div>
+
+      <div className='flex flex-row-reverse ...'>
+          <p>Home</p>
+          <p>Service</p>
+          <p>Features</p>
+          <p>FAQs</p>
+          <p>About Us</p>
+          <p>Contact Us</p>
+      </div>
+
+    </div>
+  );
 }
 
-export default NavBar
+export default NavBar;

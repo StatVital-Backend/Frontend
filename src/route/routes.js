@@ -1,5 +1,5 @@
+import Home from "../component/Home";
 import Layout from "../layout/Layout";
-import Home from '../component/Home/Home'
 
 export const ROUTES = [
     {
@@ -8,7 +8,11 @@ export const ROUTES = [
         children:[
             {
                 path:'',
-                element: <Home />,
+                element: <Home/>,
+            },
+            {
+                path:'home',
+                element: <Home/>,
             },
         ]
     }

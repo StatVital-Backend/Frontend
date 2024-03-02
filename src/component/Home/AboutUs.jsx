@@ -3,13 +3,13 @@ import About from '../../assets/AboutUsImg2-removebg-preview.png'
 
 const AboutUs = () => {
   return (
-    <div className='flex pr-1.5'>
-      <div className='pb-14 image'>
+    <div className='flex pt-32'>
+      <div className='pt-18 image'>
       <img src={About} alt="" />
       </div>
 
       <div className='content'>
-      <p className='text-blue-400 font-bold font-sans text-2xl txt'>WELCOME TO STATVITAL</p>
+      <p className='text-blue-400 font-bold font-sans text-2xl txt px-32'>ABOUT STATVITAL</p>
       <p>We specialize in providing accurate and reliable records of births and deaths for individuals seeking vital information <br />
        for various purposes. Here's what you can expect from our service:</p> <br />
         <p className='text-blue-400 font-extrabold text-1xl' >Reliability and Accuracy: </p>
@@ -34,12 +34,19 @@ const AboutUs = () => {
         </p>
          <br />
         <p>At StartVital, we are committed to providing you with reliable and accessible birth and death data records <br />
-         to meet your informational needs. Explore our database today and unlock valuable insights into vital statistics.</p>
+         to meet your informational needs. Explore our database today and unlock valuable insights into vital statistics.</p> <br />
 
-      </div>
+         <p className='text-blue-400 font-bold font-sans text-2xl txt px-32'>OUR VISION</p>
+      <p>StatVital is with the vision of building an automated birth and death data record system for hospitals and mortuaries in Nigeria <br />
+       is centered on leveraging technology to improve efficiency, accessibility, and accountability in the management of vital statistics, <br />
+        ultimately contributing to better health outcomes and informed decision-making at the individual, institutional, and policy levels.
+        </p> <br />
 
-      
-      
+        <p className='text-blue-400 font-bold font-sans text-2xl txt px-32'>OUR MISSION</p>
+        <p>To enhance Data Accuracy and Integrity, improve Efficiency, Fostering Collaboration and Innovation,
+        Empowering Decision-Making and <br />
+         Policy Development, and equitable access to healthcare services across Nigeria..</p>
+         </div>
     </div>
   )
 }

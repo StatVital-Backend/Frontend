@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import patricia from '../../assets/patricia.jpg';
+import patricia from '../../../assets/patricia-prudente--P2djqAwM8U-unsplash.jpg';
 
 const SignUp = () => {
     const [hospitalType, setHospitalType] = useState('');

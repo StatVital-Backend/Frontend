@@ -1,5 +1,13 @@
 import React from 'react';
 import laptop from '../../assets/Laptop.avif'
+import streamLine from '../../assets/StreamLineDataMgt.png'
+import efficiency from '../../assets/EfficiencProduct.svg'
+import central from '../../assets/DecentralizeData.png'
+import security from '../../assets/Security.png'
+import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton';
+import lady from '../../assets/smilingOfficeLady.webp'
+import { Link } from 'react-router-dom';
+
 
 const Services = () => {
   return (
@@ -12,68 +20,109 @@ const Services = () => {
           {/* <p className='text-blue-400 font-normal text-2xl tet'>We Have Investmented In The Development And Management Of Such Innovative And Productive <br /> Solutions</p>       */}
         </div>
       </div>
+      
 
-
-      {/* { <div className='head2'> */}
-        {/* <P>EXPLORE OUR SERVICE</P>
-                <div className='why'>
-                    <h1>Valuable Services<span>Benefits</span></h1>
-                    <p>the implementation of an automated birth and death data <br />
-                     record system in hospitals and mortuaries would result in improved efficiency, <br />
-                    data accuracy, and public health outcomes, benefiting both healthcare providers and the <br />
-                     communities they serve.</p> 
-                </div> */}
-
-                <div className='possibilities'>
-                    {/* <div className='possible'>
-                        <div className='urlAndCustomAndqrcodesAndDataAnalytics'>
-
-                            
-                            <div className='urlAndCustom'>
-                                <div className='url'>
-                                    <img src={shortening} alt="" className='images'/>
-                                    
-                                    <h1>URLS Shortening</h1>
-                                    <p>Scissor allows you to shorten URLs of your <br />
-                                    business, events. Shorten your <br />
-                                    URL at scale, URL redirects.</p>
-                                </div>
-
-                                    <div className='custom'>
-                                        <img src={customerUrl} alt="" className='images' />
-                                        <h1>Custom URLS</h1>
-                                        <p>With Scissor, you can create custom URLs,<br />
-                                        with the length you want! A solution for socials <br />
-                                        and businesses.</p>
-                                    </div>
-                            </div>
-
-                            <div className='qrcodesAndDataAnalytics'>
-                                <div className='qrCodes'>
-                                    <img src={qrCode} alt="" className='images'/>
-                                    <h1>QR Codes</h1>
-                                    <p>Generate QR codes to your business, events. <br />
-                                    Bring your audience and customers to your <br />
-                                    doorstep with this scan and go solution.</p>
-                                </div>
-
-                                    <div className='dataAnalytics'>
-                                        <img src={dataAnalytic} alt="" className='images'/>
-                                        <h1>Data Analytics</h1>
-                                        <p>Receive data on the usage of either <br />
-                                        your shortened URL, custom URLs or generated QR <br />
-                                        codes. Embedded to monitor progress.</p>
-                                    </div>
-                            </div>
-
-                        </div>
-                    </div> */}
-
-                </div>
-            {/* </div> */} 
+      <div className='flex gap-40 pt-12 pr-20 serviceDiv'>
         
+        <div>
+          
+          <div className="pr-18 text-blue-400 font-bold text-3xl">Why StatVital ?</div>          
+        <p> Trust is paramount when it comes to vital statistics. <br />
+         Our system employs advanced algorithms and validation 
+        checks to  ensure the accuracy and integrity of every record <br />
+        with regulatory requirements and standards</p>
+        </div>
+        
+        <div className='allService'>
+          <div className='flex gap-20 firstThreeDiv'>
+            <div className='service1'>
+              <img src={streamLine} alt="" />
+              <div className=" uppercase text-blue-400 font-bold text-3xl">Streamlined Data Management</div>
+              <p>With our automated system, say goodbye <br /> to cumbersome 
+               paperwork and manual data <br /> entry. Our platform seamlessly 
+                integrates <br /> into your existing workflows, streamlining the <br />
+                 process of recording and managing birth and death data from
+                  admission to final disposition.</p>
 
-   
+            </div>
+            <div className='service2'>
+              <img src={efficiency} alt="" />
+              <div className="uppercase text-blue-400 text-3xl font-bold">Improved Efficiency and Productivity</div>
+              <p>Time is of the essence in healthcare and <br /> mortuary services. By
+               automating repetitive <br /> tasks and optimizing workflows, our system <br />
+              frees up valuable time for your staff to focus on <br /> providing quality
+                care and services to patients and families, ultimately boosting 
+                 productivity and satisfaction.</p>
+            </div>
+
+            <div className='service3'>
+              <img src={central} alt="" />
+              <div className="text-3xl uppercase text-blue-400 font-bold">Centralized and Accessible Data</div>
+              <p> StatVital is fast, easy, and secure. <br />
+               Our platform centralizes birth and death <br /> data in a secure digital repository, making <br /> it accessible
+                to authorized users whenever and wherever they need it. Whether you're retrieving <br /> records for
+                 administrative purposes or conducting <br /> research, our system puts the information you need right
+                  at your fingertips.</p>
+            </div>
+
+          </div>
+
+          <div className='flex gap-40 pt-12 secondThreeDiv'>
+            <div className='service4'>
+              <img src={security} alt="" />
+              <div className="text-3xl uppercase text-blue-400 font-bold">Data Security and Privacy</div>
+              <p>StatVital employs state-of-the-art encryption  and security protocols to protect sensitive information 
+               from unauthorized access or disclosure, ensuring compliance with data protection regulations <br />
+                and industry best practices.</p>
+            </div>
+
+            <div className='service5'>
+              <img src={efficiency} alt="" />
+              <div className="text-3xl uppercase text-blue-400 font-bold">Cost-Effectiveness</div>
+              <p> Investing in our automated system is not just about improving efficiency; it's also about saving costs 
+               in the long run. By reducing manual labor, minimizing errors, and optimizing workflows, our system delivers <br />
+                a strong return on investment, allowing you to allocate resources more effectively and focus on what matters most</p>
+            </div>
+
+            <div className='pr-44 service5'>
+              <img src={streamLine} alt="" />
+              <div className="text-3xl uppercase text-blue-400 font-bold">Streamlined Data Management</div>
+              <p>Our platform seamlessly integrates into your existing workflows, streamlining the process of recording and managing
+               birth and death data from admission to final disposition.</p>
+            </div>
+
+          </div>
+          
+      
+
+        </div>
+
+      </div>
+
+      <div className='bg-blue-950 h-100 flex gap-96  pt-0 ready'>
+        <div className='pt-40 r-38'>
+        <div className="text-4xl text-white font-bold">Ready For Awesome Projects With Us?</div>
+
+          <div className='text-white pt-4 text-2xl'>
+          <p>Let's talk About Your Project</p>
+          </div>
+          <div>
+          <Link to="/contactus"><FilledButton text={"Contact us --->"}/> </Link> 
+
+          </div>
+
+          
+          </div>
+
+        <div className=' image'>
+          <img src={lady} alt="" />
+        </div>
+       
+
+
+      </div>
+      
+
 
     </div>
   )

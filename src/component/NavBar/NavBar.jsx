@@ -12,7 +12,7 @@ const NavBar = () => {
             <div className='w-32 bg-blue-950 pr-10'>
                 <img src={logo} alt="web logo"/>
             </div>
-            <div className='flex justify-center gap-20 hover:blue-400 text-white pt-8 tag'>
+            <div className='flex justify-center gap-20 text-white pt-8 tag'>
               <Link to="/hero"><p>Home</p> </Link> 
               <Link to="/features"><p>Features</p> </Link>  
               <Link to="/service"> <p >Services</p> </Link>

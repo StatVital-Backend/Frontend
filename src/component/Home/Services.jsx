@@ -4,9 +4,6 @@ import streamLine from '../../assets/StreamLineDataMgt.png'
 import efficiency from '../../assets/EfficiencProduct.svg'
 import central from '../../assets/DecentralizeData.png'
 import security from '../../assets/Security.png'
-import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton';
-import lady from '../../assets/smilingOfficeLady.webp'
-import { Link } from 'react-router-dom';
 
 
 const Services = () => {
@@ -27,9 +24,9 @@ const Services = () => {
         <div>
           
           <div className="pr-18 text-blue-400 font-bold text-3xl">Why StatVital ?</div>          
-        <p> Trust is paramount when it comes to vital statistics. <br />
-         Our system employs advanced algorithms and validation 
-        checks to  ensure the accuracy and integrity of every record <br />
+        <p> Trust is paramount when it comes to vital statistics.
+         Our system employs <br /> advanced algorithms and validation
+        checks to ensure the accuracy and integrity of every record <br />
         with regulatory requirements and standards</p>
         </div>
         
@@ -99,32 +96,7 @@ const Services = () => {
 
       </div>
 
-      <div className='bg-blue-950 h-100 flex gap-96  pt-0 ready'>
-        <div className='pt-40 r-38'>
-        <div className="text-4xl text-white font-bold">Ready For Awesome Projects With Us?</div>
-
-          <div className='text-white pt-4 text-2xl'>
-          <p>Let's talk About Your Project</p>
-          </div>
-          <div>
-          <Link to="/contactus"><FilledButton text={"Contact us --->"}/> </Link> 
-
-          </div>
-
-          
-          </div>
-
-        <div className=' image'>
-          <img src={lady} alt="" />
-        </div>
-       
-
-
       </div>
-      
-
-
-    </div>
   )
 }
 

@@ -1,14 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
+import { Link } from "react-router-dom";
 
-const LoginForm = ({ title }) => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    };
 
-    return (
+const LoginPage = () => {    
+return (
         <div className="py-16">
             <div className="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
                 <div className="hidden lg:block lg:w-1/2 bg-cover">
@@ -67,15 +63,6 @@ const LoginForm = ({ title }) => {
                     </div>
                 </div>
             </div>
-        </div>
-    );
-};
-
-const LoginPage = () => {
-    return (
-        <div>
-            <LoginForm title="Login as Hospital" />
-            <LoginForm title="Login as Morgue" />
         </div>
     );
 };

@@ -6,15 +6,15 @@ import WorkingHour from '../../assets/workinghour.png'
 
 const ContactUs = () => {
   return (
-    <div className='pt-28 flex justify-center center mainContainer'>
+    <div className='pt-12 flex justify-center center mainContainer'>
       <div className=''>
         <div className='pb-16'>
-        <div className='justify-center center flex font-bold font-sans'>
-          <p className='text-blue-400 text-2xl'>GET IN TOUCH </p>
-        </div>
-        <div className='justify-center center flex font-sans' >
-        <p className='text-black text-3xl'>Contact</p>
-        </div>       
+          <div className='justify-center center flex font-bold font-sans'>
+            <p className='text-blue-400 text-2xl'>GET IN TOUCH </p>
+            </div>
+          <div className='justify-center center flex font-sans' >
+            <p className='text-black text-3xl'>Contact</p>
+          </div>       
         </div>
 
         <div className='flex gap-40'>

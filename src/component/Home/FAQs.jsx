@@ -1,11 +1,11 @@
 import React from 'react'
-import faq from '../../assets/[removal.ai]_a1f37c0d-461f-401c-bd84-1b10e9ccfdac-faqq.png'
+import faq from '../../assets/faqq.png'
 
 
 const FAQs = () => {
   return (
     <div className='w-10%'>
-       <div className= ''>
+      <div className= ''>
         <img className='pt-8' src={faq} alt="" />
         {/* <img className=' opacity-3 h-[50vh] pt-30 w-[100%]' src={faq} alt='background'/> */}
         {/* <div className='absolute text-center justify-center service top-60 left-[800px]'> */}

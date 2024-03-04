@@ -6,20 +6,20 @@ import { Link } from 'react-router-dom';
 const Footer = () => {
   return (
 
-    <div>
-      <div className='bg-blue-950 h-100 flex gap-96  pt-0 ready'>
-          <div className='pt-40 r-38'>
-        <div className="text-4xl text-white font-bold">Ready For Awesome Projects With Us?</div>
+    <div className='mt-20'>
+      <div className='bg-blue-950 h-100 flex gap-96 pt-26 ready'>
+          <div className='pt-32 r-38'>
+        <div className="text-4xl text-white pl-36 font-bold">Ready For Awesome Projects With Us?</div>
 
-          <div className='text-white pt-4 text-2xl'>
+          <div className='text-white pt-4 pl-36 text-2xl'>
             <p>Let's talk About Your Project</p>
           </div>
-          <div>
+          <div className='pl-36'>
             <Link to="/contactus"><FilledButton text={"Contact us --->"}/> </Link> 
           </div>
         </div>
 
-        <div className='image'>
+        <div className='px-64 pl-42 image'>
           <img src={lady} alt="" />
         </div>
       </div>

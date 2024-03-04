@@ -9,21 +9,24 @@ const NavBar = () => {
   return (
     <div className='bg-blue-950 h-24 flex gap-80 mainContainer'>
             
-            <div className='w-32 bg-blue-950 pr-10'>
+            <div className='w-32 bg-blue-950 pr-2.5'>
                 <img src={logo} alt="web logo"/>
             </div>
-            <div className='flex justify-center gap-20 hover:blue-400 text-white pt-8 tag'>
-              <Link to="/hero"><p>Home</p> </Link> 
-              <Link to="/features"><p>Features</p> </Link>  
-              <Link to="/service"> <p >Services</p> </Link>
-               <Link to="/aboutus"><p>About Us</p> </Link> 
-               <Link to="/contactus"><p>Contact Us</p> </Link> 
-               <Link to="/faqs"><p>FAQs</p> </Link>
-            </div>
+              <div className='flex gap-96'>
 
-              <div className='flex gap-16 pt-8 btn'>
-                <Link to="/login"><FilledButton text={"Log in"}/></Link>
-               <Link to="./signup"><OutlineButton text={"Sign up"}/></Link> 
+              <div className='flex justify-center center gap-20 text-white pt-8 pl-20'>
+                <Link to="/hero"><p>Home</p> </Link> 
+                <Link to="/features"><p>Features</p> </Link>  
+                <Link to="/service"> <p >Services</p> </Link>
+                <Link to="/aboutus"><p>About Us</p> </Link> 
+                <Link to="/contactus"><p>Contact Us</p> </Link> 
+                <Link to="/faqs"><p>FAQs</p> </Link>
+              </div>
+
+                <div className='flex gap-16  pt-5 btn'>
+                  <Link to="/login"><FilledButton text={"Log in"}/></Link>
+                <Link to="./signup"><OutlineButton text={"Sign up"}/></Link> 
+              </div>
             </div>
         </div>
   );

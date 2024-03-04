@@ -23,7 +23,7 @@ export const ROUTES = [
                 element: <Home/>,
             },
             {
-                path:'Aboutus',
+                path:'aboutus',
                 element: <AboutUs/>,
             },
             {

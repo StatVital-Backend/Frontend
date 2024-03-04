@@ -1,9 +1,9 @@
 import Layout from "../layout/Layout";
-import Home from "../components/Home/Home";
-import LoginPage from "../components/LoginPage/LoginPage";
-import SignUp from "../components/SignUp/SignUp";
+import Home from "../component/Home/index";
+import LoginPage from "../component/Pages/Login/index";
+import SignUp from "../component/Pages/SignUp/index";
 
-export const ROUTES = [
+const ROUTES = [
   {
     path: "",
     element: <Layout />,
@@ -23,3 +23,5 @@ export const ROUTES = [
     ],
   },
 ];
+
+export default ROUTES;

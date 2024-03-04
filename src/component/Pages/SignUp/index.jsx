@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import patricia from '../../assets/patricia.jpg';
+import patricia from '../../../assets/patricia-prudente--P2djqAwM8U-unsplash.jpg';
 
-const SignUp = () => {
+const SignUpForm = ({ title }) => {
     const [hospitalType, setHospitalType] = useState('');
     const [hospitalName, setHospitalName] = useState('');
     const [hospitalCategory, setHospitalCategory] = useState('');
@@ -16,12 +16,13 @@ const SignUp = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        // Handle form submission
     };
 
     return (
         <div className="bg-gray-100 min-h-screen flex items-center justify-center">
             <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-lg">
-                <h1 className="text-2xl text-center mb-4">Sign Up</h1>
+                <h1 className="text-2xl text-center mb-4">{title}</h1>
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="hospitalType">Hospital Type</label>
                     <input
@@ -114,7 +115,16 @@ const SignUp = () => {
                     <button type="submit">Sign Up</button>
                 </form>
             </div>
-            <img src={patricia} alt="Doctors holding a new born baby" className="hidden lg:block absolute top-0 right-0 w-1/3" />
+            <img src={patricia} alt="Doctors holding a newborn baby" className="hidden lg:block absolute top-0 right-0 w-1/3" />
+        </div>
+    );
+};
+
+const SignUp = () => {
+    return (
+        <div>
+            <SignUpForm title="Sign Up as Hospital" />
+            <SignUpForm title="Sign Up as Morgue" />
         </div>
     );
 };

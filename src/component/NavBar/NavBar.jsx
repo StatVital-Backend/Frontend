@@ -14,7 +14,7 @@ const NavBar = () => {
             </div>
               <div className='flex gap-96'>
 
-              <div className='flex justify-center center gap-20 text-white pt-8 pl-20'>
+              <div className='flex hover:scale-110 transition duration-500 pt-4 cursor-pointer object-cover justify-center center gap-20 hover:text-blue-400 text-white pl-20'>
                 <Link to="/hero"><p>Home</p> </Link> 
                 <Link to="/features"><p>Features</p> </Link>  
                 <Link to="/service"> <p >Services</p> </Link>

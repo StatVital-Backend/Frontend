@@ -18,7 +18,7 @@ const ContactUs = () => {
         </div>
 
         <div className='flex gap-40'>
-          <div className='bg-blue-400 w-80 h-60 emer'>
+          <div className='bg-blue-400 w-80 h-72 emer'>
             <img className='w-16' src={Emergency} alt="" />
             <p className='text-blue-950 font-bold font-sans text-3xl justify-center pt-5 center flex'>EMERGENCY</p>
             <div className='text-blue-950 pt-5 pl-20 numbs'>
@@ -30,7 +30,7 @@ const ContactUs = () => {
             
           </div>
 
-          <div className='bg-blue-950 w-80 h-60 emer'>
+          <div className='bg-blue-950 w-80 h-72 emer'>
             <img className='w-16 justify-center center flex ' src={Location} alt="" />
             <p className='text-blue-400 font-bold pt-5 font-sans text-3xl center justify-center flex'>LOCATION</p>
             <div className='text-blue-400 pt-5 center flex justify-center addresses'>
@@ -38,7 +38,7 @@ const ContactUs = () => {
             </div>
             </div>
 
-            <div className='bg-blue-400 w-80 h-60 emer'>
+            <div className='bg-blue-400 w-80 h-72 emer'>
             <img className='w-32' src={Email} alt="" />
             <p className='text-blue-950 font-bold font-sans justify-center text-3xl pt-5 center flex'>EMAIL</p>
             <div className='text-blue-950 pt-5 pl-16 addresses'>
@@ -46,7 +46,7 @@ const ContactUs = () => {
             </div>
             </div>
 
-            <div className='bg-blue-950 w-80 h-60 emer'>
+            <div className='bg-blue-950 w-80 h-72 emer'>
               <img className='w-20 ' src={WorkingHour} alt="" />
               <p className='text-blue-400 font-bold font-sans text-3xl justify-center pt-2 center flex'>WORKING HOURS</p>
               <div className='text-blue-400 pt-5 pl-16 addresses'>

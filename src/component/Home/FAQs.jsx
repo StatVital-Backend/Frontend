@@ -4,14 +4,16 @@ import faq from '../../assets/faqq.png'
 
 const FAQs = () => {
   return (
-    <div className='w-10%'>
-      <div className= ''>
-        <img className='pt-8' src={faq} alt="" />
-        {/* <img className=' opacity-3 h-[50vh] pt-30 w-[100%]' src={faq} alt='background'/> */}
-        {/* <div className='absolute text-center justify-center service top-60 left-[800px]'> */}
-        {/* </div> */}
-      </div>
+    <div className=''>
+        <img className=' opacity-3 h-[50vh] pt-30 w-[100%]' src={faq} alt='background'/>
+        {/* <div className='absolute text-center text-red-600 text-4xl justify-center service top-60 left-[800px]'><h1>MOYINOLUWA</h1></div> */}
+        <div className='pt-30 w-70 h-80 justify-center center flex'>
+          <div className='div1'>
+            
 
+          </div>
+
+        </div>
       
       
     </div>

@@ -4,7 +4,7 @@ import About from '../../assets/AboutUsImg2-removebg-preview.png'
 const AboutUs = () => {
   return (
     <div className='flex justify-center center'>
-      <div className='flex pt-32 pr-40 '>
+      <div className='flex pt-10 pr-40 '>
         <div className='pt-18 image'>
         <img src={About} alt="" />
         </div>

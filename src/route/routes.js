@@ -5,8 +5,10 @@ import FAQs from "../component/Home/FAQs";
 import Features from "../component/Home/Features";
 import Hero from "../component/Home/Hero";
 import Services from "../component/Home/Services";
-import LoginPage from "../component/Pages/Login";
-import SignUp from "../component/Pages/SignUp";
+import HospitalLogin from "../component/Pages/LoginPage/HospitalLogin";
+import MainLogin from "../component/Pages/LoginPage/MainLogin";
+import MorgueLogin from "../component/Pages/LoginPage/MorgueLogin";
+import SignUp from "../component/Pages/SignUp/index";
 import Layout from "../layout/Layout";
 
 export const ROUTES = [
@@ -47,13 +49,23 @@ export const ROUTES = [
                 element: <Services/>,
             },
         ]
-    },
-    {
-        path: "/login",
-        element: <LoginPage />,
-      },
-      {
-        path: "/signup",
-        element: <SignUp />,
-      },
-]
+            },
+            {
+                path: "/login",
+                element: <MainLogin />,
+            },
+            {
+                path: "/signup",
+                element: <SignUp />,
+            },
+
+            {
+                path: "/morguelogin",
+                element: <MorgueLogin />,
+            },
+
+            {
+                path: "/hospitalLogin",
+                element: <HospitalLogin />,
+            },
+        ]

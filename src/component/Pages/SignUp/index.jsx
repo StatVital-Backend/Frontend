@@ -1,120 +1,164 @@
 import React, { useState } from 'react';
-import patricia from '../../../assets/patricia-prudente--P2djqAwM8U-unsplash.jpg';
+import hospitalLogo from '../../../assets/statVitalLogo.jpeg';
+import lewis from '../../../assets/lewis-keegan-XQaqV5qYcXg-unsplash.jpg';
 
-const SignUp = () => {
-    const [hospitalType, setHospitalType] = useState('');
-    const [hospitalName, setHospitalName] = useState('');
-    const [hospitalCategory, setHospitalCategory] = useState('');
+const SignUp = ({ title }) => {
+    const [facilityName, setFacilityName] = useState('');
+    const [facilityLocation, setFacilityLocation] = useState('');
+    const [facilityType, setFacilityType] = useState('');
+    const [certificationNumber, setCertificationNumber] = useState('');
+    const [officialEmail, setOfficialEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [email, setEmail] = useState('');
-    const [address, setAddress] = useState('');
-    const [locality, setLocality] = useState('');
-    const [state, setState] = useState('');
-    const [lga, setLGA] = useState('');
-    const [OperationPermit, setOperationPermit] = useState('');
-    const [operatingLicense, setOperatingLicense] = useState('');
+    const [password, setPassword] = useState('');
+    const [errMsg, setErrMsg] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
+
+        setErrMsg('');
+
+        if (!facilityName) {
+            setErrMsg('Facility Name is required.');
+            return;
+        }
+
+        if (!facilityLocation) {
+            setErrMsg('Facility Location is required.');
+            return;
+        }
+
+        if (!facilityType) {
+            setErrMsg('Facility Type is required.');
+            return;
+        }
+
+        if (!certificationNumber) {
+            setErrMsg('Certification Number is required.');
+            return;
+        }
+
+        if (!officialEmail) {
+            setErrMsg('Official Email is required.');
+            return;
+        }
+
+        if (!phoneNumber) {
+            setErrMsg('Phone Number is required.');
+            return;
+        }
+
+        if (!password) {
+            setErrMsg('Password is required.');
+            return;
+        }
     };
 
     return (
-        <div className="bg-gray-100 min-h-screen flex items-center justify-center">
-            <div className="max-w-md w-full bg-white p-8 rounded-lg shadow-lg">
-                <h1 className="text-2xl text-center mb-4">Sign Up</h1>
+        <div className="flex justify-center items-center h-screen bg-blue-600">
+            <div className="w-96 lg:w-120 backdrop-blur-lg bg-opacity-80 rounded-lg shadow-lg p-5 bg-white text-blue-950">
+                <img src={hospitalLogo} alt="Hospital Logo" className="mb-5" />
+                <h2 className="text-5xl font-bold pb-5">SIGN UP AS HOSPITAL </h2>
                 <form onSubmit={handleSubmit}>
-                    <label htmlFor="hospitalType">Hospital Type</label>
-                    <input
-                        type="text"
-                        id="hospitalType"
-                        value={hospitalType}
-                        onChange={(e) => setHospitalType(e.target.value)}
-                    />
-
-                    <label htmlFor="hospitalName">Hospital Name</label>
-                    <input
-                        type="text"
-                        id="hospitalName"
-                        value={hospitalName}
-                        onChange={(e) => setHospitalName(e.target.value)}
-                    />
-
-                    <label htmlFor="hospitalCategory">Hospital Category</label>
-                    <input
-                        type="text"
-                        id="hospitalCategory"
-                        value={hospitalCategory}
-                        onChange={(e) => setHospitalCategory(e.target.value)}
-                    />
-
-                    <label htmlFor="phoneNumber">Contact Person's Phone Number</label>
-                    <input
-                        type="text"
-                        id="phoneNumber"
-                        value={phoneNumber}
-                        onChange={(e) => setPhoneNumber(e.target.value)}
-                    />
-
-                    <label htmlFor="email">Contact Person's Email</label>
-                    <input
-                        type="email"
-                        id="email"
-                        value={email}
-                        onChange={(e) => setEmail(e.target.value)}
-                    />
-
-                    <label htmlFor="address">Address</label>
-                    <input
-                        type="text"
-                        id="address"
-                        value={address}
-                        onChange={(e) => setAddress(e.target.value)}
-                    />
-
-                    <label htmlFor="locality">Locality</label>
-                    <input
-                        type="text"
-                        id="locality"
-                        value={locality}
-                        onChange={(e) => setLocality(e.target.value)}
-                    />
-
-                    <label htmlFor="state">State</label>
-                    <input
-                        type="text"
-                        id="state"
-                        value={state}
-                        onChange={(e) => setState(e.target.value)}
-                    />
-
-                    <label htmlFor="lga">LGA</label>
-                    <input
-                        type="text"
-                        id="lga"
-                        value={lga}
-                        onChange={(e) => setLGA(e.target.value)}
-                    />
-
-                    <label htmlFor="OperationPermit">Operation Permit</label>
-                    <input
-                        type="text"
-                        id="OperationPermit"
-                        value={OperationPermit}
-                        onChange={(e) => setOperationPermit(e.target.value)}
-                    />
-
-                    <label htmlFor="operatingLicense">Operating License</label>
-                    <input
-                        type="text"
-                        id="operatingLicense"
-                        value={operatingLicense}
-                        onChange={(e) => setOperatingLicense(e.target.value)}
-                    />
-
-                    <button type="submit">Sign Up</button>
+                    <div className="mb-4">
+                        <label htmlFor="facilityName" className="block mb-2 text-3xl font-medium">Facility Name</label>
+                        <input
+                            type="text"
+                            id="facilityName"
+                            className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            placeholder="Enter Facility Name"
+                            required
+                            value={facilityName}
+                            onChange={(e) => setFacilityName(e.target.value)}
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="facilityLocation" className="block mb-2 text-3xl font-large">Facility Location</label>
+                        <input
+                            type="text"
+                            id="facilityLocation"
+                            className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            placeholder="Enter Facility Location"
+                            required
+                            value={facilityLocation}
+                            onChange={(e) => setFacilityLocation(e.target.value)}
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="facilityType" className="block mb-2 text-3xl font-medium">Facility Type</label>
+                        <input
+                            type="text"
+                            id="facilityType"
+                            className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            placeholder="Enter Facility Type"
+                            required
+                            value={facilityType}
+                            onChange={(e) => setFacilityType(e.target.value)}
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="certificationNumber" className="block mb-2 text-3xl font-medium">Certification Number</label>
+                        <input
+                            type="text"
+                            id="certificationNumber"
+                            className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            placeholder="Enter Certification Number"
+                            required
+                            value={certificationNumber}
+                            onChange={(e) => setCertificationNumber(e.target.value)}
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="officialEmail" className="block mb-2 text-3xl font-medium">Official Email</label>
+                        <input
+                            type="email"
+                            id="officialEmail"
+                            className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            placeholder="Enter Official Email"
+                            required
+                            value={officialEmail}
+                            onChange={(e) => setOfficialEmail(e.target.value)}
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="phoneNumber" className="block mb-2 text-3xl font-medium">Phone Number</label>
+                        <input
+                            type="tel"
+                            id="phoneNumber"
+                            className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            placeholder="Enter Phone Number"
+                            required
+                            value={phoneNumber}
+                            onChange={(e) => setPhoneNumber(e.target.value)}
+                        />
+                    </div>
+                    <div className="mb-4">
+                        <label htmlFor="password" className="block mb-2 text-3xl font-medium">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            className="bg-gray-100 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            placeholder="Enter Password"
+                            required
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                    </div>
+                    <p className="text-red-500 pb-5">{errMsg}</p>
+                    <div className="flex items-center justify-between mb-4">
+                        <button
+                            type="submit"
+                            className="text-white bg-blue-400 hover:bg-blue-700 focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm py-2.5 px-5 w-full sm:w-auto"
+                        >
+                            Register
+                        </button>
+                        <div className="flex items-center text-sm">
+                            <p>Already have an account?</p>
+                            <p className="underline cursor-pointer ml-1">Sign in</p>
+                        </div>
+                    </div>
                 </form>
             </div>
-            <img src={patricia} alt="Doctors holding a new born baby" className="hidden lg:block absolute top-0 right-0 w-1/3" />
+            <img src= {lewis} alt="Background" className="w-1/2 h-full bg-cover bg-right" />
         </div>
     );
 };

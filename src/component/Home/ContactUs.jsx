@@ -17,7 +17,7 @@ const ContactUs = () => {
           </div>       
         </div>
 
-        <div className='flex gap-40'>
+        <div className='flex gap-20'>
           <div className='bg-blue-400 w-80 h-72 emer'>
             <img className='w-16' src={Emergency} alt="" />
             <p className='text-blue-950 font-bold font-sans text-3xl justify-center pt-5 center flex'>EMERGENCY</p>

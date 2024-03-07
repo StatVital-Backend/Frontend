@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
-import hospitalLogo from '../../../assets/statVitalLogo.jpeg';
+import hospitalLogo from '../../../assets/statVitalLogo.png';
 import lewis from '../../../assets/lewis-keegan-XQaqV5qYcXg-unsplash.jpg';
+import FilledButton from '../../../reuseables/bottons/FilledButton/FilledButton';
+import { Link } from 'react-router-dom';
 
 const SignUp = ({ title }) => {
     const [facilityName, setFacilityName] = useState('');
@@ -54,8 +56,8 @@ const SignUp = ({ title }) => {
     };
 
     return (
-        <div className="flex justify-center items-center h-screen bg-blue-500">
-            <div className="w-96 lg:w-120 backdrop-blur-lg bg-opacity-80 rounded-lg shadow-lg p-5 bg-white text-blue-900">
+        <div className="flex justify-center items-center ">
+            <div className="w-3/5  bg-blue-950 rounded-lg shadow-lg p-5 text-white">
                 <img src={hospitalLogo} alt="Hospital Logo" className="mb-5" />
                 <h2 className="text-4xl font-bold pb-5"> SIGN UP AS HOSPITAL </h2>
                 <form onSubmit={handleSubmit}>
@@ -145,20 +147,17 @@ const SignUp = ({ title }) => {
                     </div>
                     <p className="text-red-500 pb-5">{errMsg}</p>
                     <div className="flex items-center justify-between mb-4">
-                        <button
-                            type="submit"
-                            className="text-white bg-blue-600 hover:bg-blue-700 focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm py-2.5 px-5 w-full sm:w-auto"
-                        >
-                            Register
-                        </button>
+                      <Link to="/layout2/NavBar2"><FilledButton text="Signup"  style={{width: '130px'}}/>  </Link>
                         <div className="flex items-center text-sm">
                             <p>Already have an account?</p>
-                            <p className="underline cursor-pointer ml-1">Sign in</p>
-                        </div>
+                            <p>Sign in</p>
+                        </div>  <br />
+                        {/* <p className="underline cursor-pointer ml-1">Sign in</p> */}
+
                     </div>
                 </form>
             </div>
-            <img src={lewis} alt="Background" className="w-1/2 h-full object-cover object-right" />
+            {/* <img src={lewis} alt="Background" className="w-1/2 h-full object-cover object-right" /> */}
         </div>
     );
 };

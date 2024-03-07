@@ -1,5 +1,5 @@
 import React from 'react'
-import logo from '../../assets/WhatsApp Image 2024-02-29 at 1.38.37 PM.jpeg'
+import logo from '../../assets/statVitalLogo.png'
 import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton';
 import OutlineButton from '../../reuseables/bottons/OutlineButton/OutlineButton';
 import { Link } from 'react-router-dom';

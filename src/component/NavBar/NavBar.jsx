@@ -14,7 +14,7 @@ const NavBar = () => {
             </div>
               <div className='flex gap-96'>
 
-              <div className='flex hover:scale-110 transition duration-500 pt-4 cursor-pointer object-cover justify-center center gap-20 hover:text-blue-400 text-white pl-20'>
+              <div className='flex items-center hover:scale-110 transition duration-500 pt-4 cursor-pointer object-cover justify-center center gap-20 hover:text-blue-400 text-white pl-20'>
                 <Link to="/hero"><p>Home</p> </Link> 
                 <Link to="/features"><p>Features</p> </Link>  
                 <Link to="/service"> <p >Services</p> </Link>
@@ -24,8 +24,8 @@ const NavBar = () => {
               </div>
 
                 <div className='flex gap-16  pt-5 btn'>
-                  <Link to="/login"><FilledButton text={"Log in"}/></Link>
-                <Link to="./signup"><OutlineButton text={"Sign up"}/></Link> 
+                  <Link to="/login"><FilledButton text={"Log in"} style={{width: '130px'}}/></Link>
+                <Link to="/question"><OutlineButton text={"Sign up"} /></Link> 
               </div>
             </div>
         </div>

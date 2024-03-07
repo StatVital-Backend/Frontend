@@ -5,6 +5,12 @@ import './App.css'
 function App() {
   return useRoutes(ROUTES);
 
+  return (
+    <Router>
+      <div className="App">{routing}</div>
+    </Router>
+  );
 }
+
 
 export default App;

@@ -11,6 +11,10 @@ import MorgueLogin from "../component/Pages/LoginPage/MorgueLogin";
 import Question from "../component/Pages/Question/question";
 import SignUp from "../component/Pages/SignUp/index";
 import Layout from "../layout/Layout";
+import Layout2 from "../layout/Layout2";
+import Methods from "../component/Home/Methods";
+import Dig from "../component/Home/Dig";
+import NavBar2 from "../component/NavBar2/NavBar2";
 
 export const ROUTES = [
     {
@@ -49,27 +53,43 @@ export const ROUTES = [
                 path:'service',
                 element: <Services/>,
             },
-            {
-                path: "/login",
-                element: <LoginPage />,
-            },
-            {
-                path: "/signup",
-                element: <SignUp />,
-            },
-            {
-                path: "/question",
-                element: <Question/>,
-            },
-            {
-                path: "/morguelogin",
-                element: <MorgueLogin />,
-            },
+        ]
+    },
+    {
+        path: "/login",
+        element: <LoginPage />,
+    },
+    {
+        path: "/signup",
+        element: <SignUp />,
+    },
+    {
+        path: "/question",
+        element: <Question/>,
+    },
+    {
+        path: "/morguelogin",
+        element: <MorgueLogin />,
+    },
 
+    {
+        path: "/hospitalLogin",
+        element: <HospitalLogin />,
+    },
+    {
+        path: "/layout2",
+        element: <Layout2/>,
+        children: [
             {
-                path: "/hospitalLogin",
-                element: <HospitalLogin />,
+                path: "/layout2/methods", 
+                element: <Methods />,
             },
+            {
+                path: "",
+                element: <Dig/>
+            }
         ]
     }
+    
+
 ]

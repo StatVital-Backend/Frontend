@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import morgueImage from '../../../assets/morgueImage.jpg';
+import morgueImage from '../../../assets/a-typical-morgue-picture-that-can-be-use-as-a-site-background.jpg';
 
-const MorgueLogin = () => { 
+const MorgueLogin = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
 
@@ -32,6 +32,12 @@ const MorgueLogin = () => {
                         <a href="#" className="text-xs text-center text-blue-400 uppercase">or login with email</a>
                         <span className="border-b w-1/5 lg:w-1/4"></span>
                     </div>
+=======
+                    <img src={morgueImage} alt="Background" className="w-full h-full object-cover" />
+                </div>
+                <div className="w-full p-8 lg:w-1/2">
+                    <h2 className="text-2xl font-semibold text-blue-400 text-center">Morgue Login</h2>
+                    <p className="text-xl text-blue-400 text-center">Welcome to Morgue Login!</p>
                     <div className="mt-4">
                         <label htmlFor="email" className="block text-blue-400 text-sm font-bold mb-2">Email Address</label>
                         <input

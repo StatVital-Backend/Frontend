@@ -1,5 +1,5 @@
 import React from 'react';
-import chris from '../../assets/chris-liverani-dBI_My696Rk-unsplash.jpg'
+import markus from '../../assets/markus-spiske-eTRwPn5QAwA-unsplash.jpg'
 import { Link } from 'react-router-dom';
 import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton';
 
@@ -28,7 +28,7 @@ const Hero = () => {
           </div>
         </div>
         <div className="w-full md:w-1/2 flex justify-center md:justify-end">
-          <img src={chris} alt="chart representation" />
+          <img src={markus} alt="chart representation" />
         </div>
       </div>
     </div>

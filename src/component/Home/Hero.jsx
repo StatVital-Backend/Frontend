@@ -18,7 +18,7 @@ const Hero = () => {
              we enable informed decisions and a more fulfilling life. We're devoted to guiding you through life's journey with precision, eagerly anticipating our role in your story.
           </h3>
           <div className="mt-10 flex flex-col sm:flex-row justify-center md:justify-start">
-         <Link to="/signup"><FilledButton text={"Get Started"}/></Link> 
+         <Link to="/signup"><FilledButton text={"Get Started"} style={{width: '130px'}}/></Link> 
            {/* <Link to="/signup"> <button className="w-full sm:w-40 px-4 py-3 rounded font-semibold text-md bg-blue-400 text-blue-900 border-2 border-blue-400">
               Get Started
             </button> </Link> */}

@@ -8,6 +8,7 @@ import Services from "../component/Home/Services";
 import LoginPage from "../component/Pages/LoginPage/LoginPage";
 import HospitalLogin from "../component/Pages/LoginPage/HospitalLogin";
 import MorgueLogin from "../component/Pages/LoginPage/MorgueLogin";
+import Question from "../component/Pages/Question/question";
 import SignUp from "../component/Pages/SignUp/index";
 import Layout from "../layout/Layout";
 
@@ -25,7 +26,7 @@ export const ROUTES = [
                 element: <Home/>,
             },
             {
-                path:'Aboutus',
+                path:'aboutus',
                 element: <AboutUs/>,
             },
             {
@@ -48,8 +49,6 @@ export const ROUTES = [
                 path:'service',
                 element: <Services/>,
             },
-        ]
-            },
             {
                 path: "/login",
                 element: <LoginPage />,
@@ -58,7 +57,10 @@ export const ROUTES = [
                 path: "/signup",
                 element: <SignUp />,
             },
-
+            {
+                path: "/question",
+                element: <Question/>,
+            },
             {
                 path: "/morguelogin",
                 element: <MorgueLogin />,
@@ -69,3 +71,5 @@ export const ROUTES = [
                 element: <HospitalLogin />,
             },
         ]
+    }
+]

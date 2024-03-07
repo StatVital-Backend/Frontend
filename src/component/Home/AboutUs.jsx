@@ -1,13 +1,10 @@
 import React from 'react'
 import About from '../../assets/AboutUsImg2-removebg-preview.png'
-import { Link } from 'react-router-dom';
-import lady from '../../assets/smilingOfficeLady.webp'
-import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton';
 
 const AboutUs = () => {
   return (
-    <div>
-      <div className='flex pt-32'>
+    <div className='flex justify-center center'>
+      <div className='flex pt-10 pr-40 '>
         <div className='pt-18 image'>
         <img src={About} alt="" />
         </div>
@@ -54,34 +51,7 @@ const AboutUs = () => {
           
       </div>
 
-      <div className='bg-blue-950 h-100 flex gap-96  pt-0 ready'>
-        <div className='pt-40 r-38'>
-        <div className="text-4xl text-white font-bold">Ready For Awesome Projects With Us?</div>
-
-          <div className='text-white pt-4 text-2xl'>
-          <p>Let's talk About Your Project</p>
-          </div>
-          <div>
-          <Link to="/contactus"><FilledButton text={"Contact us --->"}/> </Link> 
-
-          </div>
-
-          
-          </div>
-
-        <div className=' image'>
-          <img src={lady} alt="" />
-        </div>
-       
-
-
-      </div>
-
     </div>
-
-    
-
-
   )
 }
 

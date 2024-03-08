@@ -11,6 +11,7 @@ import MorgueLogin from "../component/Pages/LoginPage/MorgueLogin";
 import Question from "../component/Pages/Question/question";
 import SignUp from "../component/Pages/SignUp/index";
 import Layout from "../layout/Layout";
+import ChildRegistrationForm from "../component/Pages/RegisterChildbirth/index";
 
 export const ROUTES = [
     {
@@ -69,6 +70,11 @@ export const ROUTES = [
             {
                 path: "/hospitalLogin",
                 element: <HospitalLogin />,
+            },
+
+            {
+                path: "/childregform",
+                element: <ChildRegistrationForm />,
             },
         ]
     }

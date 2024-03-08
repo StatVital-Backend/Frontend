@@ -3,7 +3,6 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import hospitalFront from '../../../assets/hospitlFront.jpg'; 
 
-import blackFemale from '../../../assets/smiling-nurse3.jpeg';
 
 const HospitalLogin = () => {
 

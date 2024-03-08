@@ -1,5 +1,5 @@
 import React from 'react';
-import markus from '../../assets/markus-spiske-eTRwPn5QAwA-unsplash.jpg'
+import markus from '../../assets/glowing-blue-pulse-trace-computer-monitor-symbolizes-healthy-heartbeat-generated-by-ai_188544-56200.jpg'
 import { Link } from 'react-router-dom';
 import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton';
 

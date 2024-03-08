@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import hospitalLogo from '../../../assets/statVitalLogo.jpeg';
+import hospitalLogo from '../../../assets/nobgLogo.png';
 import lewis from '../../../assets/lewis-keegan-XQaqV5qYcXg-unsplash.jpg';
 
 const SignUp = ({ title }) => {

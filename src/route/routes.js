@@ -9,7 +9,8 @@ import LoginPage from "../component/Pages/LoginPage/LoginPage";
 import HospitalLogin from "../component/Pages/LoginPage/HospitalLogin";
 import MorgueLogin from "../component/Pages/LoginPage/MorgueLogin";
 import Question from "../component/Pages/Question/question";
-import SignUp from "../component/Pages/SignUp/index";
+import HospitalSignUpForm from "../component/Pages/SignUp/HospitalSignUpForm";
+import MorgueSignUpForm from "../component/Pages/SignUp/MorgueSignUpForm";
 import Layout from "../layout/Layout";
 import ChildRegistrationForm from "../component/Pages/RegisterChildbirth/index";
 
@@ -51,12 +52,16 @@ export const ROUTES = [
                 element: <Services/>,
             },
             {
-                path: "/login",
+                path: "/LoginPage",
                 element: <LoginPage />,
             },
+                        {
+                path: "/HospitalSignUpForm",
+                element: <HospitalSignUpForm />,
+            },
             {
-                path: "/signup",
-                element: <SignUp />,
+                path: "/MorgueSignUpForm",
+                element: <MorgueSignUpForm />,
             },
             {
                 path: "/question",

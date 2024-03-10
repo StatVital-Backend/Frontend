@@ -14,10 +14,10 @@ const Question = () => {
 
         <div className=' text-6xl flex-col flex gap-48  pt-80'>
           <div className='hover:scale-110 transition duration-400 '>
-            <Link to="/signup"><FilledButton text="SIGN UP AS HOSPITAL" style={{width: '800px', border: 'solid white 2px'}} /> </Link>
+            <Link to="/hospitalsignupform"><FilledButton text="SIGN UP AS HOSPITAL" style={{width: '800px', border: 'solid white 2px'}} /> </Link>
           </div>
           <div className='hover:scale-110 transition duration-400'>
-            <Link to="/login"><FilledButton text="SIGN UP AS MORGUE" style={{width: '800px', border: 'solid white 2px'}} /> </Link> 
+            <Link to="/morguesignupform"><FilledButton text="SIGN UP AS MORGUE" style={{width: '800px', border: 'solid white 2px'}} /> </Link> 
           </div>
 
         </div>

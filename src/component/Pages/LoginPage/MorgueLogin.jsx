@@ -11,31 +11,9 @@ const MorgueLogin = () => {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 flex items-center justify-center py-16">
-            <div className="flex bg-white rounded-lg shadow-lg overflow-hidden mx-auto max-w-sm lg:max-w-4xl">
-                <div className="hidden lg:block lg:w-1/2 justify-self-start">
-                    <img src={morgueImage} alt="Morgue Background" className="w-full h-full object-cover" /> {/* Use morgue image */}
-                </div>
-                <div className="w-full p-8 lg:w-1/2">
-                    <h2 className="text-2xl font-semibold text-blue-400 text-center">Morgue Login</h2> {/* Update title */}
-                    <p className="text-xl text-blue-400 text-center">Welcome to Morgue Login!</p> {/* Update welcome message */}
-                    <a href="#" className="flex items-center justify-center mt-4 text-white rounded-lg shadow-md hover:bg-gray-100">
-                        <div className="px-4 py-3">
-                            <svg className="h-6 w-6" viewBox="0 0 40 40">
-                                {/* ... SVG Path Data ... */}
-                            </svg>
-                        </div>
-                        <h1 className="px-4 py-3 w-5/6 text-center text-blue-400 font-bold">Sign in with Google</h1>
-                    </a>
-                    <div className="mt-4 flex items-center justify-between">
-                        <span className="border-b w-1/5 lg:w-1/4"></span>
-                        <a href="#" className="text-xs text-center text-blue-400 uppercase">or login with email</a>
-                        <span className="border-b w-1/5 lg:w-1/4"></span>
-                    </div>
-=======
-                    <img src={morgueImage} alt="Background" className="w-full h-full object-cover" />
-                </div>
-                <div className="w-full p-8 lg:w-1/2">
+        <div className="flex justify-center items-center min-h-screen bg-cover" style={{ backgroundImage: `url(${morgueImage})` }}>
+            <div className="absolute inset-0 flex justify-center items-center bg-gray-900 bg-opacity-75">
+                <div className="bg-white mx-4 p-8 rounded shadow-md w-full md:w-1/2 lg:w-1/3">
                     <h2 className="text-2xl font-semibold text-blue-400 text-center">Morgue Login</h2>
                     <p className="text-xl text-blue-400 text-center">Welcome to Morgue Login!</p>
                     <div className="mt-4">
@@ -46,6 +24,7 @@ const MorgueLogin = () => {
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             className="input-style w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-400"
+                            placeholder="Enter your email"
                         />
                     </div>
                     <div className="mt-4">
@@ -59,10 +38,11 @@ const MorgueLogin = () => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                             className="input-style w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-400"
+                            placeholder="Enter your password"
                         />
                     </div>
                     <div className="mt-8 flex justify-center">
-                        <button onClick={handleSubmit} className="button-style bg-blue-400 text-white hover:bg-blue-500">
+                        <button onClick={handleSubmit} className="button-style bg-green-500 text-white hover:bg-blue-600">
                             Login
                         </button>
                     </div>

@@ -19,8 +19,8 @@ const NavBar = () => {
                 <Link to="/hero"><p>Home</p> </Link> 
                 <Link to="/feature"><p>Features</p> </Link>  
                 <Link to="/service"> <p >Services</p> </Link>
-                <Link to="/aboutus"><p>About Us</p> </Link> 
-                <Link to="/contactus"><p>Contact Us</p> </Link> 
+                <Link to="/aboutus"><p>About</p> </Link> 
+                <Link to="/contactus"><p>Contact</p> </Link> 
                 <Link to="/faq"><p>FAQs</p> </Link>
               </div>
 

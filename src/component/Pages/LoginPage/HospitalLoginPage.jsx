@@ -86,7 +86,7 @@ const HospitalLoginPage = () => {
                                 </div>
                                 <a href="#" className="text-xs text-blue-400">Forget Password?</a>
                             <div> 
-                         <Link to="/birthlayout/registerbirth"><FilledButton text={"Login"} style={{width:"380px"}} />   </Link>   
+                         <FilledButton text={"Login"} style={{width:"380px"}} />   
                             </div>
                             <p className="text-sm font-light text-blue-950">
                                 Dont have an account yet? <a href="/deathLayout/registerDeath" className="font-medium hover:underline text-blue-400">Signup here</a>

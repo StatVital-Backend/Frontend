@@ -3,16 +3,17 @@ import AboutUs from "../component/Home/AboutUs";
 import ContactUs from "../component/Home/ContactUs";
 import FAQs from "../component/Home/FAQs";
 import Features from "../component/Home/Features";
-import Hero from "../component/Home/Hero";
+import Hero from "../component/Home/Hero"
 import Services from "../component/Home/Services";
 import Layout from "../layout/Layout";
-import HospitalSignUp from "../component/Pages/SignUpHospital/HospitalSignUp";
-import MorgueSignUp from "../component/Pages/MorgeSignUps/MorgueSignUp";
-import RegisterDeath from "../component/Pages/RegisterDeathDashBoard/RegisterDeath";
+import RegisterDeath from "../component/Home/RegisterDeath";
 import RegisterBirth from "../component/Home/RegisterBirth";
 import HospitalLoginPage from "../component/Pages/LoginPage/HospitalLoginPage";
 import MortuaryLoginPage from "../component/Pages/LoginPage/MortuaryLoginPage";
 import BirthLayout from "../layout/BirthLayout";
+import DeathLayout from "../layout/DeathLayout";
+import HospitalSignUpForm from "../component/Pages/SignUp/HospitalSignUpForm";
+import MorgueSignUpForm from "../component/Pages/SignUp/MorgueSignUpForm";
 
 export const ROUTES = [
     {
@@ -63,24 +64,35 @@ export const ROUTES = [
     },
     {
         path: "/hospitalsignup",
-        element: <HospitalSignUp/>
+        element: <HospitalSignUpForm/>
     },
     {
         path: "/morguesignup",
-        element: <MorgueSignUp />,
+        element: <MorgueSignUpForm />,
     },
     {
         path: "/birthlayout",
         element: <BirthLayout/>,
         children: [
             {
-                path: "", 
+                path: "/birthlayout/registerbirth", 
                 element: <RegisterBirth/>,
             },
+        ]
+    },
+    {
+        path: "",
+        element: <DeathLayout/>,
+        children: [
             {
-                path: "", 
+                path:"/deathLayout/registerDeath",
+                element: <RegisterDeath/>,
+            },
+            {
+                path: "/deathLayout/registerDeath",
                 element: <RegisterDeath />,
             },
         ]
     }
+    
 ]

@@ -28,9 +28,8 @@ const RegisterBirth = () => {
           <div className='bg-blue-400 w-full h-[1030px]'>
           <div className="flex justify-center pt-[30px] items-center  h-[1000px]">
             <div className="bg-white px-[495px] h-[1000px]  rounded-sm ">
-                <h2 className="text-3xl text-blue-800 font-semibold mb-4 uppercase">WELCOME TO KINGS' COURT HOSPITAL</h2>
                 <form onSubmit={handleSubmit}>
-                <div className="mb-4">
+                <div className="mb-4 pt-36">
                     <label htmlFor="officialEmail" className="block text-blue-900 font mb-2 text-2xl">Official Email</label>
                     <input
                         id="officialEmail"
@@ -62,7 +61,7 @@ const RegisterBirth = () => {
                         value={fatherFullName}
                         onChange={(e) => setFatherFullName(e.target.value)}
                         className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                        placeholder="Enter father full name"                        required
+                        placeholder="Enter father full name" required
                     />
                 </div>
                 <div className="mb-4">
@@ -73,7 +72,7 @@ const RegisterBirth = () => {
                         value={motherFullName}
                         onChange={(e) => setMotherFullName(e.target.value)}
                         className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                        placeholder="Enter mother's full name"                        required
+                        placeholder="Enter mother's full name" required
                     />
                 </div>
                 <div className="mb-4">
@@ -84,20 +83,10 @@ const RegisterBirth = () => {
                         value={childFullName}
                         onChange={(e) => setChildFullName(e.target.value)}
                         className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                        placeholder="Enter child full name"                        required
+                        placeholder="Enter child full name" required
                     />
                 </div>
-                <div className="mb-4">
-                    <label htmlFor="birthDateTime" className="block text-blue-900 font mb-2 text-2xl">Date and Time of Birth</label>
-                    <input
-                        id="birthDateTime"
-                        type="datetime-local"
-                        value={birthDateTime}
-                        onChange={(e) => setBirthDateTime(e.target.value)}
-                        className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                        placeholder="Enter DOB"                        required
-                    />
-                </div>
+                
                 <div className="mb-4">
                     <label htmlFor="stateOfOrigin" className="block text-blue-900 font mb-2 text-2xl ">State of Origin</label>
                     <select

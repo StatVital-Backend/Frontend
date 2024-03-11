@@ -6,6 +6,7 @@ import ContactUs from './ContactUs';
 import FAQs from './FAQs';
 import Hero from './Hero';
 import RegisterBirth from './RegisterBirth';
+import RegisterDeath from './RegisterDeath';
 
 const Home = () => {
   return (
@@ -17,6 +18,7 @@ const Home = () => {
     <ContactUs/>
     <FAQs/>
     <RegisterBirth/>
+    <RegisterDeath/>
     </>
   )
 }

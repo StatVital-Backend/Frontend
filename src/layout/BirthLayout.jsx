@@ -1,15 +1,17 @@
 import React from 'react'
-import { Outlet } from 'react-router-dom'
+import {Outlet } from 'react-router-dom'
 import Footer from '../component/Footer/Footer'
+import BirthNavBar from '../component/BirthNavBar/BirthNavBar'
 
 const BirthLayout = () => {
   return (
     <div>
-        <BirthLayout/>
-        <Outlet/>
-        <Footer/>
+        <BirthNavBar/>
+        <Outlet />
+        <Footer />
     </div>
+
   )
 }
 
-export default BirthLayout;
+export default BirthLayout

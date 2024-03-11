@@ -83,15 +83,13 @@ const HospitalLoginPage = () => {
                                 {...register("password", { required: 'password is required' })}
                             />
                                 {errors.password && <span className="text-red-400 text-sm">{errors.password.message}</span>}
-
-                            </div>
-
-
+                                </div>
+                                <a href="#" className="text-xs text-blue-400">Forget Password?</a>
                             <div> 
-                         <Link to="/layout2/registerbirth"><FilledButton text={"Login"} style={{width:"380px"}} />   </Link>   
+                         <Link to="/birthlayout/registerbirth"><FilledButton text={"Login"} style={{width:"380px"}} />   </Link>   
                             </div>
                             <p className="text-sm font-light text-blue-950">
-                                Dont have an account yet? <a href="/hospitalsignup" className="font-medium hover:underline text-blue-400">Signup here</a>
+                                Dont have an account yet? <a href="/deathLayout/registerDeath" className="font-medium hover:underline text-blue-400">Signup here</a>
                             </p>
                             
                             </div>

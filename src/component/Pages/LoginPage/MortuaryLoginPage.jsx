@@ -48,10 +48,6 @@ const MortuaryLoginPage = () => {
                             <input type="radio" value="FEMALE" name="gender"/> Mortuary
 
                             </div>
-
-
-
-
                             <div> 
                             <Link to="/layout2/registerbirth"> <FilledButton text={"Login"} style={{width:"380px"}} /> </Link>   
                             </div>

@@ -1,16 +1,15 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Footer from '../component/Footer/Footer'
-import NavBar2 from '../component/NavBar2/NavBar2'
 
-const Layout2 = () => {
+const BirthLayout = () => {
   return (
     <div>
-        <NavBar2/>
+        <BirthLayout/>
         <Outlet/>
         <Footer/>
     </div>
   )
 }
 
-export default Layout2;
+export default BirthLayout;

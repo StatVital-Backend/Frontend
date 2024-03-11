@@ -5,11 +5,11 @@ import './App.css'
 function App() {
   return useRoutes(ROUTES);
 
-  return (
-    <Router>
-      <div className="App">{routing}</div>
-    </Router>
-  );
+//   return (
+//     <Router>
+//       <div className="App">{routing}</div>
+//     </Router>
+//   );
 }
 
 

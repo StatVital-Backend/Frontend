@@ -27,7 +27,7 @@ const MorgueSignUpForm = ({ title }) => {
                 <h2 className="text-4xl font-bold text-blue-900 text-center mb-8"> SIGN UP AS MORGUE </h2>
                 <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-8">
                     <div>
-                        <label htmlFor="facilityName" className="block text-blue-900 font-bold mb-2 text-2xl">Facility Name</label>
+                        <label htmlFor="facilityName" className="block text-blue-900 font mb-2 text-2xl">Facility Name</label>
                         <input
                             type="text"
                             id="facilityName"
@@ -39,7 +39,7 @@ const MorgueSignUpForm = ({ title }) => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="facilityLocation" className="block text-blue-900 font-bold mb-2 text-2xl">Facility Location</label>
+                        <label htmlFor="facilityLocation" className="block text-blue-900 font mb-2 text-2xl">Facility Location</label>
                         <input
                             type="text"
                             id="facilityLocation"
@@ -51,7 +51,7 @@ const MorgueSignUpForm = ({ title }) => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="facilityType" className="block text-blue-900 font-bold mb-2 text-2xl">Facility Type</label>
+                        <label htmlFor="facilityType" className="block text-blue-900 font mb-2 text-2xl">Facility Type</label>
                         <select
                             id="facilityType"
                             className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
@@ -65,7 +65,7 @@ const MorgueSignUpForm = ({ title }) => {
                         </select>
                     </div>
                     <div>
-                        <label htmlFor="certificationNumber" className="block text-blue-900 font-bold mb-2 text-2xl">Certification Number</label>
+                        <label htmlFor="certificationNumber" className="block text-blue-900 font mb-2 text-2xl">Certification Number</label>
                         <input
                             type="text"
                             id="certificationNumber"
@@ -77,7 +77,7 @@ const MorgueSignUpForm = ({ title }) => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="officialEmail" className="block text-blue-900 font-bold mb-2 text-2xl">Official Email</label>
+                        <label htmlFor="officialEmail" className="block text-blue-900 font mb-2 text-2xl">Official Email</label>
                         <input
                             type="email"
                             id="officialEmail"
@@ -89,7 +89,7 @@ const MorgueSignUpForm = ({ title }) => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="phoneNumber" className="block text-blue-900 font-bold mb-2 text-2xl">Phone Number</label>
+                        <label htmlFor="phoneNumber" className="block text-blue-900 font mb-2 text-2xl">Phone Number</label>
                         <input
                             type="tel"
                             id="phoneNumber"
@@ -101,7 +101,7 @@ const MorgueSignUpForm = ({ title }) => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="password" className="block text-blue-900 font-bold mb-2 text-2xl">Password</label>
+                        <label htmlFor="password" className="block text-blue-900 font mb-2 text-2xl">Password</label>
                         <input
                             type="password"
                             id="password"
@@ -113,7 +113,7 @@ const MorgueSignUpForm = ({ title }) => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="confirmPassword" className="block text-blue-900 font-bold mb-2 text-2xl">Confirm Password</label>
+                        <label htmlFor="confirmPassword" className="block text-blue-900 font mb-2 text-2xl">Confirm Password</label>
                         <input
                             type="confirmPassword"
                             id="confirmPassword"
@@ -128,7 +128,7 @@ const MorgueSignUpForm = ({ title }) => {
                     <div className="flex items-center justify-between">
                         <button
                             type="submit"
-                            className="button-style bg-green-500 hover:bg-blue-600  focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm py-2.5 px-5 w-full sm:w-auto"
+                            className="button-style bg-blue-400   focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm py-2.5 px-5 w-full sm:auto"
                         >
                             Register
                         </button>

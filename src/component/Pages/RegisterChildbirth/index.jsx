@@ -28,7 +28,7 @@ const ChildRegistrationForm = () => {
                 <h2 className="text-5xl text-blue-800 font-semibold mb-4 uppercase">Child Registration Form</h2>
                 <form onSubmit={handleSubmit}>
                 <div className="mb-4">
-                    <label htmlFor="officialEmail" className="block text-blue-900 font-bold mb-2 text-3xl">Official Email</label>
+                    <label htmlFor="officialEmail" className="block text-blue-900 font mb-2 text-2xl">Official Email</label>
                     <input
                         id="officialEmail"
                         type="email"
@@ -40,7 +40,7 @@ const ChildRegistrationForm = () => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label htmlFor="nurseName" className="block text-blue-900 font-bold mb-2 text-3xl">Nurse Name</label>
+                    <label htmlFor="nurseName" className="block text-blue-900 font mb-2 text-2xl">Nurse Name</label>
                     <input
                         id="nurseName"
                         type="text"
@@ -52,7 +52,7 @@ const ChildRegistrationForm = () => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label htmlFor="fatherFullName" className="block text-blue-900 font-bold mb-2 text-3xl">Father's Full Name</label>
+                    <label htmlFor="fatherFullName" className="block text-blue-900 font mb-2 text-2xl">Father's Full Name</label>
                     <input
                         id="fatherFullName"
                         type="text"
@@ -63,7 +63,7 @@ const ChildRegistrationForm = () => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label htmlFor="motherFullName" className="block text-blue-900 font-bold mb-2 text-3xl">Mother's Full Name</label>
+                    <label htmlFor="motherFullName" className="block text-blue-900 font mb-2 text-2xl">Mother's Full Name</label>
                     <input
                         id="motherFullName"
                         type="text"
@@ -74,7 +74,7 @@ const ChildRegistrationForm = () => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label htmlFor="childFullName" className="block text-blue-900 font-bold mb-2 text-3xl">Child's Full Name</label>
+                    <label htmlFor="childFullName" className="block text-blue-900 font mb-2 text-2xl">Child's Full Name</label>
                     <input
                         id="childFullName"
                         type="text"
@@ -85,7 +85,7 @@ const ChildRegistrationForm = () => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label htmlFor="birthDateTime" className="block text-blue-900 font-bold mb-2 text-3xl">Date and Time of Birth</label>
+                    <label htmlFor="birthDateTime" className="block text-blue-900 font mb-2 text-2xl">Date and Time of Birth</label>
                     <input
                         id="birthDateTime"
                         type="datetime-local"
@@ -96,7 +96,7 @@ const ChildRegistrationForm = () => {
                     />
                 </div>
                 <div className="mb-4">
-                    <label htmlFor="stateOfOrigin" className="block text-blue-900 font-bold mb-2 text-3xl ">State of Origin</label>
+                    <label htmlFor="stateOfOrigin" className="block text-blue-900 font mb-2 text-2xl ">State of Origin</label>
                     <select
                         id="stateOfOrigin"
                         value={stateOfOrigin}
@@ -111,7 +111,7 @@ const ChildRegistrationForm = () => {
                     </select>
                 </div>
                 <div className="mb-4">
-                    <label htmlFor="sex" className="block text-blue-900 font-bold mb-2 text-3xl">Sex</label>
+                    <label htmlFor="sex" className="block text-blue-900 font mb-2 text-2xl">Sex</label>
                     <select
                         id="sex"
                         value={sex}
@@ -125,7 +125,7 @@ const ChildRegistrationForm = () => {
                     </select>
                 </div>
                 
-                <button type="submit" className="button-style bg-green-500 hover:bg-blue-600 text-blue text-2xl">Submit</button>
+                <button type="submit" className="button-style bg-blue-400 text-blue text-2xl">Submit</button>
             </form>
         </div>
         </div>

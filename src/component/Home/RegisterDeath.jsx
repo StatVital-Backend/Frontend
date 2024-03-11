@@ -1,23 +1,8 @@
-
-// const DeathRegistrationForm = () => {
-//     const [deceasedName, setDeceasedName] = useState('');
-//     const [timeOfDeath, setTimeOfDeath] = useState('');
-//     const [dateOfDeath, setDateOfDeath] = useState('');
-//     const [causeOfDeath, setCauseOfDeath] = useState('');
-//     const [broughtBy, setBroughtBy] = useState('');
-//     const [medicalHistory, setMedicalHistory] = useState('');
-//     const [receiver, setReceiver] = useState('');
-//     const [placeOfDeath, setPlaceOfDeath] = useState('');
-//     const [deceasedResidence, setDeceasedResidence] = useState('');
-//     const [age, setAge] = useState('');
-//     const [gender, setGender] = useState('');
-//     const [maritalStatus, setMaritalStatus] = useState('');
-//     const [occupation, setOccupation] = useState('');
-
 import React, { useState } from 'react';
-import backgroundImage from '../../../assets/clean-medical-background_53876-97927.jpg';
+import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton';
 
-const DeathRegistrationForm = () => {
+
+const RegisterDeath = () => {
     const [deceasedFullName, setDeceasedFullName] = useState('');
     const [deceasedAge, setDeceasedAge] = useState('');
     const [gender, setGender] = useState('');
@@ -38,17 +23,23 @@ const DeathRegistrationForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle form submission
     };
+    const nigerianStates = [
+        "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", "Cross River",
+        "Delta", "Ebonyi", "Edo", "Ekiti", "Enugu", "Gombe", "Imo", "Jigawa", "Kaduna", "Kano", "Katsina",
+        "Kebbi", "Kogi", "Kwara", "Lagos", "Nasarawa", "Niger", "Ogun", "Ondo", "Osun", "Oyo", "Plateau",
+        "Rivers", "Sokoto", "Taraba", "Yobe", "Zamfara", "FCT Abuja"
+    ];
 
-    return (
-        <div className="flex justify-center items-center h-screen bg-cover" style={{ backgroundImage: `url(${backgroundImage})` }}>        
-            <div className="flex justify-center items-center h-screen">
-                <div className="bg-white rounded-sm p-6 text-center">
-                    <h2 className="text-5xl text-blue-800 font-semibold mb-4 uppercase">Death Registration Form</h2>
-                    <form onSubmit={handleSubmit}>
-                        <div className="mb-4">
-                            <label htmlFor="deceasedFullName" className="block text-blue-900 font-bold mb-2 text-3xl">Deceased Full Name</label>
+  return (
+    <div className='pt-6 '> 
+      <div className=' flex px-56 pt-2 h-[1000px]'>
+          <div className='bg-blue-400 w-full pt-1 h-[1490px]'>
+          <div className="flex justify-center pt-[30px] items-center  h-[1000px]">
+            <div className="bg-white  px-[615px] h-[1000px]">
+                <form onSubmit={handleSubmit}>
+                        <div className="mb-4 pt-36">
+                            <label htmlFor="deceasedFullName" className="block text-blue-900 mb-2 text-2xl">Deceased Full Name</label>
                             <input
                                 id="deceasedFullName"
                                 type="text"
@@ -60,7 +51,7 @@ const DeathRegistrationForm = () => {
                             />
                         </div>
                         <div className="mb-4">
-                            <label htmlFor="deceasedAge" className="block text-blue-900 font-bold mb-2 text-3xl">Deceased Age</label>
+                            <label htmlFor="deceasedAge" className="block text-blue-900 mb-2 text-2xl">Deceased Age</label>
                             <input
                                 id="deceasedAge"
                                 type="number"
@@ -72,7 +63,7 @@ const DeathRegistrationForm = () => {
                             />
                         </div>
                         <div className="mb-4">
-                            <label htmlFor="gender" className="block text-blue-900 font-bold mb-2 text-3xl">Deceased Age</label>
+                            <label htmlFor="gender" className="block text-blue-900 mb-2 text-2xl">Deceased Age</label>
                             <input
                                 id="gender"
                                 type="text"
@@ -83,20 +74,9 @@ const DeathRegistrationForm = () => {
                                 required
                             />
                         </div>
+                       
                         <div className="mb-4">
-                            <label htmlFor="deathDateTime" className="block text-blue-900 font-bold mb-2 text-3xl">Date and Time of Death</label>
-                            <input
-                                id="deathDateTime"
-                                type="datetime-local"
-                                value={deathDateTime}
-                                onChange={(e) => setDeathDateTime(e.target.value)}
-                                className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                                placeholder="Enter date and time of death"
-                                required
-                            />
-                        </div>
-                        <div className="mb-4">
-                            <label htmlFor="placeOfDeath" className="block text-blue-900 font-bold mb-2 text-3xl">Place of Death</label>
+                            <label htmlFor="placeOfDeath" className="block text-blue-900 mb-2 text-2xl">Place of Death</label>
                             <input
                                 id="placeOfDeath"
                                 type="text"
@@ -108,7 +88,7 @@ const DeathRegistrationForm = () => {
                             />
                         </div>
                         <div className="mb-4">
-                            <label htmlFor="causeOfDeath" className="block text-blue-900 font-bold mb-2 text-3xl">Cause of Death</label>
+                            <label htmlFor="causeOfDeath" className="block text-blue-900 mb-2 text-2xl">Cause of Death</label>
                             <input
                                 id="causeOfDeath"
                                 type="text"
@@ -120,7 +100,7 @@ const DeathRegistrationForm = () => {
                             />
                         </div>
                         <div className="mb-4">
-                            <label htmlFor="informantName" className="block text-blue-900 font-bold mb-2 text-3xl">Informant's Name</label>
+                            <label htmlFor="informantName" className="block text-blue-900 mb-2 text-2xl">Informant's Name</label>
                             <input
                                 id="informantName"
                                 type="text"
@@ -132,7 +112,7 @@ const DeathRegistrationForm = () => {
                             />
                         </div>
                         <div className="mb-4">
-                            <label htmlFor="informantRelationship" className="block text-blue-900 font-bold mb-2 text-3xl">Informant's Relationship to Deceased</label>
+                            <label htmlFor="informantRelationship" className="block text-blue-900 mb-2 text-2xl">Informant's Relationship to Deceased</label>
                             <input
                                 id="informantRelationship"
                                 type="text"
@@ -144,7 +124,7 @@ const DeathRegistrationForm = () => {
                             />
                         </div>
                         <div className="mb-4">
-                            <label htmlFor="receiverName" className="block text-blue-900 font-bold mb-2 text-3xl">Informant's Relationship to Deceased</label>
+                            <label htmlFor="receiverName" className="block text-blue-900 mb-2 text-2xl">Informant's Relationship to Deceased</label>
                             <input
                                 id="receiver"
                                 type="text"
@@ -156,7 +136,7 @@ const DeathRegistrationForm = () => {
                             />
                         </div>
                         <div className="mb-4">
-                            <label htmlFor="deceasedResidence" className="block text-blue-900 font-bold mb-2 text-3xl">Informant's Relationship to Deceased</label>
+                            <label htmlFor="deceasedResidence" className="block text-blue-900 mb-2 text-2xl">Informant's Relationship to Deceased</label>
                             <input
                                 id="deceasedResidence"
                                 type="text"
@@ -168,7 +148,7 @@ const DeathRegistrationForm = () => {
                             />
                         </div>
                         <div className="mb-4">
-                            <label htmlFor="occupation" className="block text-blue-900 font-bold mb-2 text-3xl">Informant's Relationship to Deceased</label>
+                            <label htmlFor="occupation" className="block text-blue-900 mb-2 text-2xl">Informant's Relationship to Deceased</label>
                             <input
                                 id="occupation"
                                 type="text"
@@ -180,7 +160,7 @@ const DeathRegistrationForm = () => {
                             />
                         </div>
                         <div className="mb-4">
-                            <label htmlFor="medicalHistory" className="block text-blue-900 font-bold mb-2 text-3xl">Informant's Relationship to Deceased</label>
+                            <label htmlFor="medicalHistory" className="block text-blue-900 mb-2 text-2xl">Informant's Relationship to Deceased</label>
                             <input
                                 id="medicalHistory"
                                 type="text"
@@ -193,7 +173,7 @@ const DeathRegistrationForm = () => {
                         </div>
 
                         <div className="mb-4">
-                            <label htmlFor="maritalStatus" className="block text-blue-900 font-bold mb-2 text-3xl">Informant's Relationship to Deceased</label>
+                            <label htmlFor="maritalStatus" className="block text-blue-900 mb-2 text-2xl">Informant's Relationship to Deceased</label>
                             <input
                                 id="maritalStatus"
                                 type="text"
@@ -207,11 +187,20 @@ const DeathRegistrationForm = () => {
                         
                         <button type="submit" className="button-style bg-blue-900 hover:bg-green-500 text-blue text-2xl">Submit</button>
                     </form>
-                </div>
-            </div>
         </div>
-    );
-};
+        </div>
 
-export default DeathRegistrationForm;
 
+
+
+
+          </div>
+
+      </div>
+
+
+    </div>
+  )
+}
+
+export default RegisterDeath;

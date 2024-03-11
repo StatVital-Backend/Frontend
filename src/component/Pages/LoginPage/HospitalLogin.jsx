@@ -45,7 +45,6 @@ const HospitalLogin = () => {
                         <div className="mt-4">
                             <div className="flex justify-between">
                                 <label htmlFor="password" className="block text-blue-400 text-sm font-bold mb-2">Password</label>
-                                <a href="#" className="text-xs text-blue-400">Forget Password?</a>
                             </div>
                             <input
                                 id="password"

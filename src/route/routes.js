@@ -5,14 +5,13 @@ import FAQs from "../component/Home/FAQs";
 import Features from "../component/Home/Features";
 import Hero from "../component/Home/Hero"
 import Services from "../component/Home/Services";
-import LoginPage from "../component/Pages/LoginPage/LoginPage";
-import HospitalLogin from "../component/Pages/LoginPage/HospitalLogin";
-import MorgueLogin from "../component/Pages/LoginPage/MorgueLogin";
-import Question from "../component/Pages/Question/question";
 import Layout from "../layout/Layout";
-import Layout2 from "../layout/Layout2";
-import Methods from "../component/Home/Methods";
-import Dig from "../component/Home/Dig";
+import RegisterDeath from "../component/Home/RegisterDeath";
+import RegisterBirth from "../component/Home/RegisterBirth";
+import HospitalLoginPage from "../component/Pages/LoginPage/HospitalLoginPage";
+import MortuaryLoginPage from "../component/Pages/LoginPage/MortuaryLoginPage";
+import BirthLayout from "../layout/BirthLayout";
+import DeathLayout from "../layout/DeathLayout";
 import HospitalSignUpForm from "../component/Pages/SignUp/HospitalSignUpForm";
 import MorgueSignUpForm from "../component/Pages/SignUp/MorgueSignUpForm";
 
@@ -38,11 +37,11 @@ export const ROUTES = [
                 element: <ContactUs/>,
             },
             {
-                path:'faqs',
+                path:'faq',
                 element: <FAQs/>,
             },
             {
-                path:'features',
+                path:'feature',
                 element: <Features/>,
             },
             {
@@ -56,45 +55,44 @@ export const ROUTES = [
         ]
     },
     {
-        path: "/login",
-        element: <LoginPage />,
+        path: "/mortuarylogin",
+        element: <MortuaryLoginPage />,
+    },
+    {
+        path: "/hospitallogin",
+        element: <HospitalLoginPage />,
     },
     {
         path: "/hospitalsignup",
-        element: <HospitalSignUpForm />,
+        element: <HospitalSignUpForm/>
     },
-
     {
         path: "/morguesignup",
         element: <MorgueSignUpForm />,
     },
     {
-        path: "/question",
-        element: <Question/>,
-    },
-    {
-        path: "/morguelogin",
-        element: <MorgueLogin />,
-    },
-
-    {
-        path: "/hospitalLogin",
-        element: <HospitalLogin />,
-    },
-    {
-        path: "/layout2",
-        element: <Layout2/>,
+        path: "/birthlayout",
+        element: <BirthLayout/>,
         children: [
             {
-                path: "/layout2/methods", 
-                element: <Methods />,
+                path: "/birthlayout/registerbirth", 
+                element: <RegisterBirth/>,
+            },
+        ]
+    },
+    {
+        path: "",
+        element: <DeathLayout/>,
+        children: [
+            {
+                path:"/deathLayout/registerDeath",
+                element: <RegisterDeath/>,
             },
             {
-                path: "",
-                element: <Dig/>
-            }
+                path: "/deathLayout/registerDeath",
+                element: <RegisterDeath />,
+            },
         ]
     }
     
-
 ]

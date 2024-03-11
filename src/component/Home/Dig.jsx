@@ -2,7 +2,9 @@ import React from 'react'
 
 const Dig = () => {
   return (
-    <div>Dig</div>
+    <div>
+       
+    </div>
   )
 }
 

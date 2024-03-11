@@ -12,7 +12,7 @@ const ChildRegistrationForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-       
+        // Handle form submission logic
     };
 
     return (
@@ -110,7 +110,7 @@ const ChildRegistrationForm = () => {
                         <option value="female">Female</option>
                     </select>
                 </div>
-                <button type="submit" className="button-style">Register Childbirth</button>
+                <button type="submit" className="button-style bg-blue-400 hover:bg-blue-500 text-white">Register Childbirth</button>
             </form>
         </div>
     );

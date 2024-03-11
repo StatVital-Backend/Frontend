@@ -3,18 +3,18 @@ import AboutUs from "../component/Home/AboutUs";
 import ContactUs from "../component/Home/ContactUs";
 import FAQs from "../component/Home/FAQs";
 import Features from "../component/Home/Features";
-import Hero from "../component/Home/Hero";
+import Hero from "../component/Home/Hero"
 import Services from "../component/Home/Services";
 import LoginPage from "../component/Pages/LoginPage/LoginPage";
 import HospitalLogin from "../component/Pages/LoginPage/HospitalLogin";
 import MorgueLogin from "../component/Pages/LoginPage/MorgueLogin";
 import Question from "../component/Pages/Question/question";
-import SignUp from "../component/Pages/SignUp/index";
 import Layout from "../layout/Layout";
 import Layout2 from "../layout/Layout2";
 import Methods from "../component/Home/Methods";
 import Dig from "../component/Home/Dig";
-import NavBar2 from "../component/NavBar2/NavBar2";
+import HospitalSignUpForm from "../component/Pages/SignUp/HospitalSignUpForm";
+import MorgueSignUpForm from "../component/Pages/SignUp/MorgueSignUpForm";
 
 export const ROUTES = [
     {
@@ -60,8 +60,13 @@ export const ROUTES = [
         element: <LoginPage />,
     },
     {
-        path: "/signup",
-        element: <SignUp />,
+        path: "/hospitalsignup",
+        element: <HospitalSignUpForm />,
+    },
+
+    {
+        path: "/morguesignup",
+        element: <MorgueSignUpForm />,
     },
     {
         path: "/question",

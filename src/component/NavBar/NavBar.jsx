@@ -1,4 +1,5 @@
 import React from 'react'
+
 import logo from '../../assets/statVitalLogo.png'
 import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton';
 import OutlineButton from '../../reuseables/bottons/OutlineButton/OutlineButton';
@@ -10,7 +11,7 @@ const NavBar = () => {
     <div className='bg-blue-950 h-24 flex gap-80 mainContainer'>
             
             <div className='w-32 bg-blue-950 pr-2.5'>
-                <img src={logo} alt="web logo"/>
+                <img src={logo} alt="web logo" style={{ width: '250px', height: 'auto' }}/>
             </div>
               <div className='flex gap-96'>
 
@@ -24,7 +25,7 @@ const NavBar = () => {
               </div>
 
                 <div className='flex gap-16  pt-5 btn'>
-                  <Link to="/login"><FilledButton text={"Log in"} style={{width: '130px'}}/></Link>
+                  <Link to="/childregform"><FilledButton text={"Log in"} style={{width: '130px'}}/></Link>
                 <Link to="/question"><OutlineButton text={"Sign up"} /></Link> 
               </div>
             </div>

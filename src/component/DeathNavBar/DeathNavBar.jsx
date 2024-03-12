@@ -26,7 +26,7 @@ const DeathNavBar = () => {
           <div className=' pt-5'>
           <Link to="/birthlayout/registerbirth">
           <button className="rounded-full bg-blue-400 p-4 flex items-center justify-center">
-            <span className="ml-2 text-white">+ Register Birth</span>
+            <span className="ml-2 text-[24px] text-white">+ Register Birth</span>
           </button> 
           </Link>
           </div>
@@ -34,7 +34,7 @@ const DeathNavBar = () => {
 
       <div className=' justify-center pt-6 flex gap-4 mainContainer'>
           <div className=' pt- 20 addChild'>
-            <FilledButton text="Add Deceased" style={{width: "200px", height: 86}}/>
+            <FilledButton text="Add " style={{width: "200px", height: 86}}/>
           </div>
 
           <div className=' pt- 20 addChild'>
@@ -42,11 +42,11 @@ const DeathNavBar = () => {
           </div>
 
           <div className=' pt- 20 addChild'>
-            <FilledButton text="Update Deceased" style={{width: "200px", height: 86}}/>
+            <FilledButton text="Update " style={{width: "200px", height: 86}}/>
           </div>
 
           <div className=' pt- 20 addChild'>
-            <FilledButton text="Delete Deceased" style={{width: "200px", height: 86}}/>
+            <FilledButton text="Delete" style={{width: "200px", height: 86}}/>
           </div>
 
           <div className=' pt- 20 addChild'>
@@ -54,7 +54,7 @@ const DeathNavBar = () => {
           </div>
 
           <div className=' pt- 20 Deceased'>
-            <FilledButton text="" style={{width: "200px", height: 86}}/>
+            <FilledButton text="Retrive" style={{width: "200px", height: 86}}/>
           </div>
 
       </div>

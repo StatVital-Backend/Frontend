@@ -11,8 +11,8 @@ const HospitalLoginPage = () => {
     const { register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => alert(JSON.stringify(data));
 
-    const loginAs = watch('loginAs')
-    console.log(loginAs)
+    // const loginAs = watch('loginAs')
+    // console.log(loginAs)
 
     
 
@@ -58,8 +58,10 @@ const HospitalLoginPage = () => {
                                 <input 
                                 type="radio" 
                                 value="mortuary" 
+                                {...register("loginAs", { required: 'login as is required' })}
                             /> Mortuary
                             </div>
+                            {errors.hospitalEmail && <span className="text-red-400 text-sm">{errors.hospitalEmail.message}</span>}
                             </div>
 
                         </div>
@@ -86,10 +88,10 @@ const HospitalLoginPage = () => {
                                 </div>
                                 <a href="#" className="text-xs text-blue-400">Forget Password?</a>
                             <div> 
-                         <FilledButton text={"Login"} style={{width:"380px"}} />   
+                        <Link to="/birthlayout/registerbirth"><FilledButton text={"Login"} style={{width:"380px"}} />    </Link> 
                             </div>
                             <p className="text-sm font-light text-blue-950">
-                                Dont have an account yet? <a href="/deathLayout/registerDeath" className="font-medium hover:underline text-blue-400">Signup here</a>
+                                Dont have an account yet? <a href="/hospitalsignup" className="font-medium hover:underline text-blue-400">Signup here</a>
                             </p>
                             
                             </div>

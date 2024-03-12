@@ -3,34 +3,75 @@ import hospitalLogo from '../../../assets/Untitled(4).jpg';
 import FilledButton from '../../../reuseables/bottons/FilledButton/FilledButton';
 import { useForm } from "react-hook-form"
 
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 const HospitalSignUpForm = ({ title }) => {
     const { register, watch, formState: { errors } } = useForm();
-    const onSubmit = data => alert(JSON.stringify(data));
+    // const onSubmit = data => alert(JSON.stringify(data));
+    const navigate = useNavigate();
+
+    
 
     const [facilityName, setFacilityName] = useState('');
     const [facilityLocation, setFacilityLocation] = useState('');
     const [facilityType, setFacilityType] = useState('');
     const [certificationNumber, setCertificationNumber] = useState('');
     const [officialEmail, setOfficialEmail] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
+    const [phoneNumber, setPhoneNumber] = useState('')
+    // const [confirmPassword, setConfirmPassword] = useState('');
 
     const [errMsg, setErrMsg] = useState('');
 
+    console.log(facilityName)
+    console.log(facilityLocation)
+
     const handleSubmit = (e) => {
-        e.preventDefault();
-        setErrMsg('');
-    };
+        e.preventDefault()
+        // navigate('/hospitallogin')
+    
+
+        const HospitalSignUp = {
+            facilityName: facilityName,
+            facilityLocation: facilityLocation,
+            sector:facilityType,
+            certificationNumber: certificationNumber,
+            email: officialEmail,
+            phoneNumber: phoneNumber,
+            password: password,
+        //   confirmPassword: ConfirmPassword
+        };
+
+        console.log(HospitalSignUp)
+    
+        fetch('http://localhost:8080/api/v1/signInHospital', {
+        method: 'POST',
+        headers: {
+            'content-Type': 'application/json'
+        },
+        body:JSON.stringify(HospitalSignUp)
+        })
+        .then(response => response.json())
+        .then(data => {
+        console.log(data);
+        // navigate('/hospitallogin')
+        })
+        .catch(error => {
+        console.error('Error:', error);
+        });
+    }
+
+    // const handleSubmit = (e) => {
+    //     e.preventDefault();
+    //     setErrMsg('');
+    // };
 
     return (
         <div className=" h-screen bg-blue-950" >  
         <div className='flex'>    
         <div className="flex h-screen">
-            <div className="bg-white rounded-sm p-6 text-center">
+            <div className="bg-white w-[850px] rounded-sm p-6">
              <img src={hospitalLogo} alt="Hospital Logo" className="mb-5 mx-auto" />
                 <h2 className="text-4xl font-bold text-blue-950 text-center mb-8">HOSPITAL SIGN UP</h2>
                     <div>
@@ -40,15 +81,19 @@ const HospitalSignUpForm = ({ title }) => {
                             </div>
 
                             <div className=''>
-                                <input type="radio" name="hospital" id=""
+                                <input type="radio" 
+                                name="hospital"
+                                 id="hospitalId"
                                 {...register("signup", { required: 'signup is required' })}
                                 />Hospital
                             </div>
 
                             <div>
-                                <input type="radio" name="mortuary" id="" 
+                                <input type="radio"
+                                 name="mortuary"
+                                  id="morgueId" 
                                 {...register("signup", { required: 'signup is required' })}
-                                />Mortuary
+                                />morgue
                             </div>
                         </div>
 
@@ -59,7 +104,7 @@ const HospitalSignUpForm = ({ title }) => {
 
                     <div>
 
-                        <label htmlFor="facilityName" className="block text-blue-950 font mb-2 text-2xl">Facility Name</label>
+                        <label htmlFor="facilityName" className="block text-blue-950  mb-2 text-2xl">Facility Name</label>
                         <input
                             type="text"
                             id="facilityName"
@@ -114,12 +159,15 @@ const HospitalSignUpForm = ({ title }) => {
                             type="email"
                             id="officialEmail"
                             className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                            placeholder="Enter Official Email"
+                            placeholder="@hospital.com"
                             required
                             value={officialEmail}
                             onChange={(e) => setOfficialEmail(e.target.value)}
                         />
                     </div>
+
+    
+
                     <div>
                         <label htmlFor="phoneNumber" className="block text-blue-950 font mb-2 text-2xl">Phone Number</label>
                         <input
@@ -132,6 +180,8 @@ const HospitalSignUpForm = ({ title }) => {
                             onChange={(e) => setPhoneNumber(e.target.value)}
                         />
                     </div>
+
+                    
                     <div>
                         <label htmlFor="password" className="block text-blue-950 font mb-2 text-2xl">Password</label>
                         <input
@@ -144,10 +194,11 @@ const HospitalSignUpForm = ({ title }) => {
                             onChange={(e) => setPassword(e.target.value)}
                         />
                     </div>
-                    <div>
+                    
+                    {/* <div>
                         <label htmlFor="confirmPassword" className="block text-blue-950 font mb-2 text-2xl">Confirm Password</label>
                         <input
-                            type="confirmPassword"
+                            type="password"
                             id="confirmPassword"
                             className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             placeholder="Re-enter Password"
@@ -155,13 +206,13 @@ const HospitalSignUpForm = ({ title }) => {
                             value={confirmPassword}
                             onChange={(e) => setConfirmPassword(e.target.value)}
                         />
-                    </div>
+                    </div> */}
                     <p className="text-red-500">{errMsg}</p>
-                    <div className="flex items-center justify-between">
-                      <Link to="/hospitallogin"><FilledButton text="Sign Up" style= {{width: "120px"}}/> </Link>  
-                        <div className="text-sm">
+                    <div className="">
+                      <FilledButton text="Sign Up" style= {{width: "500px"}} type="submit"/>
+                        <div className="text-sm flex gap-3">
                             <p className="mb-4">Already have an account?</p>
-                            <p className="underline cursor-pointer">Sign in</p>
+                            <p className="underline text-blue-400  cursor-pointer">Sign in</p>
                         </div>
                     </div>
                 </form>

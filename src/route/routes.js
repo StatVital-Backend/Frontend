@@ -81,16 +81,12 @@ export const ROUTES = [
         ]
     },
     {
-        path: "",
+        path: "/deathlayout",
         element: <DeathLayout/>,
         children: [
             {
-                path:"/deathLayout/registerDeath",
+                path:"/deathlayout/registerDeath",
                 element: <RegisterDeath/>,
-            },
-            {
-                path: "/deathLayout/registerDeath",
-                element: <RegisterDeath />,
             },
         ]
     }

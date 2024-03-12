@@ -34,7 +34,7 @@ const RegisterDeath = () => {
   return (
     <div className='pt-6 '> 
       <div className=' flex px-56 pt-2 h-[1000px]'>
-          <div className='bg-blue-400 w-full pt-1 h-[1490px]'>
+          <div className='bg-blue-950 w-full pt-1 h-[1490px]'>
           <div className="flex justify-center pt-[30px] items-center  h-[1000px]">
             <div className="bg-white  px-[615px] h-[1000px]">
                 <form onSubmit={handleSubmit}>

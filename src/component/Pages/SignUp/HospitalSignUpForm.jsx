@@ -6,7 +6,7 @@ import { Link, useNavigate } from 'react-router-dom';
 
 
 const HospitalSignUpForm = ({ title }) => {
-    const { register, watch, formState: { errors } } = useForm();
+    const { register, formState: { errors } } = useForm();
     const navigate = useNavigate();
 
     
@@ -39,7 +39,7 @@ const HospitalSignUpForm = ({ title }) => {
 
         console.log(HospitalSignUp)
     
-        fetch('https://46ff-62-173-45-238.ngrok-free.app/api/v1/signUpHospital', {
+        fetch('https://619e-62-173-45-238.ngrok-free.app/api/v1/signUpHospital', {
         method: 'POST',
         headers: {
             'content-Type': 'application/json'

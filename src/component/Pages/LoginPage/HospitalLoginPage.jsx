@@ -20,7 +20,7 @@ const HospitalLoginPage = () => {
       navigate('/hospitalsignup')
     }
 
-    const handleLogin = () => {
+    const handleHospitalDashBoard = () => {
       navigate('/birthlayout/registerbirth')
     }
 
@@ -47,13 +47,18 @@ const HospitalLoginPage = () => {
           setErrMsg("Invalid Entry");
           return;
       }
+
+      const HospitalLogin = {
+        facilityName: email,
+        password: password,
+    };
   
       fetch('https://619e-62-173-45-238.ngrok-free.app/api/v1/logInHospital', {
         method: 'POST',
         headers: {
             'content-Type': 'application/json'
         },
-        body:JSON.stringify(HospitalSignUp)
+        body:JSON.stringify(HospitalLogin)
         })
         .then(response => response.json())
         .then(data => {
@@ -70,31 +75,28 @@ const HospitalLoginPage = () => {
 
   return (
     <div className="flex bg-blue-900 relative">
-      <div className='mx-96 imageDiv'>
-        <img className='h-screen image' src={nurse} alt="" />
+      <div className='mx-96  center imageDiv'>
+        <img className='h-screen justify-center flex image' src={nurse} alt="" />
       </div>
 
 
-      <div className="flex flex-col justify-center items-center px-6 py-8 gap-8 loginDiv">
-        <p ref={errRef} className={errMsg ? "errmsg" :"offscreen"} aria-live='assertive'> {errMsg}</p>
-        <div>
-          
-        </div>
+      <div className="flex flex-col justify-center items-center px-20 py-8 gap-8 loginDiv">
 
-        <div className=" w-[600px] px-16 h-[700px] border border-white-1 rounded-lg">
-        <div>
-            <img src={logo} alt="" />
+        <div className=" w-[580px] px-14 h-[700px] pt-8 border border-white-1 rounded-lg">
+        <div className="flex px-20 pb-30 justify-center">
+            <img src={logo} alt=""/>
           </div>
-          <h1 className="text-4xl font-extrabold justify-center center flex  text-white">Login</h1>
+          <h1 className="text-4xl font-extrabold justify-center pt-10 center flex  text-white">LOGIN</h1>
+          <p ref={errRef} className={`${errMsg ? 'errmsg text-white text-2xl center flex justify-center' : 'offscreen'}`} aria-live='assertive'>{errMsg}</p>
 
             <form on onSubmit={handleSubmit}>
               <div className="flex flex-col gap-5"> 
               <label htmlFor='username' className="text-white text-2xl">Email</label>
-              <input className="w-96 px-5 rounded-lg h-9"
+              <input className="w-[470px] px-5 rounded-lg h-9"
               type='email' 
               id='email'
-              // onFocus={() => email(true)}
-              // onBlur={() => email(false)}
+              // onFocus={() =il(true)}
+              // onBlur={() => email(fal> emase)}
               placeholder="@hospital.com"
               ref={userRef}
               autoComplete='off'
@@ -106,10 +108,10 @@ const HospitalLoginPage = () => {
 
             
               <label htmlFor='password' className="gap-10 flex text-white text-2xl">Password</label>
-              <input className="w-96 px-5 h-9 rounded-lg"
+              <input className="w-[470px] px-5 h-9 rounded-lg"
               type='password' 
               id='password'
-              placeholder="......"
+              placeholder="................"
               autoComplete='off'
               onChange={(e) => setPassword(e.target.value)}
               value={password}
@@ -118,10 +120,10 @@ const HospitalLoginPage = () => {
 
             </div>  
               <div className="pt-8">
-              <FilledButton text="Login" style={{width:"390px"}} onClick={handleLogin}/>
+              <FilledButton text="Login" style={{width:"470px"}} onClick={handleHospitalDashBoard}/>
               </div>
             </form>
-            <p className="flex flex-row gap-4 text-white">
+            <p className="flex flex-row gap-4 pt-5 text-white">
               Need an Account? <br/>    
               <span className='line'>
                <GhostButton text="Sign up" onClick={handleSignUp}/>

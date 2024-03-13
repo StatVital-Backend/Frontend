@@ -185,7 +185,7 @@ const RegisterDeath = () => {
                             />
                         </div>
                         
-                        <button type="submit" className="button-style bg-blue-900 hover:bg-green-500 text-blue text-2xl">Submit</button>
+                        <button type="submit" className="button-style bg-blue-900 hover:bg-green-500 text-blue text-2xl">Add Deceased</button>
                     </form>
         </div>
         </div>

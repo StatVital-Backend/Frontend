@@ -8,7 +8,6 @@ const RegisterBirth = () => {
     const [fatherFullName, setFatherFullName] = useState('');
     const [motherFullName, setMotherFullName] = useState('');
     const [childFullName, setChildFullName] = useState('');
-    const [birthDateTime, setBirthDateTime] = useState('');
     const [stateOfOrigin, setStateOfOrigin] = useState('');
     const [sex, setSex] = useState('');
 
@@ -116,21 +115,15 @@ const RegisterBirth = () => {
                         <option value="female">Female</option>
                     </select>
                 </div>
-                <FilledButton text="Register" style={{width: ["650px"]}}/>
+                <FilledButton text="Add Child" style={{width: ["650px"]}}/>
                 
-            </form>
+                </form>
+            </div>
+            </div>
+
+            </div>
+
         </div>
-        </div>
-
-
-
-
-
-          </div>
-
-      </div>
-
-
     </div>
   )
 }

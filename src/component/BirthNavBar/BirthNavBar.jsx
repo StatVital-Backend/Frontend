@@ -34,7 +34,7 @@ const BirthNavBar = () => {
 
       <div className=' justify-center pt-6 flex gap-4 mainContainer'>
           <div className=' pt- 20 addChild'>
-            <FilledButton text="Add" style={{width: "200px", height: 86}}/>
+           <Link to="/birthlayout/registerbirth"><FilledButton text="Add" style={{width: "200px", height: 86}}/> </Link> 
           </div>
 
           <div className=' pt- 20 addChild'>

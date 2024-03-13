@@ -6,7 +6,7 @@ import OutlineButton from '../../reuseables/bottons/OutlineButton/OutlineButton'
 import { Link } from 'react-router-dom';
 
 
-const NavBar = () => {
+const ServiceNavBar = () => {
   return (
     <div className='bg-blue-950 h-24 flex gap-80 mainContainer'>
             
@@ -33,4 +33,4 @@ const NavBar = () => {
   );
 }
 
-export default NavBar;
+export default ServiceNavBar;

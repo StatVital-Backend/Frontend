@@ -2,13 +2,11 @@ import React, { useState } from 'react';
 import hospitalLogo from '../../../assets/Untitled(4).jpg';
 import FilledButton from '../../../reuseables/bottons/FilledButton/FilledButton';
 import { useForm } from "react-hook-form"
-
 import { Link, useNavigate } from 'react-router-dom';
 
 
 const HospitalSignUpForm = ({ title }) => {
     const { register, watch, formState: { errors } } = useForm();
-    // const onSubmit = data => alert(JSON.stringify(data));
     const navigate = useNavigate();
 
     
@@ -20,7 +18,6 @@ const HospitalSignUpForm = ({ title }) => {
     const [officialEmail, setOfficialEmail] = useState('');
     const [password, setPassword] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('')
-    // const [confirmPassword, setConfirmPassword] = useState('');
 
     const [errMsg, setErrMsg] = useState('');
 
@@ -28,9 +25,7 @@ const HospitalSignUpForm = ({ title }) => {
     console.log(facilityLocation)
 
     const handleSubmit = (e) => {
-        e.preventDefault()
-        // navigate('/hospitallogin')
-    
+        e.preventDefault()    
 
         const HospitalSignUp = {
             facilityName: facilityName,
@@ -40,7 +35,6 @@ const HospitalSignUpForm = ({ title }) => {
             email: officialEmail,
             phoneNumber: phoneNumber,
             password: password,
-        //   confirmPassword: ConfirmPassword
         };
 
         console.log(HospitalSignUp)
@@ -55,17 +49,12 @@ const HospitalSignUpForm = ({ title }) => {
         .then(response => response.json())
         .then(data => {
         console.log(data);
-        // navigate('/hospitallogin')
         })
         .catch(error => {
         console.error('Error:', error);
         });
     }
 
-    // const handleSubmit = (e) => {
-    //     e.preventDefault();
-    //     setErrMsg('');
-    // };
 
     return (
         <div className=" h-screen bg-blue-950" >  
@@ -165,8 +154,6 @@ const HospitalSignUpForm = ({ title }) => {
                             onChange={(e) => setOfficialEmail(e.target.value)}
                         />
                     </div>
-
-    
 
                     <div>
                         <label htmlFor="phoneNumber" className="block text-blue-950 font mb-2 text-2xl">Phone Number</label>

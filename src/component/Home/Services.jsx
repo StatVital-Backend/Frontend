@@ -8,17 +8,8 @@ import security from '../../assets/Security.png'
 
 const Services = () => {
   return (
-    <div className=' mainContainer'>
-
-      <div className= ''>
-        <img className='relative opacity-3 h-[70vh] w-[100%]' src={laptop} alt='background'/>
-        <div className='absolute text-center justify-center service top-60 left-[800px]'>
-          {/* <p className='text-blue-400 font-bold font-sans text-5xl txt'>Our Services</p> */}
-          {/* <p className='text-blue-400 font-normal text-2xl tet'>We Have Investmented In The Development And Management Of Such Innovative And Productive <br /> Solutions</p>       */}
-        </div>
-      </div>
-
-      <div className='mt-10'>
+    <div className=' mainContainer mt-10'>
+      <div className=''>
          
           <div className='justify-center font-bold center flex font-sans' >
             <p className='text-black text-5xl'>Explore Our Services</p>

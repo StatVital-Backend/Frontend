@@ -3,10 +3,10 @@ import lady from '../../assets/smilingOfficeLady.webp'
 import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton';
 import { Link } from 'react-router-dom';
 
-const DeathRegFooter = () => {
+const ServiceFooter = () => {
   return (
 
-    <div className='mt-[530px]'>
+    <div className='mt-20'>
       <div className='bg-blue-950 h-100 flex gap-96 pt-26 ready'>
           <div className='pt-32 r-38'>
         <div className="text-4xl text-white pl-36 font-bold">Ready For Awesome Projects With Us?</div>
@@ -82,4 +82,4 @@ const DeathRegFooter = () => {
   );
 }
 
-export default DeathRegFooter;
+export default ServiceFooter;

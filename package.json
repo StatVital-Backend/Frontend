@@ -24,7 +24,7 @@
     "eject": "react-scripts eject"
   },
   "devDependencies": {
-    "react-scripts": "^5.0.1"
+    "react-scripts": "^3.0.1"
   },
   "resolutions": {
     "postcss": "^8.4.35"

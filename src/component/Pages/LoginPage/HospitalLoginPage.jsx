@@ -48,7 +48,7 @@ const HospitalLoginPage = () => {
           return;
       }
   
-      fetch('https://46ff-62-173-45-238.ngrok-free.app/api/v1/logInHospital', {
+      fetch('https://619e-62-173-45-238.ngrok-free.app/api/v1/logInHospital', {
         method: 'POST',
         headers: {
             'content-Type': 'application/json'

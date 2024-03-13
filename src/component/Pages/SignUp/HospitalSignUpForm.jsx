@@ -39,7 +39,7 @@ const HospitalSignUpForm = ({ title }) => {
 
         console.log(HospitalSignUp)
     
-        fetch('http://localhost:8080/api/v1/signInHospital', {
+        fetch('https://46ff-62-173-45-238.ngrok-free.app/api/v1/signUpHospital', {
         method: 'POST',
         headers: {
             'content-Type': 'application/json'

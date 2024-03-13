@@ -15,7 +15,7 @@ const Footer = () => {
             <p>Let's talk About Your Project</p>
           </div>
           <div className='pl-36'>
-            <Link to="/contactus"><FilledButton text={"Contact us --->"} style={{width: '130px'}}/> </Link> 
+            <Link to="/contactus"><FilledButton text={"Contact us --->"} style={{width: '150px'}}/> </Link> 
           </div>
         </div>
 

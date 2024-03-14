@@ -1,16 +1,29 @@
-import React, { useState } from 'react';
-import hospitalLogo from '../../../assets/Untitled(4).jpg';
+import React, {useRef, useState, useEffect } from 'react';
+import statVitalLogo from '../../../assets/statVitalLogo.png';
 import FilledButton from '../../../reuseables/bottons/FilledButton/FilledButton';
+import GhostButton from '../../../reuseables/bottons/GhostButton/GhostButton';
 import { useForm } from "react-hook-form"
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 
-const HospitalSignUpForm = ({ title }) => {
-    const { register, watch, formState: { errors } } = useForm();
+
+const PWD_REGEX = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}|:`.,/'|"<>?])(?=.*[0-9]).{8,}$/;
+// const REACT_APP_BACKEND_URL = "https://d8d1-62-173-45-238.ngrok-free.app/api/v1/"; 
+
+const HospitalSignUpForm = () => {
     const navigate = useNavigate();
 
     const [showPassword, setShowPassword] = useState(false);
 
+    // const BASE_URL = `${process.env.REACT_APP_BACKEND_URL}${path}`;
+    // console.log(BASE_URL)
+    // console.log(REACT_APP_BACKEND_URL)
+    
+    const [showMessage, setShowMesssage] = useState(false)
+    const { register, formState: { errors } } = useForm();
+
+    
+    const [signUpType, setSignUpType] = useState({signUpType : ''});
     const [facilityName, setFacilityName] = useState('');
     const [facilityLocation, setFacilityLocation] = useState('');
     const [facilityType, setFacilityType] = useState('');
@@ -23,10 +36,23 @@ const HospitalSignUpForm = ({ title }) => {
 
     const [errMsg, setErrMsg] = useState('');
 
-    console.log(facilityName)
-    console.log(facilityLocation)
+    useEffect (()=> {
+        const result = PWD_REGEX.test(password);
+        console.log(result);
+        console.log(password);
+        setValidPassword(result);
+        const match = password === matchPassword;
+        setValidMatch(match);
+    }, [password, matchPassword]);
 
-    const handleSubmit = (e) => {
+
+    useEffect (() => {
+        setErrMsg('')
+    }, [ password, matchPassword]);
+
+
+
+    const handleSubmit = async(e) => {
         e.preventDefault()    
 
         const HospitalSignUp = {
@@ -62,37 +88,87 @@ const HospitalSignUpForm = ({ title }) => {
     };
 
 
+    const SignUp = {
+        facilityName: facilityName,
+        facilityLocation: facilityLocation,
+        sector: facilityType,
+        certificationNumber: certificationNumber,
+        email: officialEmail,
+        phoneNumber: phoneNumber,
+        password: password,
+    };
+    if(signUpType.signUpType === 'Hospital'){
+        fetch("https://7168-102-89-32-113.ngrok-free.app/api/v1/signUpHospital", {
+            method: 'POST',
+            headers: {
+                'content-Type': 'application/json'
+            },
+            body:JSON.stringify(SignUp)
+        }).then(response => response.json())
+          .then(data => {
+          console.log("SUCCESSFUL")
+          navigate('/birthlayout/registerbirth')
+        }).catch(error => {
+            console.error('Error:', error);
+        });
+      }
+    else if (signUpType.signUpType === 'Mortuary'){
+        fetch("https://7168-102-89-32-113.ngrok-free.app/api/v2/Sign-In-Morgue", {
+            method: 'POST',
+            headers: {
+                'content-Type': 'application/json'
+            },
+            body:JSON.stringify(SignUp)
+        }).then(response => response.json())
+        .then(data => {
+        console.log("SUCCESSFUL")
+        navigate('/deathlayout/registerDeath')
+        }).catch(error => {
+        console.error('Error:', error);
+        });
+    }
+    else{
+        setErrMsg("SignUp Type must be clicked");
+        console.log("SignUp Type must be clicked ")
+
+        return;
+    }
+    
+
+
+    
+    //     try {
+    //         const response = await fetch("https://7168-102-89-32-113.ngrok-free.app/api/v1/signUpHospital", {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify(HospitalSignUp)
+    //         });
+            
+    //         if (response.ok) {
+    //             const data = await response.json();
+    //             console.log("SUCCESSFUL");
+    //             console.log(data);
+    //             navigate("/hospitallogin")
+    //         }
+            
+    //     } catch (error) {
+    //         console.error('Error:', error);
+    //     }
+        
+    // }
+
+
     return (
-        <div className=" h-screen bg-blue-950" >  
+        
+        <div className="  bg-blue-950" >  
         <div className='flex'>    
-        <div className="flex h-screen">
-            <div className="bg-white w-[850px] rounded-sm p-6">
-             <img src={hospitalLogo} alt="Hospital Logo" className="mb-5 mx-auto" />
-                <h2 className="text-4xl font-bold text-blue-950 text-center mb-8">HOSPITAL SIGN UP</h2>
-                    <div>
-                        <div className='flex gap-5 ml-44 text-2xl pb-10'>
-                            <div>
-                                <h1>Signup as</h1>
-                            </div>
-
-                            <div className=''>
-                                <input type="radio" 
-                                name="hospital"
-                                 id="hospitalId"
-                                {...register("signup", { required: 'signup is required' })}
-                                />Hospital
-                            </div>
-
-                            <div>
-                                <input type="radio"
-                                 name="mortuary"
-                                  id="morgueId" 
-                                {...register("signup", { required: 'signup is required' })}
-                                />morgue
-                            </div>
-                        </div>
-
-                    </div>
+        <div className="flex">
+            <div className="bg-white w-[850px] pt-0 rounded-sm p-6">
+             <img src={statVitalLogo} alt="Hospital Logo" className="mb-" />
+                <h2 className="text-4xl font-bold text-blue 950 text-center mb-8">HOSPITAL AND MORGUE SIGN UP</h2>
+                <p className="text-red-500">{errMsg}</p>
 
 
                 <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-10">
@@ -132,8 +208,8 @@ const HospitalSignUpForm = ({ title }) => {
                             required
                         >
                             <option value="">Select Facility Type</option>
-                            <option value="private">Private</option>
-                            <option value="public">Public</option>
+                            <option className='text-2xl' value="private">Private</option>
+                            <option className='text-2xl' value="public">Public</option>
                         </select>
                     </div>
                     <div>
@@ -162,7 +238,7 @@ const HospitalSignUpForm = ({ title }) => {
                     </div>
 
                     <div>
-                        <label htmlFor="phoneNumber" className="block text-blue-950 font mb-2 text-2xl">Phone Number</label>
+                        <label htmlFor="phoneNumber" className="block text-blue-950 font mb-2 text-2xl">Faculty Contact Line</label>
                         <input
                             type="tel"
                             id="phoneNumber"
@@ -181,9 +257,13 @@ const HospitalSignUpForm = ({ title }) => {
                             id="password"
                             className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             placeholder="Enter Password"
-                            required
+                            onChange={(e) => setPassword(()=> {
+                                return e.target.value
+                            })}
                             value={password}
-                            onChange={(e) => setPassword(e.target.value)}
+                            required
+                            aria-invalid={validPassword ? "false" : "true"}
+
                         />
                         <button
                             className="absolute inset-y-0 right-0 px-4 py-2 focus:outline-none"
@@ -219,22 +299,26 @@ const HospitalSignUpForm = ({ title }) => {
                 <div className="flex justify-center item-center ml-44 flex-col gap-3">
                       <FilledButton text="Sign Up" style= {{width: "500px"}} type="submit"/>
                         <div className="text-sm flex gap-3">
-                            <p className="mb-4">Already have an account?</p>
-                            <p className="underline text-blue-400  cursor-pointer">Sign in</p>
+                        <p className=" flex  gap-3 text-sm text-blue-950">
+                            Already have an Account? <br/>    
+                            <span className='line'>
+                            <GhostButton text="Login"/>
+                            </span>
+                        </p>
                         </div>
                     </div>
             </div>
 
         </div>
         <div className='content px-32 pt-80'>
-            <h1 className='text-white text-5xl'>
+            <h1 className='text-white flex text-5xl'>
             Navigate Life's Journey with
              Precision - <br /> Capturing Every Moment, 
               Every Statistic, Every Insight!</h1>
-              <p className='text-white pt-10 text-2xl'> We are a team of passionate individuals who believe in the power of data and its impact on society. <br />
-            Committed to providing the best tools and resources, we empower you to capture and analyze <br /> 
-            your life's journey. By encapsulating every moment, statistic, and insight, we enable informed <br />
-            decisions and a more fulfilling life. We're devoted to guiding you through life's journey with precision, <br /> 
+              <p className='text-white pt-10 text-2xl'> We are a team of passionate individuals who believe in the power of data and its impact on society.
+            Committed to providing the best tools and resources, we empower you to capture and analyze 
+            your life's journey. By encapsulating every moment, statistic, and insight, we enable informed 
+            decisions and a more fulfilling life. We're devoted to guiding you through life's journey with precision, 
             eagerly anticipating our role in your story.</p>
         </div>
         </div>  

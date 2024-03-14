@@ -13,13 +13,13 @@ const BirthNavBar = () => {
 
       <div className='justify-between px-56 pt-10 flex  mainContainer'>
           <div className=' '>
-              <h1 className='text-blue-400 text-3xl pt-5'>STATVITAL</h1>
+              <h1 className='text-blue-400 text-3xl text-bold pt-5'>KINGS' COURT</h1>
           </div>
           <div className='pt-4 '>
-              <div class="relative">
+              <div className="relative">
                   <input type="search" placeholder="What are you looking for?" className="border border-blue-400 h-12 border-solid text-blue-950 rounded-3xl w-[600px] py-2 px-4 pl-6 placeholder-gray-900 placeholder-opacity-50 bg-transparent" />
-                      <svg class="absolute right-3 top-1/2 transform -translate-y-1/2 " xmlns="http://www.w3.org/2000/svg" width="20" height="20" >
-                          <path fill-rule="evenodd" d="M14.854 13.146a1 1 0 0 1-1.414 1.414l-3.792-3.792a1 1 0 0 1 1.414-1.414l3.792 3.792zM15.207 8a7 7 0 1 1-14 0 7 7 0 0 1 14 0z" clipRule="evenodd" />
+                      <svg className="absolute right-3 top-1/2 transform -translate-y-1/2 " xmlns="http://www.w3.org/2000/svg" width="20" height="20" >
+                          <path fillRule="evenodd" d="M14.854 13.146a1 1 0 0 1-1.414 1.414l-3.792-3.792a1 1 0 0 1 1.414-1.414l3.792 3.792zM15.207 8a7 7 0 1 1-14 0 7 7 0 0 1 14 0z" clipRule="evenodd" />
                       </svg>
               </div>
               {/* <RecordSearch /> */}
@@ -36,32 +36,28 @@ const BirthNavBar = () => {
 
       <div className=' justify-center pt-6 flex gap-4 mainContainer'>
           <div className=' pt- 20 addChild'>
-           <Link to="/birthlayout/registerbirth"><FilledButton text="Add" style={{width: "200px", height: 86}}/> </Link> 
+           <Link to="/birthlayout/registerbirth/addChild"><FilledButton text="Add" style={{width: "250px", height: 86}}/> </Link> 
           </div>
 
           <div className=' pt- 20 addChild'>
-          <Link to="/birthlayout/viewAll">
-            <FilledButton text="View All" style={{width: "200px", height: 86}}/>
-          </Link>
+          <Link to="/birthlayout/registerbirth/ViewAll"><FilledButton text="View All" style={{width: "250px", height: 86}}/> </Link>  
           </div>
 
           {/* <div className=' pt- 20 addChild'>
             <FilledButton text="Update" style={{width: "200px", height: 86}}/>
           </div> */}
 
-          {/* <div className=' pt- 20 addChild'>
-            <Link to={`/admin/delete`}> <FilledButton text="Update" style={{width: "200px", height: 86}}/> </Link>
+          <div className=' pt- 20 addChild'>
+            <FilledButton text="Delete" style={{width: "250px", height: 86}}/>
+          </div>
+
+          <div className=' pt- 20 AddChild'>
+           <Link to="/birthlayout/registerbirth/PostNatalUpdate"><FilledButton text="Post Natal Update" style={{width: "250px", height: 86}}/> </Link> 
+          </div>
+
+          {/* <div className=' pt- 20 AddChild'>
+            <FilledButton text="Retrieve" style={{width: "200px", height: 86}}/>
           </div> */}
-
-          <div className=' pt- 20 UpdateBirthInfo'>
-          <Link to="/birthlayout/update-birth-info"> <FilledButton text="Post Natal Update" style={{width: "200px", height: 86}}/>
-          </Link>
-          </div>
-
-          <div className=' pt- 20 UpdateDeathInfo'>
-          <Link to="/deathlayout/update-death-info"> <FilledButton text="Post Partum Update" style={{width: "200px", height: 86}}/>
-          </Link>
-          </div>
 
       </div>
       <h1 className='text-4xl justify-center center flex text-blue-950 '></h1>

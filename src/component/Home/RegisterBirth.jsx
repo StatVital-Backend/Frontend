@@ -8,7 +8,6 @@ const RegisterBirth = () => {
     const [fatherFullName, setFatherFullName] = useState('');
     const [motherFullName, setMotherFullName] = useState('');
     const [childFullName, setChildFullName] = useState('');
-    const [birthDateTime, setBirthDateTime] = useState('');
     const [stateOfOrigin, setStateOfOrigin] = useState('');
     const [sex, setSex] = useState('');
 
@@ -77,7 +76,7 @@ const RegisterBirth = () => {
                 </div>
                 <div className="mb-4">
                     <label htmlFor="childFullName" className="block text-blue-900 font mb-2 text-2xl">Child's Full Name</label>
-                    <input
+                    <input 
                         id="childFullName"
                         type="text"
                         value={childFullName}
@@ -111,20 +110,24 @@ const RegisterBirth = () => {
                         className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                         required
                     >
-                        <option value="">Select Sex</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
+                        <option className='text-2xl' value="">Select Sex</option>
+                        <option className='text-2xl' value="male">Male</option>
+                        <option className='text-2xl' value="female">Female</option>
                     </select>
                 </div>
-                <FilledButton text="Register" style={{width: ["650px"]}}/>
+                <FilledButton text="Add Child" style={{width: ["650px"]}}/>
                 
-            </form>
-        </div>
-        </div>
-          </div>
+                </form>
+            </div>
+            </div>
 
-      </div>
-    </div>
+            </div>
+
+        </div>
+        </div>
+        //   </div>
+
+    // </div>
   )
 }
 

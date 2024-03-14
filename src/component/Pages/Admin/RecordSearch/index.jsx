@@ -6,12 +6,12 @@ import dot1 from '../../../../assets/faqq.png';
 import dot2 from '../../../../assets/dfg 2 (1).png';
 
 const RecordSearch = ({ onSearch }) => {
-    const [searchQuery, setSearchQuery] = useState('');
-    const [searchType, setSearchType] = useState('name');
+//     const [searchQuery, setSearchQuery] = useState('');
+//     const [searchType, setSearchType] = useState('name');
 
-    const handleSearch = () => {
-        onSearch({ type: searchType, query: searchQuery });
-    };
+//     const handleSearch = () => {
+//         onSearch({ type: searchType, query: searchQuery });
+//     };
 
     return (
         <>
@@ -107,6 +107,6 @@ const RecordSearch = ({ onSearch }) => {
         
         </>
     );
-};
+}
 
 export default RecordSearch;

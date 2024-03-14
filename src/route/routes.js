@@ -13,7 +13,6 @@ import MortuaryLoginPage from "../component/Pages/LoginPage/MortuaryLoginPage";
 import BirthLayout from "../layout/BirthLayout";
 import DeathLayout from "../layout/DeathLayout";
 import HospitalSignUpForm from "../component/Pages/SignUp/HospitalSignUpForm";
-import MorgueSignUpForm from "../component/Pages/SignUp/MorgueSignUpForm";
 import ServicePage from "../component/Pages/Service";
 import ServiceLayout from "../layout/ServiceLayout";
 import AddChild from "../component/Pages/BirthNavBarMethods/AddChild";
@@ -72,15 +71,11 @@ export const ROUTES = [
         element: <HospitalSignUpForm/>
     },
     {
-        path: "/morguesignup",
-        element: <MorgueSignUpForm />,
-    },
-    {
         path: "/birthlayout",
         element: <BirthLayout/>,
         children: [
             {
-                path: "/birthlayout/registerbirth/addChild", 
+                path: "/birthlayout/registerbirth", 
                 element: <RegisterBirth/>,
             },
             {

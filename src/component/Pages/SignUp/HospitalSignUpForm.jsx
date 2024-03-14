@@ -9,7 +9,7 @@ const HospitalSignUpForm = ({ title }) => {
     const { register, watch, formState: { errors } } = useForm();
     const navigate = useNavigate();
 
-    
+    const [showPassword, setShowPassword] = useState(false);
 
     const [facilityName, setFacilityName] = useState('');
     const [facilityLocation, setFacilityLocation] = useState('');
@@ -17,6 +17,8 @@ const HospitalSignUpForm = ({ title }) => {
     const [certificationNumber, setCertificationNumber] = useState('');
     const [officialEmail, setOfficialEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+
     const [phoneNumber, setPhoneNumber] = useState('')
 
     const [errMsg, setErrMsg] = useState('');
@@ -35,6 +37,7 @@ const HospitalSignUpForm = ({ title }) => {
             email: officialEmail,
             phoneNumber: phoneNumber,
             password: password,
+            confirmPassword: confirmPassword
         };
 
         console.log(HospitalSignUp)
@@ -54,6 +57,9 @@ const HospitalSignUpForm = ({ title }) => {
         console.error('Error:', error);
         });
     }
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
 
 
     return (
@@ -166,13 +172,12 @@ const HospitalSignUpForm = ({ title }) => {
                             value={phoneNumber}
                             onChange={(e) => setPhoneNumber(e.target.value)}
                         />
-                    </div>
-
-                    
+                    </div>                   
                     <div>
-                        <label htmlFor="password" className="block text-blue-950 font mb-2 text-2xl">Password</label>
+                    <label htmlFor="password" className="block text-blue-950 font mb-2 text-2xl">Password</label>
+                    <div className="relative">
                         <input
-                            type="password"
+                            type={showPassword ? "text" : "password"}
                             id="password"
                             className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             placeholder="Enter Password"
@@ -180,29 +185,44 @@ const HospitalSignUpForm = ({ title }) => {
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
                         />
-                    </div>
-                    
-                    {/* <div>
+                        <button
+                            className="absolute inset-y-0 right-0 px-4 py-2 focus:outline-none"
+                            onClick={togglePasswordVisibility}
+                        >
+                            {showPassword ? "Hide" : "Show"}
+                        </button>
+                            </div>
+                            </div>
+                    <div>
                         <label htmlFor="confirmPassword" className="block text-blue-950 font mb-2 text-2xl">Confirm Password</label>
-                        <input
-                            type="password"
-                            id="confirmPassword"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                            placeholder="Re-enter Password"
-                            required
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
-                        />
-                    </div> */}
-                    <p className="text-red-500">{errMsg}</p>
-                    <div className="">
+                        <div className="relative">
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                id="confirmPassword"
+                                className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                                placeholder="Re-enter Password"
+                                required
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                            />
+                            <button
+                                className="absolute inset-y-0 right-0 px-4 py-2 focus:outline-none"
+                                onClick={togglePasswordVisibility}
+                            >
+                                {showPassword ? "Hide" : "Show"}
+                            </button>
+                        </div>
+                            </div>
+                    
+                </form>
+                <p className="text-red-500">{errMsg}</p>
+                <div className="flex justify-center item-center ml-44 flex-col gap-3">
                       <FilledButton text="Sign Up" style= {{width: "500px"}} type="submit"/>
                         <div className="text-sm flex gap-3">
                             <p className="mb-4">Already have an account?</p>
                             <p className="underline text-blue-400  cursor-pointer">Sign in</p>
                         </div>
                     </div>
-                </form>
             </div>
 
         </div>

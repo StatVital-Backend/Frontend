@@ -13,10 +13,16 @@ const MorgueSignUpForm = ({ title }) => {
     const [confirmPassword, setConfirmPassword] = useState('');
 
     const [errMsg, setErrMsg] = useState('');
+    const [showPassword, setShowPassword] = useState(false);
+
 
     const handleSubmit = (e) => {
         e.preventDefault();
         setErrMsg('');
+    };
+
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
     };
 
     return (
@@ -89,6 +95,46 @@ const MorgueSignUpForm = ({ title }) => {
                         />
                     </div>
                     <div>
+                    <label htmlFor="password" className="block text-blue-950 font mb-2 text-2xl">Password</label>
+                    <div className="relative">
+                        <input
+                            type={showPassword ? "text" : "password"}
+                            id="password"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            placeholder="Enter Password"
+                            required
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                        />
+                        <button
+                            className="absolute inset-y-0 right-0 px-4 py-2 focus:outline-none"
+                            onClick={togglePasswordVisibility}
+                        >
+                            {showPassword ? "Hide" : "Show"}
+                        </button>
+                            </div>
+                            </div>
+                            <div>
+                                <label htmlFor="confirmPassword" className="block text-blue-950 font mb-2 text-2xl">Confirm Password</label>
+                                <div className="relative">
+                                    <input
+                                        type={showPassword ? "text" : "password"}
+                                        id="confirmPassword"
+                                        className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                                        placeholder="Re-enter Password"
+                                        required
+                                        value={confirmPassword}
+                                        onChange={(e) => setConfirmPassword(e.target.value)}
+                                    />
+                                    <button
+                                        className="absolute inset-y-0 right-0 px-4 py-2 focus:outline-none"
+                                        onClick={togglePasswordVisibility}
+                                    >
+                                        {showPassword ? "Hide" : "Show"}
+                                    </button>
+                                </div>
+                            </div>
+                    <div>
                         <label htmlFor="phoneNumber" className="block text-blue-900 font mb-2 text-2xl">Phone Number</label>
                         <input
                             type="tel"
@@ -100,31 +146,9 @@ const MorgueSignUpForm = ({ title }) => {
                             onChange={(e) => setPhoneNumber(e.target.value)}
                         />
                     </div>
-                    <div>
-                        <label htmlFor="password" className="block text-blue-900 font mb-2 text-2xl">Password</label>
-                        <input
-                            type="password"
-                            id="password"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                            placeholder="Enter Password"
-                            required
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor="confirmPassword" className="block text-blue-900 font mb-2 text-2xl">Confirm Password</label>
-                        <input
-                            type="confirmPassword"
-                            id="confirmPassword"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                            placeholder="Re-enter Password"
-                            required
-                            value={confirmPassword}
-                            onChange={(e) => setConfirmPassword(e.target.value)}
-                        />
-                    </div>
-                    <p className="text-red-500">{errMsg}</p>
+                     
+                </form>
+                <p className="text-red-500">{errMsg}</p>
                     <div className="flex items-center justify-between">
                         <button
                             type="submit"
@@ -137,7 +161,6 @@ const MorgueSignUpForm = ({ title }) => {
                             <p className="underline cursor-pointer">Sign in</p>
                         </div>
                     </div>
-                </form>
             </div>
         </div>
         </div>

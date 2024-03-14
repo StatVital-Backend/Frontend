@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton';
+import FilledButton from '../../../../reuseables/bottons/FilledButton/FilledButton';
 
 
-const RegisterBirth = () => {
+const UpdateBirthInfo = () => {
     const [officialEmail, setOfficialEmail] = useState('');
     const [nurseName, setNurseName] = useState('');
     const [fatherFullName, setFatherFullName] = useState('');
@@ -116,7 +116,7 @@ const RegisterBirth = () => {
                         <option value="female">Female</option>
                     </select>
                 </div>
-                <FilledButton text="Register" style={{width: ["650px"]}}/>
+                <FilledButton text="Update" style={{width: ["650px"]}}/>
                 
             </form>
         </div>
@@ -128,4 +128,4 @@ const RegisterBirth = () => {
   )
 }
 
-export default RegisterBirth;
+export default UpdateBirthInfo;

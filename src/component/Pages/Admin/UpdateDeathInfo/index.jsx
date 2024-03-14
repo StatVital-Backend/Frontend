@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
-import hospitalLogo from '../../assets/Untitled(4).jpg';
-import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton';
+// import hospitalLogo from '../../assets/Untitled(4).jpg';
+import FilledButton from '../../../../reuseables/bottons/FilledButton/FilledButton';
 import { useForm } from "react-hook-form"
 import { Link, useNavigate } from 'react-router-dom';
 
 
-const RegisterDeath = ({ title }) => {
+const UpdateDeathInfo = ({ title }) => {
     const { register, watch, formState: { errors } } = useForm();
     const navigate = useNavigate();
 
@@ -34,7 +34,7 @@ const RegisterDeath = ({ title }) => {
             "Rivers", "Sokoto", "Taraba", "Yobe", "Zamfara", "FCT Abuja"
         ];
 
-        const RegisterDeath = {
+        const UpdateDeathInfo = {
             deceasedName: deceasedName,
             timeOfDeath: timeOfDeath,
             dateOfDeath: dateOfDeath,
@@ -54,7 +54,7 @@ const RegisterDeath = ({ title }) => {
         headers: {
             'content-Type': 'application/json'
         },
-        body:JSON.stringify(RegisterDeath)
+        body:JSON.stringify(UpdateDeathInfo)
         })
         .then(response => response.json())
         .then(data => {
@@ -66,17 +66,13 @@ const RegisterDeath = ({ title }) => {
     }
 
     return (
-        <div className="flex justify-center items-center " >  
+        <div className="flex justify-center items-center" >  
         <div className='flex'>    
         <div className="flex ">
-            <div className="bg-white w-[850px] rounded-sm p-6">
-             {/* <img src={hospitalLogo} alt="Hospital Logo" className="mb-5 mx-auto" /> */}
-                   
+            <div className="bg-white w-[850px] rounded-sm p-6">                  
                 <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-10">
-
                     <div>
-
-                        <label htmlFor="deceasedName" className="block text-blue-950  mb-2 text-2xl">Deceased Name </label>
+                       <label htmlFor="deceasedName" className="block text-blue-950  mb-2 text-2xl">Deceased Name </label>
                         <input
                             type="text"
                             id="deceasedName"
@@ -99,7 +95,6 @@ const RegisterDeath = ({ title }) => {
                             onChange={(e) => setTimeOfDeath(e.target.value)}
                         />
                     </div>
-                    
                     <div>
                         <label htmlFor="dateOfDeath" className="block text-blue-950 font mb-2 text-2xl">Date Of Death</label>
                         <input
@@ -111,6 +106,7 @@ const RegisterDeath = ({ title }) => {
                             value={dateOfDeath}
                             onChange={(e) => setDateOfDeath(e.target.value)}
                         />
+
                     </div>
                     <div>
                         <label htmlFor="causeOfDeath" className="block text-blue-950 font mb-2 text-2xl">Cause Of Death </label>
@@ -179,21 +175,19 @@ const RegisterDeath = ({ title }) => {
                     <div>
                         <label htmlFor="age" className="block text-blue-950 font mb-2 text-2xl"> Age </label>
                         <input
-                        type="number"
-                        id="age"
-                        className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                        placeholder="Enter Deceased Age"
-                        required
-                        value={age}
-                        onChange={(e) => {
-                            const inputAge = parseInt(e.target.value);
-                            if (inputAge >= 0) {
-                                setAge(inputAge);
-                            }
-                        }}
-                        min="0"
-/>
-
+                            type="number"
+                            id="age"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            placeholder="Enter Deceased Age"
+                            required
+                            value={age}
+                            onChange={(e) => {
+                                const inputAge = parseInt(e.target.value);
+                                if (inputAge >= 0) {
+                                    setAge(inputAge);
+                                }
+                            }}
+                            min="0"/>
                     </div>                    
                     <div>
                         <label htmlFor="gender" className="block text-blue-950 font mb-2 text-2xl">Gender</label>
@@ -213,18 +207,13 @@ const RegisterDeath = ({ title }) => {
                     
                 </form>
                 <div className="flex justify-center item-center ml-44 flex-col gap-2">
-                      <FilledButton text="Sign Up" style= {{width: "500px"}} type="submit"/>
-                        <div className="text-sm flex gap-1">
-                            <p className="mb-4 text-2xl">Already have an account?</p>
-                            <p className="underline text-blue-400  text-2xl cursor-pointer">Sign in</p>
-                        </div>
-                        </div>
+                      <FilledButton text="Update" style= {{width: "500px"}} type="submit"/>
+                        
+                </div>
             </div>
-
         </div>
-        
         </div>  
         </div>
     );
 };
-export default RegisterDeath;
+export default UpdateDeathInfo;

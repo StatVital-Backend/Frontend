@@ -4,6 +4,7 @@ import dot2 from '../../assets/dfg 2 (1).png'
 import dot1 from '../../assets/dfg 1.png'
 import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton'
 import { Link } from "react-router-dom";
+import RecordSearch from '../Pages/Admin/RecordSearch'
 
 
 const BirthNavBar = () => {
@@ -21,6 +22,7 @@ const BirthNavBar = () => {
                           <path fill-rule="evenodd" d="M14.854 13.146a1 1 0 0 1-1.414 1.414l-3.792-3.792a1 1 0 0 1 1.414-1.414l3.792 3.792zM15.207 8a7 7 0 1 1-14 0 7 7 0 0 1 14 0z" clipRule="evenodd" />
                       </svg>
               </div>
+              {/* <RecordSearch /> */}
           </div> 
 
           <div className=' pt-5'>
@@ -38,23 +40,27 @@ const BirthNavBar = () => {
           </div>
 
           <div className=' pt- 20 addChild'>
+          <Link to="/birthlayout/viewAll">
             <FilledButton text="View All" style={{width: "200px", height: 86}}/>
+          </Link>
           </div>
 
-          <div className=' pt- 20 addChild'>
+          {/* <div className=' pt- 20 addChild'>
             <FilledButton text="Update" style={{width: "200px", height: 86}}/>
+          </div> */}
+
+          {/* <div className=' pt- 20 addChild'>
+            <Link to={`/admin/delete`}> <FilledButton text="Update" style={{width: "200px", height: 86}}/> </Link>
+          </div> */}
+
+          <div className=' pt- 20 UpdateBirthInfo'>
+          <Link to="/birthlayout/update-birth-info"> <FilledButton text="Post Natal Update" style={{width: "200px", height: 86}}/>
+          </Link>
           </div>
 
-          <div className=' pt- 20 addChild'>
-            <FilledButton text="Delete" style={{width: "200px", height: 86}}/>
-          </div>
-
-          <div className=' pt- 20 AddChild'>
-            <FilledButton text="Post Natal Update" style={{width: "200px", height: 86}}/>
-          </div>
-
-          <div className=' pt- 20 AddChild'>
-            <FilledButton text="Retrive" style={{width: "200px", height: 86}}/>
+          <div className=' pt- 20 UpdateDeathInfo'>
+          <Link to="/deathlayout/update-death-info"> <FilledButton text="Post Partum Update" style={{width: "200px", height: 86}}/>
+          </Link>
           </div>
 
       </div>
@@ -62,6 +68,7 @@ const BirthNavBar = () => {
       <div className='pt-6'>
       <div className="flex relative">
         <img src={rectangle} alt="Black Image" className="pl-[400px] w-[2000px] " />
+        
         <p className='text-4xl z-10 text-white relative right-[750px] top-6'>Birth Registration DashBoard</p>
 
 
@@ -75,7 +82,7 @@ const BirthNavBar = () => {
         </div>
       </div>
 
-      <h2 className="text-4xl text-blue-950 font-semibold mb-4 pt-8 justify-center center flex uppercase">WELCOME TO KINGS' COURT HOSPITAL</h2>
+      <h2 className="text-4xl text-blue-950 font-semibold mb-4 pt-8 justify-center center flex uppercase">WELCOME TO ...... HOSPITAL</h2>
 
     </div>
         )

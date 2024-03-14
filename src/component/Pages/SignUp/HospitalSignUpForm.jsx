@@ -8,8 +8,14 @@ import { useNavigate } from 'react-router-dom';
 
 
 const PWD_REGEX = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}|:`.,/'|"<>?])(?=.*[0-9]).{8,}$/;
+// const REACT_APP_BACKEND_URL = "https://d8d1-62-173-45-238.ngrok-free.app/api/v1/"; 
 
 const HospitalSignUpForm = ({ title }) => {
+    // const path = '/signUpHospital'; 
+
+    // const BASE_URL = `${process.env.REACT_APP_BACKEND_URL}${path}`;
+    // console.log(BASE_URL)
+    // console.log(REACT_APP_BACKEND_URL)
     
     const [showMessage, setShowMesssage] = useState(false)
     const { register, formState: { errors } } = useForm();
@@ -47,12 +53,15 @@ const HospitalSignUpForm = ({ title }) => {
         setErrMsg('')
     }, [ password, matchPassword]);
 
+    // const handleLogin = () => {
+    //     navigate('/hospitallogin')
+    //   }
     const handleLogin = () => {
         navigate('/hospitallogin')
       }
 
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async(e) => {
         e.preventDefault()    
 
         const v2 = PWD_REGEX.test(password);
@@ -72,20 +81,40 @@ const HospitalSignUpForm = ({ title }) => {
         };
 
     
-        fetch('https://619e-62-173-45-238.ngrok-free.app/api/v1/signUpHospital', {
-        method: 'POST',
-        headers: {
-            'content-Type': 'application/json'
-        },
-        body:JSON.stringify(HospitalSignUp)
-        })
-        .then(response => response.json())
-        .then(data => {
-        console.log("SUCCESSFUL");
-        })
-        .catch(error => {
-        console.error('Error:', error);
-        });
+        // fetch("https://d8d1-62-173-45-238.ngrok-free.app/api/v1/signUpHospital", {
+        // method: 'POST',
+        // headers: {
+        //     'content-Type': 'application/json'
+        // },
+        // body:JSON.stringify(HospitalSignUp)
+        // })
+        // .then(response => response.json())
+        // .then(data => {
+        // console.log("SUCCESSFUL");
+        // })
+        // .catch(error => {
+        // console.error('Error:', error);
+        // });
+        try {
+            const response = await fetch("https:/2d09-62-173-45-238.ngrok-free.app/api/v1/signUpHospital", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(HospitalSignUp)
+            });
+            
+            if (response.ok) {
+                const data = await response.json();
+                console.log("SUCCESSFUL");
+                console.log(data);
+                // throw new Error('Network response was not ok');
+            }
+            
+        } catch (error) {
+            console.error('Error:', error);
+        }
+        
     }
 
 
@@ -243,7 +272,7 @@ const HospitalSignUpForm = ({ title }) => {
 
                     </div>
                     <div className="pb-2 ml-[130px]">
-                      <FilledButton  disabled={!validPassword || !validMatch ? true : false} onClick={()=> setShowMesssage("Kindly verify from Email Your Address")} text="Sign Up" style= {{width: "500px"}} type="submit"/>
+                      <FilledButton  disabled={!validPassword || !validMatch ? true : false} onClick={handleLogin} text="Sign Up" style= {{width: "500px"}} type="submit"/>
                         <div className="text-sm flex gap-3">
                         <p className=" flex  gap-3 text-sm text-blue-950">
                             Already have an Account? <br/>    

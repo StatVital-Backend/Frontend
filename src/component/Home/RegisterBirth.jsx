@@ -76,7 +76,7 @@ const RegisterBirth = () => {
                 </div>
                 <div className="mb-4">
                     <label htmlFor="childFullName" className="block text-blue-900 font mb-2 text-2xl">Child's Full Name</label>
-                    <input
+                    <input 
                         id="childFullName"
                         type="text"
                         value={childFullName}
@@ -110,9 +110,9 @@ const RegisterBirth = () => {
                         className="input-style"
                         required
                     >
-                        <option value="">Select Sex</option>
-                        <option value="male">Male</option>
-                        <option value="female">Female</option>
+                        <option className='text-2xl' value="">Select Sex</option>
+                        <option className='text-2xl' value="male">Male</option>
+                        <option className='text-2xl' value="female">Female</option>
                     </select>
                 </div>
                 <FilledButton text="Add Child" style={{width: ["650px"]}}/>

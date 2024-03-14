@@ -13,7 +13,7 @@ const PWD_REGEX = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}|:`.,/'|"<>?])(?=.*[0-9]).{8,
 const HospitalSignUpForm = () => {
     const navigate = useNavigate();
 
-    // const path = '/signUpHospital'; 
+    const [showPassword, setShowPassword] = useState(false);
 
     // const BASE_URL = `${process.env.REACT_APP_BACKEND_URL}${path}`;
     // console.log(BASE_URL)
@@ -29,12 +29,11 @@ const HospitalSignUpForm = () => {
     const [facilityType, setFacilityType] = useState('');
     const [certificationNumber, setCertificationNumber] = useState('');
     const [officialEmail, setOfficialEmail] = useState('');
-    const [phoneNumber, setPhoneNumber] = useState('');
-    const [password, setPassword] = useState ('');
-    const [validPassword, setValidPassword] = useState (false);
-    const [matchPassword, setMatchPassword] = useState ('');
-    const [validMatch, setValidMatch] = useState (false);
-    const [matchFocus, setMatchFocus] = useState (false);
+    const [password, setPassword] = useState('');
+    const [confirmPassword, setConfirmPassword] = useState('');
+
+    const [phoneNumber, setPhoneNumber] = useState('')
+
     const [errMsg, setErrMsg] = useState('');
 
     useEffect (()=> {
@@ -56,12 +55,37 @@ const HospitalSignUpForm = () => {
     const handleSubmit = async(e) => {
         e.preventDefault()    
 
-        const v2 = PWD_REGEX.test(password);
-        if (!v2) {
-            setErrMsg("Password must contain 8 to 24 characters, uppercase and lowercase letters, a number and a special character:");
-            return;
-        }
+        const HospitalSignUp = {
+            facilityName: facilityName,
+            facilityLocation: facilityLocation,
+            sector:facilityType,
+            certificationNumber: certificationNumber,
+            email: officialEmail,
+            phoneNumber: phoneNumber,
+            password: password,
+            confirmPassword: confirmPassword
+        };
+
+        console.log(HospitalSignUp)
+    
+        fetch('http://localhost:8080/api/v1/signInHospital', {
+        method: 'POST',
+        headers: {
+            'content-Type': 'application/json'
+        },
+        body:JSON.stringify(HospitalSignUp)
+        })
+        .then(response => response.json())
+        .then(data => {
+        console.log(data);
+        })
+        .catch(error => {
+        console.error('Error:', error);
+        });
     }
+    const togglePasswordVisibility = () => {
+        setShowPassword(!showPassword);
+    };
 
 
     const SignUp = {
@@ -224,13 +248,12 @@ const HospitalSignUpForm = () => {
                             value={phoneNumber}
                             onChange={(e) => setPhoneNumber(e.target.value)}
                         />
-                    </div>
-
-                    
+                    </div>                   
                     <div>
-                        <label htmlFor="password" className="block text-blue-950 font mb-2 text-2xl">Password</label>
+                    <label htmlFor="password" className="block text-blue-950 font mb-2 text-2xl">Password</label>
+                    <div className="relative">
                         <input
-                            type="password"
+                            type={showPassword ? "text" : "password"}
                             id="password"
                             className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             placeholder="Enter Password"
@@ -242,68 +265,39 @@ const HospitalSignUpForm = () => {
                             aria-invalid={validPassword ? "false" : "true"}
 
                         />
-                    </div>
-                    
+                        <button
+                            className="absolute inset-y-0 right-0 px-4 py-2 focus:outline-none"
+                            onClick={togglePasswordVisibility}
+                        >
+                            {showPassword ? "Hide" : "Show"}
+                        </button>
+                            </div>
+                            </div>
                     <div>
                         <label htmlFor="confirmPassword" className="block text-blue-950 font mb-2 text-2xl">Confirm Password</label>
-                        <input
-                            type="password"
-                            id="confirmPassword"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                            placeholder="Re-enter Password"
-                            required
-                            value={matchPassword}
-                            onChange={(e) => setMatchPassword(e.target.value)}
-                            caria-describedby="confirmnote"
-                            onFocus={() => setMatchFocus(true)}
-                            onBlur={() => setMatchFocus(false)}
-
-                        />
-                        <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}aria-live='assertive'>
-                            Must match the first password input field.
-                        </p>
-
-                    </div>
-
-                        <div className='flex gap-5 text-2xl'>
-                            <div >
-                                <h1 className='text-blue-950'>Signup Type</h1>
+                        <div className="relative">
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                id="confirmPassword"
+                                className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                                placeholder="Re-enter Password"
+                                required
+                                value={confirmPassword}
+                                onChange={(e) => setConfirmPassword(e.target.value)}
+                            />
+                            <button
+                                className="absolute inset-y-0 right-0 px-4 py-2 focus:outline-none"
+                                onClick={togglePasswordVisibility}
+                            >
+                                {showPassword ? "Hide" : "Show"}
+                            </button>
+                        </div>
                             </div>
-
-                            <div className='gap-5 text-blue-950 flex'>
-                                <label htmlFor="Hospital">
-                                    <input type="radio"
-                                    className='w-10' 
-                                    name="signUpType"
-                                    value="hospital"
-                                    id="hospitalId"
-                                    onChange={(e)=>{
-                                    const value = e.target.value
-                                    setSignUpType({[name]: value})
-                                    }}
-                                    />Hospital
-                                </label>
-
-                                <label htmlFor="Morgue">
-                                    <input type="radio"
-                                    className='w-10'
-                                    name="signUpType"
-                                    value="morgue"
-                                    id="morgueId" 
-                                    onChange={(e)=> {
-                                        const value = e.target.value 
-                                        const name = e.target.value
-                                    }}
-                                    />Morgue
-                                </label>
-                            </div>
-                        </div>                    
-
-
-
-
-                    <div className="pb-2 ml-[130px]">
-                      <FilledButton  disabled={!validPassword || !validMatch ? true : false} text="Sign Up" style= {{width: "500px"}} type="submit"/>
+                    
+                </form>
+                <p className="text-red-500">{errMsg}</p>
+                <div className="flex justify-center item-center ml-44 flex-col gap-3">
+                      <FilledButton text="Sign Up" style= {{width: "500px"}} type="submit"/>
                         <div className="text-sm flex gap-3">
                         <p className=" flex  gap-3 text-sm text-blue-950">
                             Already have an Account? <br/>    
@@ -313,7 +307,6 @@ const HospitalSignUpForm = () => {
                         </p>
                         </div>
                     </div>
-                </form>
             </div>
 
         </div>

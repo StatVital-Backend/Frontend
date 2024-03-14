@@ -40,29 +40,22 @@ const DeathNavBar = () => {
           <div className=' pt- 20 addChild'>
             <FilledButton text="View All" style={{width: "200px", height: 86}}/>
           </div>
-
-          <div className=' pt- 20 addChild'>
-            <FilledButton text="Update " style={{width: "200px", height: 86}}/>
-          </div>
-
+        
           <div className=' pt- 20 addChild'>
             <FilledButton text="Delete" style={{width: "200px", height: 86}}/>
           </div>
 
-          <div className=' pt- 20 addChild'>
-            <FilledButton text="Post Natal Update" style={{width: "200px", height: 86}}/>
+          <div className=' pt- 20 UpdateDeathInfo'>
+          <Link to="/deathlayout/update-death-info"> <FilledButton text="Post Partum Update" style={{width: "200px", height: 86}}/>
+          </Link>
           </div>
 
-          <div className=' pt- 20 Deceased'>
-            <FilledButton text="Retrive" style={{width: "200px", height: 86}}/>
-          </div>
-
-      </div>
-      <h1 className='text-4xl justify-center center flex text-blue-950 '></h1>
-      <div className='pt-6'>
-      <div className="flex relative">
-        <img src={rectangle} alt="Black Image" className="pl-[400px] w-[2000px] " />
-        <p className='text-4xl z-10 text-white relative right-[750px] top-6'>Deceased Registration DashBoard</p>
+        </div>
+        <h1 className='text-4xl justify-center center flex text-blue-950 '></h1>
+        <div className='pt-6'>
+        <div className="flex relative">
+          <img src={rectangle} alt="Black Image" className="pl-[400px] w-[2000px] " />
+          <p className='text-4xl z-10 text-white relative right-[750px] top-6'>Deceased Registration DashBoard</p>
 
 
         <div className='absolute justify-start top-2 left-[400px]'>
@@ -74,7 +67,7 @@ const DeathNavBar = () => {
         </div >
         </div>
       </div>
-      <h2 className="text-4xl text-blue-950 font-semibold mb-4 pt-8 justify-center center flex uppercase">WELCOME TO ANIKULAPO MORTUARY</h2>
+      <h2 className="text-4xl text-blue-950 font-semibold mb-4 pt-8 justify-center center flex uppercase">WELCOME TO ....... MORTUARY</h2>
 
     </div>
         )

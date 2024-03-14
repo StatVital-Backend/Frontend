@@ -12,23 +12,15 @@ const PWD_REGEX = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}|:`.,/'|"<>?])(?=.*[0-9]).{8,
 
 
 const HospitalLoginPage = () => {
-  const path = '/logInHospital'; 
-  const BASE_URL = `${process.env.REACT_APP_BACKEND_URL}${path}`
+  // const path = '/logInHospital'; 
+  // const BASE_URL = `${process.env.REACT_APP_BACKEND_URL}${path}`
 
     const navigate = useNavigate();
 
-    const {setAuth} = useContext(AuthContext );
+    const {setAuth} = useContext(AuthContext);
 
     const handleSignUp = () => {
       navigate('/hospitalsignup')
-    }
-
-    const handleHospitalDashBoard = () => {
-      if (loginType.loginType === 'hospital'){
-        navigate('/birthlayout/registerbirth')
-      }else{
-        navigate('./deathlayout/registerDeath')
-      }
     }
 
     const userRef = useRef();
@@ -38,6 +30,7 @@ const HospitalLoginPage = () => {
     const [password, setPassword] = useState('');
     const [loginType, setLoginType] = useState({loginType : ''});
     const [errMsg, setErrMsg] = useState('');
+   
   
   
     useEffect (()=> {
@@ -50,36 +43,79 @@ const HospitalLoginPage = () => {
   
     const handleSubmit = async (e) =>{
       e.preventDefault();
-      handleHospitalDashBoard()
+      // handleHospitalDashBoard()
       const v2 = PWD_REGEX.test(password);
       if (!v2) {
           setErrMsg("Incorrect Password");
           return;
       }
 
-      const HospitalLogin = {
-        facilityName: email,
-        password: password,
-    };
+      console.log(loginType)
+    //   const HospitalLogin = {
+    //     facilityName: email,
+    //     password: password,
+    // };
   
-      fetch(BASE_URL, {
-        method: 'POST',
-        headers: {
-            'content-Type': 'application/json'
-        },
-        body:JSON.stringify(HospitalLogin)
-        })
-        .then(response => response.json())
-        .then(data => {
-        console.log(data);
-        })
-        .catch(error => {
-        console.error('Error:', error);
-        });
-  
-    
+    // fetch("https://7168-102-89-32-113.ngrok-free.app/api/v1/logInHospital", {
+    //   method: 'POST',
+    //     headers: {
+    //         'content-Type': 'application/json'
+    //     },
+    //     body:JSON.stringify(HospitalLogin)
+    //     })
+    //     .then(response => response.json())
+    //     .then(data => {
+    //     console.log("SUCCESSFUL")
+    //     console.log(data);
+    //     navigate('/birthlayout/registerbirth')
+    //     })
+    //     .catch(error => {
+    //     console.error('Error:', error);
+    //     });
     }
-    console.log(loginType)
+
+
+
+
+    const Login = {
+      facilityName: facilityName,
+      password: password,
+  };
+  if(loginType.loginType === 'hospital'){
+      fetch("https://7168-102-89-32-113.ngrok-free.app/api/v1/logInHospital", {
+          method: 'POST',
+          headers: {
+              'content-Type': 'application/json'
+          },
+          body:JSON.stringify(Login)
+      }).then(response => response.json())
+        .then(data => {
+          console.log("SUCCESSFUL")
+          navigate('/birthlayout/registerbirth')
+      }).catch(error => {
+          console.error('Error:', error);
+      });
+      }
+  else if(loginType.loginType === 'morgue'){
+      fetch("https://7168-102-89-32-113.ngrok-free.app/api/v2/Log-In-Morgue", {
+          method: 'POST',
+          headers: {
+              'content-Type': 'application/json'
+          },
+          body:JSON.stringify(Login)
+      }).then(response => response.json())
+      .then(data => {
+          console.log("SUCCESSFUL")
+          navigate('/deathlayout/registerDeath')
+      }).catch(error => {
+          console.error('Error:', error);
+      });
+    }
+  else {
+      console.log("Login Type button must be clicked")
+  }
+  
+
 
     
 
@@ -92,15 +128,15 @@ const HospitalLoginPage = () => {
 
       <div className="flex flex-col justify-center items-center px-20 py-8 gap-8 loginDiv">
 
-        <div className=" w-[580px] px-14 h-[800px] pt-8 border border-white-1 rounded-lg">
+        <div className=" w-[580px] px-14 h-[800px] pt-10 border border-white-1 rounded-lg">
         <div className="flex px-20 pb-30 justify-center">
             <img src={logo} alt=""/>
           </div>
-          <h1 className="text-4xl font-extrabold justify-center pt-10 center flex  text-white">LOGIN</h1>
+          <h1 className="text-3xl font-extrabold justify-center pt-10 center flex  text-white">HOSPITAL AND MORGUE LOGIN</h1>
           <p ref={errRef} className={`${errMsg ? 'errmsg text-white text-2xl center flex justify-center' : 'offscreen'}`} aria-live='assertive'>{errMsg}</p>
 
-            <form on onSubmit={handleSubmit}>
-              <div className="flex flex-col gap-5"> 
+            <form onSubmit={handleSubmit}>
+              <div className="flex pt-8 flex-col gap-5"> 
               <label htmlFor='username' className="text-white text-2xl">Email</label>
               <input className="w-[470px] px-5 rounded-lg h-9"
               type='email' 
@@ -128,6 +164,10 @@ const HospitalLoginPage = () => {
               required
               />
 
+            <div className="flex gap-6"> 
+              <div>
+                <p className="text-white text-2xl">Login Type</p>
+              </div>
               <div className="gap-5 flex text-white text-2xl">
                 <label htmlFor="Hospital">
                   <input type="radio" className="w-10" name="loginType" value="hospital" id="hospitalId" onChange={(e) => {
@@ -146,10 +186,11 @@ const HospitalLoginPage = () => {
                   Morgue
                 </label>
               </div>
+            </div>  
 
             </div>  
               <div className="pt-8">
-              <FilledButton text="Login" style={{width:"470px"}} onClick={handleHospitalDashBoard}/>
+              <FilledButton text="Login" style={{width:"470px"}}/>
               </div>
             </form>
             <p className="flex flex-row gap-4 pt-5 text-white">

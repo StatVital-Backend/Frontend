@@ -17,6 +17,8 @@ import MorgueSignUpForm from "../component/Pages/SignUp/MorgueSignUpForm";
 import ServicePage from "../component/Pages/Service";
 import ServiceLayout from "../layout/ServiceLayout";
 import AddChild from "../component/Pages/BirthNavBarMethods/AddChild";
+import ViewAll from "../component/Pages/BirthNavBarMethods/ViewAll";
+import PostNatalUpdate from "../component/Pages/BirthNavBarMethods/PostNatalUpdate";
 
 export const ROUTES = [
     {
@@ -78,13 +80,21 @@ export const ROUTES = [
         element: <BirthLayout/>,
         children: [
             {
-                path: "/birthlayout/registerbirth", 
+                path: "/birthlayout/registerbirth/addChild", 
                 element: <RegisterBirth/>,
             },
             {
-                path: "/birthlayout/registerbirth",
+                path: "/birthlayout/registerbirth/AddChild",
                 element: <AddChild />
-            }
+            },
+            {
+                path: "/birthlayout/registerbirth/ViewAll",
+                element: <ViewAll/>
+            },
+            {
+                path: "/birthlayout/registerbirth/PostNatalUpdate",
+                element: <PostNatalUpdate/>,
+            },
         ]
     },
     {

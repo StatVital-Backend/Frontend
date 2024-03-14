@@ -34,23 +34,23 @@ const BirthNavBar = () => {
 
       <div className=' justify-center pt-6 flex gap-4 mainContainer'>
           <div className=' pt- 20 addChild'>
-           <Link to="/birthlayout/registerbirth"><FilledButton text="Add" style={{width: "200px", height: 86}}/> </Link> 
+           <Link to="/birthlayout/registerbirth/addChild"><FilledButton text="Add" style={{width: "250px", height: 86}}/> </Link> 
           </div>
 
           <div className=' pt- 20 addChild'>
-            <FilledButton text="View All" style={{width: "200px", height: 86}}/>
+          <Link to="/birthlayout/registerbirth/ViewAll"><FilledButton text="View All" style={{width: "250px", height: 86}}/> </Link>  
           </div>
 
-          <div className=' pt- 20 addChild'>
+          {/* <div className=' pt- 20 addChild'>
             <FilledButton text="Update" style={{width: "200px", height: 86}}/>
-          </div>
+          </div> */}
 
           <div className=' pt- 20 addChild'>
-            <FilledButton text="Delete" style={{width: "200px", height: 86}}/>
+            <FilledButton text="Delete" style={{width: "250px", height: 86}}/>
           </div>
 
           <div className=' pt- 20 AddChild'>
-            <FilledButton text="Post Natal Update" style={{width: "200px", height: 86}}/>
+           <Link to="/birthlayout/registerbirth/PostNatalUpdate"><FilledButton text="Post Natal Update" style={{width: "250px", height: 86}}/> </Link> 
           </div>
 
           {/* <div className=' pt- 20 AddChild'>

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from 'react-router-dom';
-import FilledButton from '../../../../reuseables/bottons/FilledButton/FilledButton';
-import Certificate from '../../Certificate/certificate';
+import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton';
+import Certificate from '../Pages/Certificate/certificate'
 
 const RegisterChildbirth = ({ title }) => {
     const { register, watch, formState: { errors } } = useForm();

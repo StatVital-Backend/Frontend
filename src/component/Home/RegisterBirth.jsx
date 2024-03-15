@@ -3,6 +3,7 @@ import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton';
 
 
 const RegisterBirth = () => {
+    const [name, setName] = useState('');
     const [officialEmail, setOfficialEmail] = useState('');
     const [nurseName, setNurseName] = useState('');
     const [fatherFullName, setFatherFullName] = useState('');
@@ -11,15 +12,48 @@ const RegisterBirth = () => {
     const [stateOfOrigin, setStateOfOrigin] = useState('');
     const [sex, setSex] = useState('');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    };
+
+
     const nigerianStates = [
         "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", "Cross River",
         "Delta", "Ebonyi", "Edo", "Ekiti", "Enugu", "Gombe", "Imo", "Jigawa", "Kaduna", "Kano", "Katsina",
         "Kebbi", "Kogi", "Kwara", "Lagos", "Nasarawa", "Niger", "Ogun", "Ondo", "Osun", "Oyo", "Plateau",
         "Rivers", "Sokoto", "Taraba", "Yobe", "Zamfara", "FCT Abuja"
     ];
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+
+        const data = {
+            name: name,
+            email: officialEmail,
+            nurseName: nurseName,
+            fatherName: fatherFullName,
+            motherName: motherFullName,
+            chilName:childFullName,
+            stateOfOrigin: stateOfOrigin,
+            sex:sex
+
+        }
+
+        fetch('https://tops-chimp-promoted.ngrok-free.app/api/v1/RegisterChild', {
+        method: 'POST',
+        headers: {
+            'content-Type': 'application/json'
+        },
+        body:JSON.stringify(data)
+        })
+        .then(response => response.json())
+        .then(data => {
+        console.log(data);
+        })
+        .catch(error => {
+        console.error('Error:', error);
+        });
+        
+        
+    };
+   
 
   return (
     <div className='pt-6 '> 
@@ -115,7 +149,7 @@ const RegisterBirth = () => {
                         <option className='text-2xl' value="female">Female</option>
                     </select>
                 </div>
-                <FilledButton text="Add Child" style={{width: ["650px"]}}/>
+                <FilledButton type="submit" text="Add Child" style={{width: ["650px"]}}/>
                 
                 </form>
             </div>

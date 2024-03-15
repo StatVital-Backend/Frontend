@@ -16,25 +16,42 @@ const DeathNavBar = () => {
           </div>
           <div className='pt-4 '>
               <div className="relative">
-                  <input type="search" placeholder="What are you looking for?" className="border border-blue-400 h-12 border-solid text-blue-950 rounded-3xl w-[600px] py-2 px-4 pl-6 placeholder-gray-900 placeholder-opacity-50 bg-transparent" />
+              <Link to="/deathlayout">
+                  <input type="search" placeholder="search by.. ID/DOB/Name?" className="border border-blue-400 h-12 border-solid text-blue-950 rounded-3xl w-[600px] py-2 px-4 pl-6 placeholder-gray-900 placeholder-opacity-50 bg-transparent" />
                       <svg className="absolute right-3 top-1/2 transform -translate-y-1/2 " xmlns="http://www.w3.org/2000/svg" width="20" height="20" >
                           <path fillRule="evenodd" d="M14.854 13.146a1 1 0 0 1-1.414 1.414l-3.792-3.792a1 1 0 0 1 1.414-1.414l3.792 3.792zM15.207 8a7 7 0 1 1-14 0 7 7 0 0 1 14 0z" clipRule="evenodd" />
                       </svg>
+              </Link>
               </div>
           </div> 
+
+          <div className=' pt-5'>
+          <Link to="/birthlayout/registerbirth">
+          <button className="rounded-full bg-blue-400 p-4 flex items-center justify-center">
+            <span className="ml-2 text-[24px] text-white">+ Register Birth</span>
+          </button> 
+          </Link>
+          </div>
       </div>  
 
       <div className=' justify-center pt-6 flex gap-4 mainContainer'>
           <div className=' pt- 20 addChild'>
+          <Link to="/deathlayout/registerDeath">
             <FilledButton text="Add " style={{width: "200px", height: 86}}/>
-          </div>
+           </Link>
 
+          </div>
+          
           <div className=' pt- 20 addChild'>
+          <Link to="/birthlayout/viewAll">
             <FilledButton text="View All" style={{width: "200px", height: 86}}/>
+            </Link>
           </div>
         
           <div className=' pt- 20 addChild'>
+          <Link to="/deathlayout/registerDeath">
             <FilledButton text="Delete" style={{width: "200px", height: 86}}/>
+            </Link>
           </div>
 
           <div className=' pt- 20 UpdateDeathInfo'>

@@ -1,39 +1,139 @@
-import React, { useState } from 'react';
-import hospitalLogo from '../../../assets/Untitled(4).jpg';
-import backgroundImage from '../../../assets/clean-medical-background_53876-97927.jpg';
+import React, {useRef, useState, useEffect } from 'react';
+import statVitalLogo from '../../../assets/statVitalLogo.png';
+import FilledButton from '../../../reuseables/bottons/FilledButton/FilledButton';
+import GhostButton from '../../../reuseables/bottons/GhostButton/GhostButton';
+import { useForm } from "react-hook-form"
+import { useNavigate, Link } from 'react-router-dom';
 
-const MorgueSignUpForm = ({ title }) => {
+
+
+// const PWD_REGEX = /^(?=.[A-Z])(?=.[!@#$%^&()_+{}|:`.,/'|"<>?])(?=.[0-9]).{8,}$/;
+// const REACT_APP_BACKEND_URL = "https://d8d1-62-173-45-238.ngrok-free.app/api/v1/"; 
+
+const MortuarySignUpForm = () => {
+    const navigate = useNavigate();
+
+    // const path = '/signUpHospital'; 
+
+    // const BASE_URL = ${process.env.REACT_APP_BACKEND_URL}${path};
+    // console.log(BASE_URL)
+    // console.log(REACT_APP_BACKEND_URL)
+    
+    const [showMessage, setShowMesssage] = useState(false)
+    const { register, formState: { errors } } = useForm();
+
+    
+    // const [signUpType, setSignUpType] = useState({signUpType : ''});
     const [facilityName, setFacilityName] = useState('');
     const [facilityLocation, setFacilityLocation] = useState('');
     const [facilityType, setFacilityType] = useState('');
     const [certificationNumber, setCertificationNumber] = useState('');
     const [officialEmail, setOfficialEmail] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
-    const [password, setPassword] = useState('');
-    const [confirmPassword, setConfirmPassword] = useState('');
-
+    const [password, setPassword] = useState ('');
+    const [validPassword, setValidPassword] = useState (false);
+    const [matchPassword, setMatchPassword] = useState ('');
+    const [validMatch, setValidMatch] = useState (false);
+    const [matchFocus, setMatchFocus] = useState (false);
     const [errMsg, setErrMsg] = useState('');
-    const [showPassword, setShowPassword] = useState(false);
+    const [successMsg, setSuccessMsg] = useState('');
+
+    // useEffect (()=> {
+    //     const result = PWD_REGEX.test(password);
+    //     console.log(result);
+    //     console.log(password);
+    //     setValidPassword(result);
+    //     const match = password === matchPassword;
+    //     setValidMatch(match);
+    // }, [password, matchPassword]);
 
 
-    const handleSubmit = (e) => {
+    useEffect (() => {
+        setErrMsg('')
+    }, [ password, matchPassword]);
+
+
+
+    const handleSubmit = async(e) => {
+        e.preventDefault()    
+
+        // const v2 = PWD_REGEX.test(password);
+        // if (!v2) {
+        //     setErrMsg("Password must contain 8 to 24 characters, uppercase and lowercase letters, a number and a special character:");
+        //     return;
+        // }
+    }
+
+    
+
+    const handleBirthReg = async (e)=> {
         e.preventDefault();
-        setErrMsg('');
-    };
 
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
+        console.log("i am here")
+
+        const obj = {
+        facilityName: facilityName,
+        facilityLocation: facilityLocation,
+        sector: facilityType,
+        certificationNumber: certificationNumber,
+        email: officialEmail,
+        phoneNumber: phoneNumber,
+        password: password,}
+
+        console.log(obj)
+
+   
+    
+    
+    try {
+        const response = await fetch("https://tops-chimp-promoted.ngrok-free.app/api/v1/signUpMortuary", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj)
+        });
+
+        console.log(response.message)
+        
+        if (response.ok) {
+            const data = await response.json();
+                setErrMsg(data.message)
+                console.log(data);
+                setTimeout(()=>{
+                    setSuccessMsg(data.message);
+                }, 1500);
+                // console.log("SUCCESSFUL")
+                navigate("/mortuarylogin")
+            }
+        
+        } catch (error) {
+            console.error('Error:', error);
+            // setErrMsg(error.message)
+            setErrMsg("Network issue")
+           }
+    
+
+            
     };
 
     return (
-        <div className="flex justify-center items-center h-screen bg-cover" style={{ backgroundImage: `url(${backgroundImage})` }}>        
-        <div className="flex justify-center items-center h-screen">
-            <div className="bg-white rounded-sm p-6 text-center">
-                <img src={hospitalLogo} alt="Hospital Logo" className="mb-5 mx-auto" />
-                <h2 className="text-4xl font-bold text-blue-900 text-center mb-8"> SIGN UP AS MORGUE </h2>
-                <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-8">
+        
+        <div className="  bg-blue-950" >  
+        <div className='flex'>    
+        <div className="flex">
+            <div className="bg-white w-[850px] pt-0 rounded-sm p-6">
+             <img src={statVitalLogo} alt="Hospital Logo" className="mb-" />
+                <h2 className="text-4xl font-bold text-blue 950 text-center mb-8">HOSPITAL AND MORGUE SIGN UP</h2>
+                <p className="text-red-500">{errMsg}</p>
+                <p className="text-red-500">{successMsg}</p>
+
+
+                <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-10">
+
                     <div>
-                        <label htmlFor="facilityName" className="block text-blue-900 font mb-2 text-2xl">Facility Name</label>
+
+                        <label htmlFor="facilityName" className="block text-blue-950  mb-2 text-2xl">Facility Name</label>
                         <input
                             type="text"
                             id="facilityName"
@@ -45,7 +145,7 @@ const MorgueSignUpForm = ({ title }) => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="facilityLocation" className="block text-blue-900 font mb-2 text-2xl">Facility Location</label>
+                        <label htmlFor="facilityLocation" className="block text-blue-950 font mb-2 text-2xl">Facility Location</label>
                         <input
                             type="text"
                             id="facilityLocation"
@@ -57,7 +157,7 @@ const MorgueSignUpForm = ({ title }) => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="facilityType" className="block text-blue-900 font mb-2 text-2xl">Facility Type</label>
+                        <label htmlFor="facilityType" className="block text-blue-950 font mb-2 text-2xl">Facility Type</label>
                         <select
                             id="facilityType"
                             className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
@@ -66,12 +166,12 @@ const MorgueSignUpForm = ({ title }) => {
                             required
                         >
                             <option value="">Select Facility Type</option>
-                            <option value="private">Private</option>
-                            <option value="public">Public</option>
+                            <option className='text-2xl' value="private">Private</option>
+                            <option className='text-2xl' value="public">Public</option>
                         </select>
                     </div>
                     <div>
-                        <label htmlFor="certificationNumber" className="block text-blue-900 font mb-2 text-2xl">Certification Number</label>
+                        <label htmlFor="certificationNumber" className="block text-blue-950 font mb-2 text-2xl">Certification Number</label>
                         <input
                             type="text"
                             id="certificationNumber"
@@ -83,59 +183,20 @@ const MorgueSignUpForm = ({ title }) => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="officialEmail" className="block text-blue-900 font mb-2 text-2xl">Official Email</label>
+                        <label htmlFor="officialEmail" className="block text-blue-950 font mb-2 text-2xl">Official Email</label>
                         <input
                             type="email"
                             id="officialEmail"
                             className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                            placeholder="Enter Official Email"
+                            placeholder="@hospital.com"
                             required
                             value={officialEmail}
                             onChange={(e) => setOfficialEmail(e.target.value)}
                         />
                     </div>
+
                     <div>
-                    <label htmlFor="password" className="block text-blue-950 font mb-2 text-2xl">Password</label>
-                    <div className="relative">
-                        <input
-                            type={showPassword ? "text" : "password"}
-                            id="password"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                            placeholder="Enter Password"
-                            required
-                            value={password}
-                            onChange={(e) => setPassword(e.target.value)}
-                        />
-                        <button
-                            className="absolute inset-y-0 right-0 px-4 py-2 focus:outline-none"
-                            onClick={togglePasswordVisibility}
-                        >
-                            {showPassword ? "Hide" : "Show"}
-                        </button>
-                            </div>
-                            </div>
-                            <div>
-                                <label htmlFor="confirmPassword" className="block text-blue-950 font mb-2 text-2xl">Confirm Password</label>
-                                <div className="relative">
-                                    <input
-                                        type={showPassword ? "text" : "password"}
-                                        id="confirmPassword"
-                                        className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                                        placeholder="Re-enter Password"
-                                        required
-                                        value={confirmPassword}
-                                        onChange={(e) => setConfirmPassword(e.target.value)}
-                                    />
-                                    <button
-                                        className="absolute inset-y-0 right-0 px-4 py-2 focus:outline-none"
-                                        onClick={togglePasswordVisibility}
-                                    >
-                                        {showPassword ? "Hide" : "Show"}
-                                    </button>
-                                </div>
-                            </div>
-                    <div>
-                        <label htmlFor="phoneNumber" className="block text-blue-900 font mb-2 text-2xl">Phone Number</label>
+                        <label htmlFor="phoneNumber" className="block text-blue-950 font mb-2 text-2xl">Faculty Contact Line</label>
                         <input
                             type="tel"
                             id="phoneNumber"
@@ -146,25 +207,77 @@ const MorgueSignUpForm = ({ title }) => {
                             onChange={(e) => setPhoneNumber(e.target.value)}
                         />
                     </div>
-                     
-                </form>
-                <p className="text-red-500">{errMsg}</p>
-                    <div className="flex items-center justify-between">
-                        <button
-                            type="submit"
-                            className="button-style bg-blue-400   focus:ring-2 focus:ring-blue-300 font-medium rounded-lg text-sm py-2.5 px-5 w-full sm:auto"
-                        >
-                            Register
-                        </button>
-                        <div className="text-sm">
-                            <p className="mb-4">Already have an account?</p>
-                            <p className="underline cursor-pointer">Sign in</p>
+
+                    
+                    <div>
+                        <label htmlFor="password" className="block text-blue-950 font mb-2 text-2xl">Password</label>
+                        <input
+                            type="password"
+                            id="password"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            placeholder="Enter Password"
+                            onChange={(e) => setPassword(()=> {
+                                return e.target.value
+                            })}
+                            value={password}
+                            required
+                            aria-invalid={validPassword ? "false" : "true"}
+
+                        />
+                    </div>
+                    
+                    <div>
+                        <label htmlFor="confirmPassword" className="block text-blue-950 font mb-2 text-2xl">Confirm Password</label>
+                        <input
+                            type="password"
+                            id="confirmPassword"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            placeholder="Re-enter Password"
+                            required
+                            value={matchPassword}
+                            onChange={(e) => setMatchPassword(e.target.value)}
+                            caria-describedby="confirmnote"
+                          
+
+                        />
+                        <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}aria-live='assertive'>
+                            Must match the first password input field.
+                        </p>
+
+                    </div>
+
+
+                    <div className="pb-2 ml-[130px]">
+                      {/* <FilledButton   text="Sign Up" style= {{width: "500px"}} type="submit" onClick={handleBirthReg}/> */}
+                      <button className ='bg-blue-400 py-3 border-radius text-[20px] text-white font-family:   Georgia Cambria "Times New Roman" Times
+         serif line-height: 1.5rem; rounded-2xl' style= {{width: "500px"}} type="submit" onClick={handleBirthReg}>Sign up</button>
+                        <div className="text-sm flex gap-3">
+                        <p className=" flex  gap-3 text-sm text-blue-950">
+                            Already have an Account? <br/>    
+                            <span className='line'>
+                           <Link to="/morguelogin"><GhostButton text="Login"/> </Link> 
+                            </span>
+                        </p>
                         </div>
                     </div>
+                </form>
             </div>
+
         </div>
+        <div className='content px-32 pt-80'>
+            <h1 className='text-white flex text-5xl'>
+            Navigate Life's Journey with
+             Precision - <br /> Capturing Every Moment, 
+              Every Statistic, Every Insight!</h1>
+              <p className='text-white pt-10 text-2xl'> We are a team of passionate individuals who believe in the power of data and its impact on society.
+            Committed to providing the best tools and resources, we empower you to capture and analyze 
+            your life's journey. By encapsulating every moment, statistic, and insight, we enable informed 
+            decisions and a more fulfilling life. We're devoted to guiding you through life's journey with precision, 
+            eagerly anticipating our role in your story.</p>
+        </div>
+        </div>  
         </div>
     );
 };
 
-export default MorgueSignUpForm;
+export default MortuarySignUpForm;

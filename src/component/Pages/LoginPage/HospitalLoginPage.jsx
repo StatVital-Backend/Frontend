@@ -1,7 +1,7 @@
 import React from "react";
 import {useRef, useState, useEffect, useContext } from "react";
 import AuthContext from "../../AuthProvider";
-import {useNavigate } from "react-router-dom";
+import {useNavigate, Link } from "react-router-dom";
 import FilledButton from '../../../reuseables/bottons/FilledButton/FilledButton'
 import GhostButton from '../../../reuseables/bottons/GhostButton/GhostButton'
 import nurse from '../../../assets/african-doctor-portrait_93675-75219.avif'
@@ -19,9 +19,10 @@ const HospitalLoginPage = () => {
 
     const {setAuth} = useContext(AuthContext);
 
-    const handleSignUp = () => {
-      navigate('/hospitalsignup')
-    }
+    // const handleSignUp = (e) => {
+    //   e.preventDefault();
+    //   navigate('/hospitalsignup')
+    // }
 
     const userRef = useRef();
     const errRef = useRef();
@@ -82,7 +83,7 @@ const HospitalLoginPage = () => {
       password: password,
   };
   if(loginType.loginType === 'hospital'){
-      fetch("https://7168-102-89-32-113.ngrok-free.app/api/v1/logInHospital", {
+      fetch("https://tops-chimp-promoted.ngrok-free.app/api/v1/logInHospital", {
           method: 'POST',
           headers: {
               'content-Type': 'application/json'
@@ -97,7 +98,7 @@ const HospitalLoginPage = () => {
       });
       }
   else if(loginType.loginType === 'morgue'){
-      fetch("https://7168-102-89-32-113.ngrok-free.app/api/v2/Log-In-Morgue", {
+      fetch("https://tops-chimp-promoted.ngrok-free.app/api/v2/Log-In-Morgue", {
           method: 'POST',
           headers: {
               'content-Type': 'application/json'
@@ -196,7 +197,7 @@ const HospitalLoginPage = () => {
             <p className="flex flex-row gap-4 pt-5 text-white">
               Need an Account? <br/>    
               <span className='line'>
-               <GhostButton text="Sign up" onClick={handleSignUp}/>
+              <Link to="/hospitalsignup"><GhostButton text="Sign up"/> </Link> 
               </span>
             </p>
           </div>

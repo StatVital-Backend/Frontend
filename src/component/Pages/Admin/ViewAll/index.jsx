@@ -13,7 +13,7 @@ function ViewAll() {
 
   const fetchBirthUsers = async () => {
     try {
-      const response = await fetch('localhost:8080/api/v1/admin');
+      const response = await fetch('https://tops-chimp-promoted.ngrok-free.app/api/v1/GetData');
       const data = await response.json();
       setBirthUsers(data);
     } catch (error) {
@@ -23,7 +23,7 @@ function ViewAll() {
 
   const fetchDeathRegistrations = async () => {
     try {
-      const response = await fetch('YOUR_API_ENDPOINT/death-registrations');
+      const response = await fetch('https://tops-chimp-promoted.ngrok-free.app/');
       const data = await response.json();
       setDeathRegistrations(data);
     } catch (error) {

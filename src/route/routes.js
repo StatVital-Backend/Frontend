@@ -21,6 +21,7 @@ import UpdateBirthInfo from "../component/Pages/Admin/UpdateBirthInfo";
 import UpdateDeathInfo from "../component/Pages/Admin/UpdateDeathInfo";
 import RecordSearch from "../component/Pages/Admin/RecordSearch";
 import Delete from "../component/Pages/Admin/Delete";
+import MortuarySignUpForm from "../component/Pages/SignUp/MorgueSignUpForm";
 
 export const ROUTES = [
     {
@@ -66,6 +67,10 @@ export const ROUTES = [
         element: <MortuaryLoginPage />,
     },
     {
+        path: "/mortuarysignup",
+        element: <MortuarySignUpForm/>
+    },
+    {
         path: "/hospitallogin",
         element: <HospitalLoginPage />,
     },
@@ -82,7 +87,7 @@ export const ROUTES = [
                 element: <RegisterBirth/>,
             },
             {
-                path: "/birthlayout/registerbirth",
+                path: "/birthlayout/registerbirth/PostNatalUpdate",
                 element: <AddChild />,
             },
             {

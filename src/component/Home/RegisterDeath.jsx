@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import hospitalLogo from '../../assets/Untitled(4).jpg';
 import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton';
 import { useForm } from "react-hook-form"
 import { Link, useNavigate } from 'react-router-dom';
@@ -70,7 +69,6 @@ const RegisterDeath = ({ title }) => {
         <div className='flex'>    
         <div className="flex ">
             <div className="bg-white w-[850px] rounded-sm p-6">
-             {/* <img src={hospitalLogo} alt="Hospital Logo" className="mb-5 mx-auto" /> */}
                    
                 <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-10">
 

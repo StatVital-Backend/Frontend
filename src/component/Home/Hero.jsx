@@ -88,7 +88,8 @@ const Hero = () => {
                     </h3>
                     <div className="mt-10 flex flex-col gap-5 sm:flex-row justify-center md:justify-start">
                         <Link to="/hospitalsignup"><FilledButton text={"SignUp as Hospital"} style={{ width: '200px' }} /></Link>
-                       <Link to="/mortuarysignup"><button text={"SignUp as Mortuary"} style={{width: '200px'}}>SignUp as Mortuary</button> </Link> 
+
+                       <Link to="/mortuarysignup"><FilledButton text={"SignUp as Mortuary"} style={{width: '200px'}}>SignUp as Mortuary</FilledButton> </Link> 
                        
                     </div>
                 </div>

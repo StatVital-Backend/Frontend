@@ -4,7 +4,6 @@ import FilledButton from '../../../../reuseables/bottons/FilledButton/FilledButt
 
 const UpdateBirthInfo = () => {
     const [officialEmail, setOfficialEmail] = useState('');
-    const [nurseName, setNurseName] = useState('');
     const [fatherFullName, setFatherFullName] = useState('');
     const [motherFullName, setMotherFullName] = useState('');
     const [childFullName, setChildFullName] = useState('');
@@ -41,7 +40,7 @@ const UpdateBirthInfo = () => {
                         required
                     />
                 </div>
-                <div className="mb-4">
+                {/* <div className="mb-4">
                     <label htmlFor="nurseName" className="block text-blue-900 font mb-2 text-2xl">Nurse Name</label>
                     <input
                         id="nurseName"
@@ -52,7 +51,7 @@ const UpdateBirthInfo = () => {
                         placeholder="enter nurse name"
                         required
                     />
-                </div>
+                </div> */}
                 <div className="mb-4">
                     <label htmlFor="fatherFullName" className="block text-blue-900 font mb-2 text-2xl">Father's Full Name</label>
                     <input

@@ -83,7 +83,7 @@ export const ROUTES = [
         element: <BirthLayout/>,
         children: [
             {
-                path: "/birthlayout/registerbirth", 
+                path: "/birthlayout/register-birth", 
                 element: <RegisterBirth/>,
             },
             {
@@ -121,6 +121,10 @@ export const ROUTES = [
             {
                 path:"/deathlayout/update-death-info",
                 element: <UpdateDeathInfo/>,
+            },
+            {
+                path:"/deathlayout/search-records",
+                element: <RecordSearch/>,
             },
         ]
     },

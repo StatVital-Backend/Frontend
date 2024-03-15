@@ -17,18 +17,20 @@ const BirthNavBar = () => {
           </div>
           <div className='pt-4 '>
               <div className="relative">
-                  <input type="search" placeholder="What are you looking for?" className="border border-blue-400 h-12 border-solid text-blue-950 rounded-3xl w-[600px] py-2 px-4 pl-6 placeholder-gray-900 placeholder-opacity-50 bg-transparent" />
+              <Link to="//birthlayout/search-records">
+                  <input type="search" placeholder="search by.. ID/DOB/Name?" className="border border-blue-400 h-12 border-solid text-blue-950 rounded-3xl w-[600px] py-2 px-4 pl-6 placeholder-gray-900 placeholder-opacity-50 bg-transparent" />
                       <svg className="absolute right-3 top-1/2 transform -translate-y-1/2 " xmlns="http://www.w3.org/2000/svg" width="20" height="20" >
                           <path fillRule="evenodd" d="M14.854 13.146a1 1 0 0 1-1.414 1.414l-3.792-3.792a1 1 0 0 1 1.414-1.414l3.792 3.792zM15.207 8a7 7 0 1 1-14 0 7 7 0 0 1 14 0z" clipRule="evenodd" />
                       </svg>
+              </Link>
               </div>
               {/* <RecordSearch /> */}
           </div> 
 
           <div className=' pt-5'>
-          <Link to="/deathLayout/registerDeath">
+          <Link to="/DeathLayout">
           <button className="rounded-full bg-blue-400 p-4 flex items-center justify-center">
-            <span className="ml-2 text-[24px] text-white">+ Register Death</span>
+            <span className="ml-2 text-[24px] text-white">+ Register Birth</span>
           </button> 
           </Link>
           </div>
@@ -36,11 +38,11 @@ const BirthNavBar = () => {
 
       <div className=' justify-center pt-6 flex gap-4 mainContainer'>
           <div className=' pt- 20 addChild'>
-           <Link to="/birthlayout/registerbirth/addChild"><FilledButton text="Add" style={{width: "250px", height: 86}}/> </Link> 
+           <Link to="/birthlayout/register-birth"><FilledButton text="Add" style={{width: "250px", height: 86}}/> </Link> 
           </div>
 
           <div className=' pt- 20 addChild'>
-          <Link to="/birthlayout/registerbirth/ViewAll"><FilledButton text="View All" style={{width: "250px", height: 86}}/> </Link>  
+          <Link to="/birthlayout/ViewAll"><FilledButton text="View All" style={{width: "250px", height: 86}}/> </Link>  
           </div>
 
           {/* <div className=' pt- 20 addChild'>
@@ -52,7 +54,7 @@ const BirthNavBar = () => {
           </div>
 
           <div className=' pt- 20 AddChild'>
-           <Link to="/birthlayout/registerbirth/PostNatalUpdate"><FilledButton text="Post Natal Update" style={{width: "250px", height: 86}}/> </Link> 
+           <Link to="/birthlayout/update-birth-info"><FilledButton text="Post Natal Update" style={{width: "250px", height: 86}}/> </Link> 
           </div>
 
           {/* <div className=' pt- 20 AddChild'>

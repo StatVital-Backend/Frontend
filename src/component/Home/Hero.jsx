@@ -86,11 +86,10 @@ const Hero = () => {
                         Committed to providing the best tools and resources, we empower you to capture and analyze your life's journey. By encapsulating every moment, statistic, and insight,
                         we enable informed decisions and a more fulfilling life. We're devoted to guiding you through life's journey with precision, eagerly anticipating our role in your story.
                     </h3>
-                    <div className="mt-10 flex flex-col sm:flex-row justify-center md:justify-start">
-                        <Link to="/signup"><FilledButton text={"Get Started"} style={{ width: '130px' }} /></Link>
-                        <button className="mt-4 sm:mt-0 sm:w-40 px-4 py-3 text-md text-blue-400">
-                            Read More
-                        </button>
+                    <div className="mt-10 flex flex-col gap-5 sm:flex-row justify-center md:justify-start">
+                        <Link to="/hospitalsignup"><FilledButton text={"SignUp as Hospital"} style={{ width: '200px' }} /></Link>
+                       <Link to="/mortuarysignup"><button text={"SignUp as Mortuary"} style={{width: '200px'}}>SignUp as Mortuary</button> </Link> 
+                       
                     </div>
                 </div>
                 <div className="w-full md:w-1/2 flex justify-center md:justify-end">

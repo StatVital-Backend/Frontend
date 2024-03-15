@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import hospitalLogo from '../../../../assets/SVlogo.jpg';
 import { useForm } from "react-hook-form"
 import { Link, useNavigate } from 'react-router-dom';
 import FilledButton from '../../../../reuseables/bottons/FilledButton/FilledButton';
@@ -58,7 +57,7 @@ const RegisterChildbirth = ({ title }) => {
         <div className='flex'>    
         <div className="flex h-screen">
             <div className="bg-white w-[850px] rounded-sm p-6">
-             <img src={hospitalLogo} alt="Hospital Logo" className="mb-5 mx-auto" />
+             {/* <img src={hospitalLogo} alt="Hospital Logo" className="mb-5 mx-auto" /> */}
                 <h2 className="text-4xl font-bold text-blue-950 text-center mb-8">HOSPITAL SIGN UP</h2>
                    
                 <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-10">

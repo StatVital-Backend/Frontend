@@ -1,66 +1,66 @@
 import React, { useState } from 'react';
-import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton';
+import { useForm } from "react-hook-form";
+import { Link, useNavigate } from 'react-router-dom';
+import FilledButton from '../../../../reuseables/bottons/FilledButton/FilledButton';
+import Certificate from '../../Certificate/certificate';
 
+const RegisterChildbirth = ({ title }) => {
+    const { register, watch, formState: { errors } } = useForm();
+    const navigate = useNavigate();
 
-const RegisterBirth = () => {
-    const [name, setName] = useState('');
-    const [officialEmail, setOfficialEmail] = useState('');
     const [nurseName, setNurseName] = useState('');
     const [fatherFullName, setFatherFullName] = useState('');
     const [motherFullName, setMotherFullName] = useState('');
     const [childFullName, setChildFullName] = useState('');
     const [stateOfOrigin, setStateOfOrigin] = useState('');
-    const [sex, setSex] = useState('');
-
-
-
-    const nigerianStates = [
-        "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", "Cross River",
-        "Delta", "Ebonyi", "Edo", "Ekiti", "Enugu", "Gombe", "Imo", "Jigawa", "Kaduna", "Kano", "Katsina",
-        "Kebbi", "Kogi", "Kwara", "Lagos", "Nasarawa", "Niger", "Ogun", "Ondo", "Osun", "Oyo", "Plateau",
-        "Rivers", "Sokoto", "Taraba", "Yobe", "Zamfara", "FCT Abuja"
-    ];
+    const [gender, setGender] = useState('');
+    const [errMsg, setErrMsg] = useState('');
+    const [isRegistered, setIsRegistered] = useState(false);
+    const [registrationData, setRegistrationData] = useState(null);
 
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        const data = {
-            name: name,
-            email: officialEmail,
+        const RegisterChildBirth = {
             nurseName: nurseName,
-            fatherName: fatherFullName,
-            motherName: motherFullName,
-            chilName:childFullName,
+            fatherFullName: fatherFullName,
+            motherFullName: motherFullName,
+            childFullName: childFullName,
             stateOfOrigin: stateOfOrigin,
-            sex:sex
+            sex: gender,
+        };
 
-        }
+        const nigerianStates = [
+            "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", "Cross River",
+            "Delta", "Ebonyi", "Edo", "Ekiti", "Enugu", "Gombe", "Imo", "Jigawa", "Kaduna", "Kano", "Katsina",
+            "Kebbi", "Kogi", "Kwara", "Lagos", "Nasarawa", "Niger", "Ogun", "Ondo", "Osun", "Oyo", "Plateau",
+            "Rivers", "Sokoto", "Taraba", "Yobe", "Zamfara", "FCT Abuja"
+        ];
 
         fetch('https://tops-chimp-promoted.ngrok-free.app/api/v1/RegisterChild', {
-        method: 'POST',
-        headers: {
-            'content-Type': 'application/json'
-        },
-        body:JSON.stringify(data)
+            method: 'POST',
+            headers: {
+                'content-Type': 'application/json'
+            },
+            body: JSON.stringify(RegisterChildBirth)
         })
         .then(response => response.json())
         .then(data => {
-        console.log(data);
+            console.log(data);
+            setRegistrationData(data); 
+            setIsRegistered(true);
         })
         .catch(error => {
-        console.error('Error:', error);
+            console.error('Error:', error);
         });
-        
-        
-    };
-   
+    }
 
-  return (
-    <div className='pt-6 '> 
-      <div className=' flex px-56 pt-2 h-[1000px]'>
-          <div className='bg-blue-400 w-full h-[1030px]'>
-          <div className="flex justify-center pt-[30px] items-center  h-[1000px]">
-            <div className="bg-white px-[495px] h-[1000px]  rounded-sm ">
+    return (
+        <div className="h-screen bg-blue-950">
+            <div className='flex'>
+                <div className="flex h-screen">
+                    <div className="bg-white w-[850px] rounded-sm p-6">
+                        <h2 className="text-4xl font-bold text-blue-950 text-center mb-8">HOSPITAL SIGN UP</h2>
                 <form onSubmit={handleSubmit}>
                 <div className="mb-4 pt-36">
                     <label htmlFor="officialEmail" className="block text-blue-900 font mb-2 text-2xl">Official Email</label>
@@ -143,26 +143,29 @@ const RegisterBirth = () => {
                         onChange={(e) => setSex(e.target.value)}
                         className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                         required
-                    >
+                        >
                         <option className='text-2xl' value="">Select Sex</option>
                         <option className='text-2xl' value="male">Male</option>
                         <option className='text-2xl' value="female">Female</option>
                     </select>
+                    <div className="">
+                        <FilledButton text="Sign Up" style={{ width: "500px" }} type="submit" />
+                    <div className="text-sm flex gap-3">
+                            <p className="mb-4">Already have an account?</p>
+                            <p className="underline text-blue-400  cursor-pointer">Sign in</p>
+                    </div>
+                    </div>
+                    </div>
+                    </form>
+                    </div>
                 </div>
-                <FilledButton type="submit" text="Add Child" style={{width: ["650px"]}}/>
-                
-                </form>
             </div>
-            </div>
-
-            </div>
-
+            
+            
+            {isRegistered && <Certificate registrationData={registrationData} />}
         </div>
-        </div>
-        //   </div>
+        
+    );
+};
 
-    // </div>
-  )
-}
-
-export default RegisterBirth;
+export default RegisterChildbirth;

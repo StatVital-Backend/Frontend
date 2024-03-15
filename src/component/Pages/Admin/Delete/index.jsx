@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import hospitalLogo from '../../../../assets/Untitled(4).jpg';
-import FilledButton from '../../../../reuseables/bottons/FilledButton/FilledButton';
+// import FilledButton from '../../../../reuseables/bottons/FilledButton/FilledButton';
 import { useParams, useNavigate } from 'react-router-dom';
 
 const Delete = () => {
@@ -26,7 +25,6 @@ const Delete = () => {
             <div className="flex">    
                 <div className="flex h-screen">
                     <div className="bg-white w-[850px] rounded-sm p-6">
-                        <img src={hospitalLogo} alt="Hospital Logo" className="mb-5 mx-auto" />
                         <h1 className="text-3xl text-blue-950 font-bold mb-5">Deleting Death Information</h1>
                         <p className="text-blue-950 mb-5">Please wait while we delete the death information...</p>
                     </div>

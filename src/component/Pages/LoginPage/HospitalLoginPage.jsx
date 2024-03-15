@@ -1,6 +1,5 @@
 import React from "react";
 import {useRef, useState, useEffect, useContext } from "react";
-import AuthContext from "../../AuthProvider";
 import {useNavigate, Link } from "react-router-dom";
 import FilledButton from '../../../reuseables/bottons/FilledButton/FilledButton'
 import GhostButton from '../../../reuseables/bottons/GhostButton/GhostButton'
@@ -8,7 +7,7 @@ import nurse from '../../../assets/african-doctor-portrait_93675-75219.avif'
 import logo from '../../../assets/VitalLogo.jpeg'
 
 
-const PWD_REGEX = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}|:`.,/'|"<>?])(?=.*[0-9]).{8,}$/;
+// const PWD_REGEX = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}|:`.,/'|"<>?])(?=.*[0-9]).{8,}$/;
 
 
 const HospitalLoginPage = () => {
@@ -17,20 +16,15 @@ const HospitalLoginPage = () => {
 
     const navigate = useNavigate();
 
-    const {setAuth} = useContext(AuthContext);
-
-    // const handleSignUp = (e) => {
-    //   e.preventDefault();
-    //   navigate('/hospitalsignup')
-    // }
+    // const {setAuth} = useContext(AuthContext);
 
     const userRef = useRef();
     const errRef = useRef();
   
     const [email, setemail] = useState('');
     const [password, setPassword] = useState('');
-    const [loginType, setLoginType] = useState({loginType : ''});
     const [errMsg, setErrMsg] = useState('');
+    const [successMsg, setSuccessMsg] = useState('')
    
   
   
@@ -41,83 +35,50 @@ const HospitalLoginPage = () => {
     useEffect (()=> {
       setErrMsg('')
     }, [email, password]);
+
+
+
+    // const handleSubmit = async(e) => {
+    //   e.preventDefault()
+    // }
   
     const handleSubmit = async (e) =>{
       e.preventDefault();
-      // handleHospitalDashBoard()
-      const v2 = PWD_REGEX.test(password);
-      if (!v2) {
-          setErrMsg("Incorrect Password");
-          return;
+
+      const obj = {
+        email: email,
+        password: password
       }
 
-      console.log(loginType)
-    //   const HospitalLogin = {
-    //     facilityName: email,
-    //     password: password,
-    // };
-  
-    // fetch("https://7168-102-89-32-113.ngrok-free.app/api/v1/logInHospital", {
-    //   method: 'POST',
-    //     headers: {
-    //         'content-Type': 'application/json'
-    //     },
-    //     body:JSON.stringify(HospitalLogin)
-    //     })
-    //     .then(response => response.json())
-    //     .then(data => {
-    //     console.log("SUCCESSFUL")
-    //     console.log(data);
-    //     navigate('/birthlayout/registerbirth')
-    //     })
-    //     .catch(error => {
-    //     console.error('Error:', error);
-    //     });
+      try {
+        const response = await fetch("https://tops-chimp-promoted.ngrok-free.app/api/v1/logInHospital", {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(obj)
+        });
+
+        console.log(response.message)
+        
+        if (response.ok) {
+            const data = await response.json();
+                setErrMsg(data.message)
+                console.log(data);
+                setTimeout(()=>{
+                    setSuccessMsg(data.message);
+                }, 1500);
+                // console.log("SUCCESSFUL")
+                navigate("/birthlayout/registerbirth")
+            }
+        
+        } catch (error) {
+            console.error('Error:', error);
+            // setErrMsg(error.message)
+            setErrMsg("Incorrect Password");
+        }
+
     }
-
-
-
-
-    const Login = {
-      email: email,
-      password: password,
-  };
-  if(loginType.loginType === 'hospital'){
-      fetch("https://tops-chimp-promoted.ngrok-free.app/api/v1/logInHospital", {
-          method: 'POST',
-          headers: {
-              'content-Type': 'application/json'
-          },
-          body:JSON.stringify(Login)
-      }).then(response => response.json())
-        .then(data => {
-          console.log("SUCCESSFUL")
-          navigate('/birthlayout/registerbirth')
-      }).catch(error => {
-          console.error('Error:', error);
-      });
-      }
-  else if(loginType.loginType === 'morgue'){
-      fetch("https://tops-chimp-promoted.ngrok-free.app/api/v2/Log-In-Morgue", {
-          method: 'POST',
-          headers: {
-              'content-Type': 'application/json'
-          },
-          body:JSON.stringify(Login)
-      }).then(response => response.json())
-      .then(data => {
-          console.log("SUCCESSFUL")
-          navigate('/deathlayout/registerDeath')
-      }).catch(error => {
-          console.error('Error:', error);
-      });
-    }
-  else {
-      console.log("Login Type button must be clicked")
-  }
-  
-
-
     
 
   return (
@@ -133,7 +94,7 @@ const HospitalLoginPage = () => {
         <div className="flex px-20 pb-30 justify-center">
             <img src={logo} alt=""/>
           </div>
-          <h1 className="text-3xl font-extrabold justify-center pt-10 center flex  text-white">HOSPITAL AND MORGUE LOGIN</h1>
+          <h1 className="text-3xl font-extrabold justify-center pt-10 center flex  text-white">HOSPITAL LOGIN</h1>
           <p ref={errRef} className={`${errMsg ? 'errmsg text-white text-2xl center flex justify-center' : 'offscreen'}`} aria-live='assertive'>{errMsg}</p>
 
             <form onSubmit={handleSubmit}>
@@ -144,7 +105,7 @@ const HospitalLoginPage = () => {
               id='email'
               // onFocus={() =il(true)}
               // onBlur={() => email(fal> emase)}
-              placeholder="@email.com"
+              placeholder="hospital@email.com"
               ref={userRef}
               autoComplete='off'
               onChange={(e) => setemail(e.target.value)}
@@ -165,33 +126,13 @@ const HospitalLoginPage = () => {
               required
               />
 
-            <div className="flex gap-6"> 
-              <div>
-                <p className="text-white text-2xl">Login Type</p>
-              </div>
-              <div className="gap-5 flex text-white text-2xl">
-                <label htmlFor="Hospital">
-                  <input type="radio" className="w-10" name="loginType" value="hospital" id="hospitalId" onChange={(e) => {
-                    const value = e.target.value
-                    const name = e.target.name
-                    setLoginType({[name]: value})
-                  }}/>
-                  Hospital
-                </label>
-                <label htmlFor="Morgue">
-                  <input type="radio" className="w-10" name="loginType" value="morgue" id="morgueId" onChange={(e) => {
-                    const value = e.target.value
-                    const name = e.target.name
-                    setLoginType({[name]: value})
-                  }} />
-                  Morgue
-                </label>
-              </div>
-            </div>  
+           
 
             </div>  
               <div className="pt-8">
-              <FilledButton text="Login" style={{width:"470px"}}/>
+              <button className ='bg-blue-400 py-3 border-radius text-[20px] text-white font-family:   Georgia Cambria "Times New Roman" Times
+         serif line-height: 1.5rem; rounded-2xl
+                            btn' text="Login" style={{width:"470px"}} type="submit" >Login</button>
               </div>
             </form>
             <p className="flex flex-row gap-4 pt-5 text-white">

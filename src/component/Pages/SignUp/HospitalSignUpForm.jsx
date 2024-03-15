@@ -346,20 +346,6 @@ const HospitalSignUpForm = () => {
 
         console.log(obj)
 
-    // fetch("https://tops-chimp-promoted.ngrok-free.app/api/v1/signUpHospital", {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json'
-    //             },
-    //             body: JSON.stringify(HospitalSignUp)
-    //         }).then(response => response.json())
-    //         .then(data =>{
-    //             console.log("SUCCESSFUL");
-    //             console.log(data);
-    //             navigate("/hospitallogin")
-    //         }).catch(error=>{
-    //             console.error('Error:', error);
-    //         })
     
     
     try {
@@ -401,23 +387,28 @@ const HospitalSignUpForm = () => {
         <div className="flex">
             <div className="bg-white w-[850px] pt-0 rounded-sm p-6">
              <img src={statVitalLogo} alt="Hospital Logo" className="mb-" />
-                <h2 className="text-4xl font-bold text-blue 950 text-center mb-8">HOSPITAL AND MORGUE SIGN UP</h2>
+                <h2 className="text-4xl font-bold text-blue 950 text-center mb-8">HOSPITAL SIGN UP</h2>
                 <p className="text-red-500">{errMsg}</p>
                 <p className="text-red-500">{successMsg}</p>
 
-                    <form onSubmit={handleSubmit(handleSignUp)} className="grid grid-cols-2 gap-10">
-                        <div className="flex flex-col">
-                            <label htmlFor="facilityName" className="text-blue-950 mb-2">Facility Name</label>
-                            <input
-                                type="text"
-                                id="facilityName"
+
+                <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-10">
+
+                    <div>
+
+                        <label htmlFor="facilityName" className="block text-blue-950  mb-2 text-2xl">Hospital Name</label>
+                        <input
+                            type="text"
+                            id="facilityName"
                             className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                                {...register("facilityName", { required: true })}
-                            />
-                            {errors.facilityName && <span className="text-red-500">Facility Name is required</span>}
-                        </div>
-                        <div>
-                        <label htmlFor="facilityLocation" className="block text-blue-900 font mb-2 text-2xl">Facility Location</label>
+                            placeholder="Enter Hospital Name"
+                            required
+                            value={facilityName}
+                            onChange={(e) => setFacilityName(e.target.value)}
+                        />
+                    </div>
+                    <div>
+                        <label htmlFor="facilityLocation" className="block text-blue-950 font mb-2 text-2xl">Hospital Location</label>
                         <input
                             type="text"
                             id="facilityLocation"
@@ -429,7 +420,7 @@ const HospitalSignUpForm = () => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="facilityType" className="block text-blue-950 font mb-2 text-2xl">Facility Type</label>
+                        <label htmlFor="facilityType" className="block text-blue-950 font mb-2 text-2xl">Hospital Type</label>
                         <select
                             id="facilityType"
                             className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
@@ -437,7 +428,7 @@ const HospitalSignUpForm = () => {
                             onChange={(e) => setFacilityType(e.target.value)}
                             required
                         >
-                            <option value="">Select Facility Type</option>
+                            <option value="">Select Hospital Type</option>
                             <option className='text-2xl' value="private">Private</option>
                             <option className='text-2xl' value="public">Public</option>
                         </select>
@@ -468,7 +459,7 @@ const HospitalSignUpForm = () => {
                     </div>
 
                     <div>
-                        <label htmlFor="phoneNumber" className="block text-blue-950 font mb-2 text-2xl">Faculty Contact Line</label>
+                        <label htmlFor="phoneNumber" className="block text-blue-950 font mb-2 text-2xl">Hospital Contact Line</label>
                         <input
                             type="tel"
                             id="phoneNumber"

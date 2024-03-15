@@ -26,9 +26,9 @@ const DeathNavBar = () => {
           </div> 
 
           <div className=' pt-5'>
-          <Link to="/birthlayout">
+          <Link to="/birthlayout/registerbirth">
           <button className="rounded-full bg-blue-400 p-4 flex items-center justify-center">
-            <span className="ml-2 text-[24px] text-white">+ Register Death</span>
+            <span className="ml-2 text-[24px] text-white">+ Register Birth</span>
           </button> 
           </Link>
           </div>

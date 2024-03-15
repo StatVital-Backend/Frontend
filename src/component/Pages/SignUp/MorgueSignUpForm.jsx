@@ -10,7 +10,7 @@ import { useNavigate, Link } from 'react-router-dom';
 // const PWD_REGEX = /^(?=.[A-Z])(?=.[!@#$%^&()_+{}|:`.,/'|"<>?])(?=.[0-9]).{8,}$/;
 // const REACT_APP_BACKEND_URL = "https://d8d1-62-173-45-238.ngrok-free.app/api/v1/"; 
 
-const MortuarySignUpForm = () => {
+const HospitalSignUpForm = () => {
     const navigate = useNavigate();
 
     // const path = '/signUpHospital'; 
@@ -54,22 +54,20 @@ const MortuarySignUpForm = () => {
 
 
 
-    const handleSubmit = async(e) => {
-        e.preventDefault()    
+    // const handleSubmit = async(e) => {
+    //     e.preventDefault()    
 
         // const v2 = PWD_REGEX.test(password);
         // if (!v2) {
         //     setErrMsg("Password must contain 8 to 24 characters, uppercase and lowercase letters, a number and a special character:");
         //     return;
         // }
-    }
+    // }
 
     
 
-    const handleBirthReg = async (e)=> {
+    const handleSubmit = async (e)=> {
         e.preventDefault();
-
-        console.log("i am here")
 
         const obj = {
         facilityName: facilityName,
@@ -79,14 +77,9 @@ const MortuarySignUpForm = () => {
         email: officialEmail,
         phoneNumber: phoneNumber,
         password: password,}
-
-        console.log(obj)
-
-   
-    
     
     try {
-        const response = await fetch("https://tops-chimp-promoted.ngrok-free.app/api/v1/signUpMortuary", {
+        const response = await fetch("https://tops-chimp-promoted.ngrok-free.app/api/v2/Sign-In-Morgue", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -124,7 +117,7 @@ const MortuarySignUpForm = () => {
         <div className="flex">
             <div className="bg-white w-[850px] pt-0 rounded-sm p-6">
              <img src={statVitalLogo} alt="Hospital Logo" className="mb-" />
-                <h2 className="text-4xl font-bold text-blue 950 text-center mb-8">HOSPITAL AND MORGUE SIGN UP</h2>
+                <h2 className="text-4xl font-bold text-blue 950 text-center mb-8">MORTUARY SIGN UP</h2>
                 <p className="text-red-500">{errMsg}</p>
                 <p className="text-red-500">{successMsg}</p>
 
@@ -133,19 +126,19 @@ const MortuarySignUpForm = () => {
 
                     <div>
 
-                        <label htmlFor="facilityName" className="block text-blue-950  mb-2 text-2xl">Facility Name</label>
+                        <label htmlFor="facilityName" className="block text-blue-950  mb-2 text-2xl">Mortuary Name</label>
                         <input
                             type="text"
                             id="facilityName"
                             className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                            placeholder="Enter Facility Name"
+                            placeholder="Enter Hospital Name"
                             required
                             value={facilityName}
                             onChange={(e) => setFacilityName(e.target.value)}
                         />
                     </div>
                     <div>
-                        <label htmlFor="facilityLocation" className="block text-blue-950 font mb-2 text-2xl">Facility Location</label>
+                        <label htmlFor="facilityLocation" className="block text-blue-950 font mb-2 text-2xl">Mortuary Location</label>
                         <input
                             type="text"
                             id="facilityLocation"
@@ -157,7 +150,7 @@ const MortuarySignUpForm = () => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="facilityType" className="block text-blue-950 font mb-2 text-2xl">Facility Type</label>
+                        <label htmlFor="facilityType" className="block text-blue-950 font mb-2 text-2xl">Mortuary Type</label>
                         <select
                             id="facilityType"
                             className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
@@ -165,7 +158,7 @@ const MortuarySignUpForm = () => {
                             onChange={(e) => setFacilityType(e.target.value)}
                             required
                         >
-                            <option value="">Select Facility Type</option>
+                            <option value="">Select Mortuary Type</option>
                             <option className='text-2xl' value="private">Private</option>
                             <option className='text-2xl' value="public">Public</option>
                         </select>
@@ -188,7 +181,7 @@ const MortuarySignUpForm = () => {
                             type="email"
                             id="officialEmail"
                             className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                            placeholder="@hospital.com"
+                            placeholder="@mortuary.com"
                             required
                             value={officialEmail}
                             onChange={(e) => setOfficialEmail(e.target.value)}
@@ -196,7 +189,7 @@ const MortuarySignUpForm = () => {
                     </div>
 
                     <div>
-                        <label htmlFor="phoneNumber" className="block text-blue-950 font mb-2 text-2xl">Faculty Contact Line</label>
+                        <label htmlFor="phoneNumber" className="block text-blue-950 font mb-2 text-2xl">Mortuary Contact Line</label>
                         <input
                             type="tel"
                             id="phoneNumber"
@@ -237,7 +230,8 @@ const MortuarySignUpForm = () => {
                             value={matchPassword}
                             onChange={(e) => setMatchPassword(e.target.value)}
                             caria-describedby="confirmnote"
-                          
+                            // onFocus={() => setMatchFocus(true)}
+                            // onBlur={() => setMatchFocus(false)}
 
                         />
                         <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}aria-live='assertive'>
@@ -245,17 +239,15 @@ const MortuarySignUpForm = () => {
                         </p>
 
                     </div>
-
-
                     <div className="pb-2 ml-[130px]">
                       {/* <FilledButton   text="Sign Up" style= {{width: "500px"}} type="submit" onClick={handleBirthReg}/> */}
                       <button className ='bg-blue-400 py-3 border-radius text-[20px] text-white font-family:   Georgia Cambria "Times New Roman" Times
-         serif line-height: 1.5rem; rounded-2xl' style= {{width: "500px"}} type="submit" onClick={handleBirthReg}>Sign up</button>
+                            serif line-height: 1.5rem; rounded-2xl' style= {{width: "500px"}} type="submit">Sign up</button>
                         <div className="text-sm flex gap-3">
                         <p className=" flex  gap-3 text-sm text-blue-950">
                             Already have an Account? <br/>    
                             <span className='line'>
-                           <Link to="/morguelogin"><GhostButton text="Login"/> </Link> 
+                           <Link to="/mortuarylogin"><GhostButton text="Login"/> </Link> 
                             </span>
                         </p>
                         </div>
@@ -280,4 +272,4 @@ const MortuarySignUpForm = () => {
     );
 };
 
-export default MortuarySignUpForm;
+export default HospitalSignUpForm;

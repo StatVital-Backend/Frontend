@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import hospitalLogo from '../../assets/Untitled(4).jpg';
 import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton';
 import { useForm } from "react-hook-form"
 import { Link, useNavigate } from 'react-router-dom';

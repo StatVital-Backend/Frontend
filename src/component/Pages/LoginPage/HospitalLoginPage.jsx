@@ -78,7 +78,7 @@ const HospitalLoginPage = () => {
 
 
     const Login = {
-      facilityName: facilityName,
+      email: email,
       password: password,
   };
   if(loginType.loginType === 'hospital'){

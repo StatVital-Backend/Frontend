@@ -16,8 +16,11 @@ import HospitalSignUpForm from "../component/Pages/SignUp/HospitalSignUpForm";
 import ServicePage from "../component/Pages/Service";
 import ServiceLayout from "../layout/ServiceLayout";
 import AddChild from "../component/Pages/BirthNavBarMethods/AddChild";
-import ViewAll from "../component/Pages/BirthNavBarMethods/ViewAll";
-import PostNatalUpdate from "../component/Pages/BirthNavBarMethods/PostNatalUpdate";
+import ViewAll from "../component/Pages/Admin/ViewAll";
+import UpdateBirthInfo from "../component/Pages/Admin/UpdateBirthInfo";
+import UpdateDeathInfo from "../component/Pages/Admin/UpdateDeathInfo";
+import RecordSearch from "../component/Pages/Admin/RecordSearch";
+import Delete from "../component/Pages/Admin/Delete";
 
 export const ROUTES = [
     {
@@ -79,18 +82,28 @@ export const ROUTES = [
                 element: <RegisterBirth/>,
             },
             {
-                path: "/birthlayout/registerbirth/AddChild",
-                element: <AddChild />
+                path: "/birthlayout/registerbirth",
+                element: <AddChild />,
             },
             {
-                path: "/birthlayout/registerbirth/ViewAll",
-                element: <ViewAll/>
+                path: "/birthlayout/viewAll",
+                element: <ViewAll />
             },
             {
-                path: "/birthlayout/registerbirth/PostNatalUpdate",
-                element: <PostNatalUpdate/>,
+                path: "/birthlayout/update-birth-info",
+                element: <UpdateBirthInfo />,
             },
+            
+            {
+                path:"/birthlayout/delete",
+                element: <Delete/>,
+            },
+
         ]
+    },
+    {
+        path:"/birthlayout/search-records",
+        element: <RecordSearch/>,
     },
     {
         path: "/deathlayout",
@@ -99,6 +112,10 @@ export const ROUTES = [
             {
                 path:"/deathlayout/registerDeath",
                 element: <RegisterDeath/>,
+            },
+            {
+                path:"/deathlayout/update-death-info",
+                element: <UpdateDeathInfo/>,
             },
         ]
     },

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import hospitalLogo from '../../assets/Untitled(4).jpg';
-import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton';
+import hospitalLogo from '../../../../assets/Untitled(4).jpg';
+import FilledButton from '../../../reuseables/bottons/FilledButton/FilledButton';
 import { useForm } from "react-hook-form"
 import { Link, useNavigate } from 'react-router-dom';
 
@@ -26,7 +26,7 @@ const RegisterDeath = ({ title }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault() 
-
+           
     const nigerianStates = [
             "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", "Cross River",
             "Delta", "Ebonyi", "Edo", "Ekiti", "Enugu", "Gombe", "Imo", "Jigawa", "Kaduna", "Kano", "Katsina",
@@ -64,13 +64,15 @@ const RegisterDeath = ({ title }) => {
         console.error('Error:', error);
         });
     }
+  
+    
 
     return (
-        <div className="flex justify-center items-center " >  
+        <div className=" h-screen bg-blue-950" >  
         <div className='flex'>    
-        <div className="flex ">
+        <div className="flex h-screen">
             <div className="bg-white w-[850px] rounded-sm p-6">
-             {/* <img src={hospitalLogo} alt="Hospital Logo" className="mb-5 mx-auto" /> */}
+             <img src={hospitalLogo} alt="Hospital Logo" className="mb-5 mx-auto" />
                    
                 <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-10">
 
@@ -88,7 +90,7 @@ const RegisterDeath = ({ title }) => {
                         />
                     </div>
                     <div>
-                        <label htmlFor="timeOfDeath" className="block text-blue-950 font mb-2 text-2xl">Time Of Death </label>
+                        <label htmlFor="timeOfDeath" className="block text-blue-950 font mb-2 text-2xl">Time of Death</label>
                         <input
                             type="time"
                             id="timeOfDeath"
@@ -179,21 +181,14 @@ const RegisterDeath = ({ title }) => {
                     <div>
                         <label htmlFor="age" className="block text-blue-950 font mb-2 text-2xl"> Age </label>
                         <input
-                        type="number"
-                        id="age"
-                        className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                        placeholder="Enter Deceased Age"
-                        required
-                        value={age}
-                        onChange={(e) => {
-                            const inputAge = parseInt(e.target.value);
-                            if (inputAge >= 0) {
-                                setAge(inputAge);
-                            }
-                        }}
-                        min="0"
-/>
-
+                            type="number"
+                            id="age"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            placeholder="Enter Deceased AGe"
+                            required
+                            value={age}
+                            onChange={(e) => setAge(e.target.value)}
+                        />
                     </div>                    
                     <div>
                         <label htmlFor="gender" className="block text-blue-950 font mb-2 text-2xl">Gender</label>
@@ -208,21 +203,32 @@ const RegisterDeath = ({ title }) => {
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                         </select>
-                    </div>          
-                    <p className="text-red-500">{errMsg}</p>
+                    </div>
                     
-                </form>
-                <div className="flex justify-center item-center ml-44 flex-col gap-2">
+                  
+                    <p className="text-red-500">{errMsg}</p>
+                    <div className="">
                       <FilledButton text="Sign Up" style= {{width: "500px"}} type="submit"/>
-                        <div className="text-sm flex gap-1">
-                            <p className="mb-4 text-2xl">Already have an account?</p>
-                            <p className="underline text-blue-400  text-2xl cursor-pointer">Sign in</p>
+                        <div className="text-sm flex gap-3">
+                            <p className="mb-4">Already have an account?</p>
+                            <p className="underline text-blue-400  cursor-pointer">Sign in</p>
                         </div>
-                        </div>
+                    </div>
+                </form>
             </div>
 
         </div>
-        
+        <div className='content px-32 pt-80'>
+            <h1 className='text-white text-5xl'>
+            Navigate Life's Journey with
+             Precision - <br /> Capturing Every Moment, 
+              Every Statistic, Every Insight!</h1>
+              <p className='text-white pt-10 text-2xl'> We are a team of passionate individuals who believe in the power of data and its impact on society. <br />
+            Committed to providing the best tools and resources, we empower you to capture and analyze <br /> 
+            your life's journey. By encapsulating every moment, statistic, and insight, we enable informed <br />
+            decisions and a more fulfilling life. We're devoted to guiding you through life's journey with precision, <br /> 
+            eagerly anticipating our role in your story.</p>
+        </div>
         </div>  
         </div>
     );

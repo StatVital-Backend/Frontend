@@ -542,11 +542,10 @@ const HospitalSignUpForm = () => {
                             value={phoneNumber}
                             onChange={(e) => setPhoneNumber(e.target.value)}
                         />
-                    </div>
-
-                    
-                    <div>
-                        <label htmlFor="password" className="block text-blue-950 font mb-2 text-2xl">Password</label>
+                    </div>                   
+                    {/* <div> */}
+                    <label htmlFor="password" className="block text-blue-950 font mb-2 text-2xl">Password</label>
+                    <div className="relative">
                         <input
                             type={showPassword ? "text" : "password"}
                             id="password"

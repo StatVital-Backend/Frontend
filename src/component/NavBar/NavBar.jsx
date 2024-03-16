@@ -1,6 +1,6 @@
 import React from 'react'
 
-import logo from '../../assets/statVitalLogo.png'
+// import logo from '../../assets/statVitalLogo.png'
 import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton';
 import OutlineButton from '../../reuseables/bottons/OutlineButton/OutlineButton';
 import { Link } from 'react-router-dom';
@@ -11,7 +11,8 @@ const NavBar = () => {
     <div className='bg-blue-950 h-24 flex gap-80 mainContainer'>
             
             <div className='w-32 bg-blue-950 pr-2.5'>
-                <img src={logo} alt="web logo" style={{ width: '250px', height: 'auto' }}/>
+              <p className='text-3xl text-white pt-9 ml-20'>STATVITAL</p>
+                {/* <img src={logo} alt="web logo" style={{ width: '250px', height: 'auto' }}/> */}
             </div>
               <div className='flex gap-96'>
 

@@ -3,12 +3,10 @@ import FilledButton from "../../../reuseables/bottons/FilledButton/FilledButton"
 import logo from '../../../assets/VitalLogo.jpeg'
 import nurse from '../../../assets/african-doctor-portrait_93675-75219.avif'
 import {useRef, useState, useEffect } from "react";
-
 import { Link, useNavigate } from "react-router-dom";
 
 const MortuaryLoginPage = () => {
     const navigate = useNavigate();
-
     const userRef = useRef();
     const errRef = useRef();
     const [email, setemail] = useState('');
@@ -16,9 +14,7 @@ const MortuaryLoginPage = () => {
     const [errMsg, setErrMsg] = useState('');
     const [successMsg, setSuccessMsg] = useState('')
    
-  
-  
-    useEffect (()=> {
+      useEffect (()=> {
       setErrMsg('')
     }, [email, password]);
 
@@ -38,18 +34,14 @@ const MortuaryLoginPage = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(obj)
-        });
-
-        console.log(response.message)
-        
+        });        
         if (response.ok) {
             const data = await response.json();
                 setErrMsg(data.message)
                 console.log(data);
                 setTimeout(()=>{
-                    setSuccessMsg(data.message);
+                setSuccessMsg(data.message);
                 }, 1500);
-                // console.log("SUCCESSFUL")
                 navigate("/deathlayout/registerDeath")
             }
         
@@ -57,7 +49,6 @@ const MortuaryLoginPage = () => {
             console.error('Error:', error);
             setErrMsg("Incorrect Password");
         }
-
     }
     
 
@@ -88,7 +79,7 @@ const MortuaryLoginPage = () => {
                                 id="email" 
                                 className="border text-blue-950 sm:text-sm rounded-lg focus:ring-primary-600
                                         focus:border-primary-600 block w-full p-2.5 bg-white border-blue-950 placeholder-blue-950 focus:ring-blue-950 focus:border-blue-950" 
-                                placeholder="name@hospital.com" 
+                                placeholder="name@mortuary.com" 
                                 required 
                             />
                         </div>

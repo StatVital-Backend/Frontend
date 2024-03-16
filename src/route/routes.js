@@ -7,7 +7,6 @@ import Hero from "../component/Home/Hero"
 import Services from "../component/Home/Services";
 import Layout from "../layout/Layout";
 import RegisterDeath from "../component/Home/RegisterDeath";
-import RegisterBirth from "../component/Home/RegisterBirth";
 import HospitalLoginPage from "../component/Pages/LoginPage/HospitalLoginPage";
 import MortuaryLoginPage from "../component/Pages/LoginPage/MortuaryLoginPage";
 import BirthLayout from "../layout/BirthLayout";
@@ -22,6 +21,7 @@ import UpdateDeathInfo from "../component/Pages/Admin/UpdateDeathInfo";
 import RecordSearch from "../component/Pages/Admin/RecordSearch";
 import Delete from "../component/Pages/Admin/Delete";
 import MortuarySignUpForm from "../component/Pages/SignUp/MorgueSignUpForm";
+import RegisterChildbirth from "../component/Home/RegisterBirth";
 
 export const ROUTES = [
     {
@@ -84,7 +84,7 @@ export const ROUTES = [
         children: [
             {
                 path: "/birthlayout/register-birth", 
-                element: <RegisterBirth/>,
+                element: <RegisterChildbirth/>,
             },
             {
                 path: "/birthlayout/registerbirth/PostNatalUpdate",

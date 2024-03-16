@@ -8,20 +8,18 @@ import security from '../../assets/Security.png'
 
 const Services = () => {
   return (
-    <div className=' mainContainer mt-10'>
+    <div className=' mainContainer md:px-20 mt-10'> 
       <div className=''>
          
-          <div className='justify-center font-bold center flex font-sans' >
-            <p className='text-black text-5xl'>Explore Our Services</p>
+          <div className='justify-center font-bold center mt-32 flex font-sans' >
+            <p className='text-black text-5xl mt-30'>Explore Our Services</p>
           </div>       
         </div>
       
 
-      <div className='flex justify-center center gap-40 pt-12 serviceDiv'>
-        
-        
+      <div className='flex gap-40 pt-12 serviceDiv'>
         <div className=' allService'>
-          <div className='flex gap-20 firstThreeDiv'>
+          <div className='flex gap-48 firstThreeDiv'>
             <div className='service1'>
               <img src={streamLine} alt="" />
               <div className="uppercase text-blue-400 font-bold text-2xl">Streamlined Data Management</div>
@@ -52,7 +50,7 @@ const Services = () => {
 
           </div>
 
-          <div className='flex gap-36 pt-12 secondThreeDiv'>
+          <div className='flex gap-64 pt-12 secondThreeDiv'>
             <div className='service4'>
               <img src={security} alt="" />
               <div className="text-2xl uppercase text-blue-400 font-bold">Data Security and Privacy</div>

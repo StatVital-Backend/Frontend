@@ -11,19 +11,9 @@ import { useNavigate, Link } from 'react-router-dom';
 // const REACT_APP_BACKEND_URL = "https://d8d1-62-173-45-238.ngrok-free.app/api/v1/"; 
 
 const HospitalSignUpForm = () => {
-    const navigate = useNavigate();
-
-    // const path = '/signUpHospital'; 
-
-    // const BASE_URL = ${process.env.REACT_APP_BACKEND_URL}${path};
-    // console.log(BASE_URL)
-    // console.log(REACT_APP_BACKEND_URL)
-    
+    const navigate = useNavigate();  
     const [showMessage, setShowMesssage] = useState(false)
     const { register, formState: { errors } } = useForm();
-
-    
-    // const [signUpType, setSignUpType] = useState({signUpType : ''});
     const [facilityName, setFacilityName] = useState('');
     const [facilityLocation, setFacilityLocation] = useState('');
     const [facilityType, setFacilityType] = useState('');
@@ -38,33 +28,12 @@ const HospitalSignUpForm = () => {
     const [errMsg, setErrMsg] = useState('');
     const [successMsg, setSuccessMsg] = useState('');
 
-    // useEffect (()=> {
-    //     const result = PWD_REGEX.test(password);
-    //     console.log(result);
-    //     console.log(password);
-    //     setValidPassword(result);
-    //     const match = password === matchPassword;
-    //     setValidMatch(match);
-    // }, [password, matchPassword]);
 
 
     useEffect (() => {
         setErrMsg('')
     }, [ password, matchPassword]);
 
-
-
-    // const handleSubmit = async(e) => {
-    //     e.preventDefault()    
-
-        // const v2 = PWD_REGEX.test(password);
-        // if (!v2) {
-        //     setErrMsg("Password must contain 8 to 24 characters, uppercase and lowercase letters, a number and a special character:");
-        //     return;
-        // }
-    // }
-
-    
 
     const handleSubmit = async (e)=> {
         e.preventDefault();
@@ -96,36 +65,29 @@ const HospitalSignUpForm = () => {
                 setTimeout(()=>{
                     setSuccessMsg(data.message);
                 }, 1500);
-                // console.log("SUCCESSFUL")
                 navigate("/mortuarylogin")
             }
         
         } catch (error) {
             console.error('Error:', error);
-            // setErrMsg(error.message)
             setErrMsg("Network issue")
            }
-    
-
-            
     };
 
     return (
         
-        <div className="  bg-blue-950" >  
+        <div className="  bg-blue-950 h-screen" >  
         <div className='flex'>    
         <div className="flex">
-            <div className="bg-white w-[850px] pt-0 rounded-sm p-6">
+            <div className="bg-white w-[850px] pt-0 h-screen rounded-sm p-6">
              <img src={statVitalLogo} alt="Hospital Logo" className="mb-" />
                 <h2 className="text-4xl font-bold text-blue 950 text-center mb-8">MORTUARY SIGN UP</h2>
                 <p className="text-red-500">{errMsg}</p>
                 <p className="text-red-500">{successMsg}</p>
 
-
                 <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-10">
 
                     <div>
-
                         <label htmlFor="facilityName" className="block text-blue-950  mb-2 text-2xl">Mortuary Name</label>
                         <input
                             type="text"
@@ -215,8 +177,7 @@ const HospitalSignUpForm = () => {
                             value={password}
                             required
                             aria-invalid={validPassword ? "false" : "true"}
-
-                        />
+                       />
                     </div>
                     
                     <div>
@@ -230,8 +191,6 @@ const HospitalSignUpForm = () => {
                             value={matchPassword}
                             onChange={(e) => setMatchPassword(e.target.value)}
                             caria-describedby="confirmnote"
-                            // onFocus={() => setMatchFocus(true)}
-                            // onBlur={() => setMatchFocus(false)}
 
                         />
                         <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}aria-live='assertive'>
@@ -240,7 +199,6 @@ const HospitalSignUpForm = () => {
 
                     </div>
                     <div className="pb-2 ml-[130px]">
-                      {/* <FilledButton   text="Sign Up" style= {{width: "500px"}} type="submit" onClick={handleBirthReg}/> */}
                       <button className ='bg-blue-400 py-3 border-radius text-[20px] text-white font-family:   Georgia Cambria "Times New Roman" Times
                             serif line-height: 1.5rem; rounded-2xl' style= {{width: "500px"}} type="submit">Sign up</button>
                         <div className="text-sm flex gap-3">

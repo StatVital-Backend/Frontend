@@ -317,24 +317,9 @@ const HospitalSignUpForm = () => {
         }
     }, [errors.password]);
 
-
-    const handleSubmit = async(e) => {
-        e.preventDefault()    
-
-        // const v2 = PWD_REGEX.test(password);
-        // if (!v2) {
-        //     setErrMsg("Password must contain 8 to 24 characters, uppercase and lowercase letters, a number and a special character:");
-        //     return;
-        // }
-    }
-
     
-
-    const handleBirthReg = async (e)=> {
+    const handleSubmit = async (e)=> {
         e.preventDefault();
-
-        console.log("i am here")
-
         const obj = {
         facilityName: facilityName,
         facilityLocation: facilityLocation,
@@ -342,12 +327,7 @@ const HospitalSignUpForm = () => {
         certificationNumber: certificationNumber,
         email: officialEmail,
         phoneNumber: phoneNumber,
-        password: password,}
-
-        console.log(obj)
-
-    
-    
+        password: password,}    
     try {
         const response = await fetch("https://tops-chimp-promoted.ngrok-free.app/api/v1/signUpHospital", {
             method: 'POST',
@@ -366,36 +346,27 @@ const HospitalSignUpForm = () => {
                 setTimeout(()=>{
                     setSuccessMsg(data.message);
                 }, 1500);
-                // console.log("SUCCESSFUL")
                 navigate("/hospitallogin")
             }
         
         } catch (error) {
             console.error('Error:', error);
-            // setErrMsg(error.message)
             setErrMsg("Network issue")
-           }
-    
-
-            
+           }    
     };
 
     return (
-        
-        <div className="  bg-blue-950" >  
+        <div className="  bg-blue-950 h-screen" >  
         <div className='flex'>    
         <div className="flex">
-            <div className="bg-white w-[850px] pt-0 rounded-sm p-6">
+            <div className="bg-white w-[850px] pt-0 h-screen rounded-sm p-6">
              <img src={statVitalLogo} alt="Hospital Logo" className="mb-" />
                 <h2 className="text-4xl font-bold text-blue 950 text-center mb-8">HOSPITAL SIGN UP</h2>
                 <p className="text-red-500">{errMsg}</p>
                 <p className="text-red-500">{successMsg}</p>
 
-
                 <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-10">
-
                     <div>
-
                         <label htmlFor="facilityName" className="block text-blue-950  mb-2 text-2xl">Hospital Name</label>
                         <input
                             type="text"
@@ -500,8 +471,6 @@ const HospitalSignUpForm = () => {
                             value={matchPassword}
                             onChange={(e) => setMatchPassword(e.target.value)}
                             caria-describedby="confirmnote"
-                            // onFocus={() => setMatchFocus(true)}
-                            // onBlur={() => setMatchFocus(false)}
 
                         />
                         <p id="confirmnote" className={matchFocus && !validMatch ? "instructions" : "offscreen"}aria-live='assertive'>
@@ -509,47 +478,9 @@ const HospitalSignUpForm = () => {
                         </p>
 
                     </div>
-
-                        {/* <div className='flex gap-5 text-2xl'>
-                            <div >
-                                <h1 className='text-blue-950'>Signup Type</h1>
-                            </div>
-
-                            <div className='gap-5 text-blue-950 flex'>
-                                <label htmlFor="Hospital">
-                                    <input type="radio"
-                                    className='w-10' 
-                                    value="hospital"
-                                    id="hospitalId"
-                                    onChange={(e)=>{
-                                    const value = e.target.value
-                                    setSignUpType({[name]: value})
-                                    }}
-                                    />Hospital
-                                </label>
-
-                                <label htmlFor="Morgue">
-                                    <input type="radio"
-                                    className='w-10'
-                                    name="signUpType"
-                                    value="morgue"
-                                    id="morgueId" 
-                                    onChange={(e)=> {
-                                        const value = e.target.value 
-                                        const name = e.target.value
-                                    }}
-                                    />Morgue
-                                </label>
-                            </div>
-                        </div>                     */}
-
-
-
-
                     <div className="pb-2 ml-[130px]">
-                      {/* <FilledButton   text="Sign Up" style= {{width: "500px"}} type="submit" onClick={handleBirthReg}/> */}
                       <button className ='bg-blue-400 py-3 border-radius text-[20px] text-white font-family:   Georgia Cambria "Times New Roman" Times
-         serif line-height: 1.5rem; rounded-2xl' style= {{width: "500px"}} type="submit" onClick={handleBirthReg}>Sign up</button>
+                         serif line-height: 1.5rem; rounded-2xl' style= {{width: "500px"}} type="submit" >Sign up</button>
                         <div className="text-sm flex gap-3">
                         <p className=" flex  gap-3 text-sm text-blue-950">
                             Already have an Account? <br/>    
@@ -562,14 +493,20 @@ const HospitalSignUpForm = () => {
                 </form>
             </div>
 
-                        <FilledButton text="Sign Up" type="submit" onClick={handleButtonClick} />
-            <div className="text-sm text-blue-950 mt-4">
-                        Already have an Account? <br />
-                        <GhostButton text="Login" />
-                    </div>
-                </div>
-            </div>
         </div>
+                 <div className='content px-32 pt-80'>
+                    <h1 className='text-white flex text-5xl'>
+                    Navigate Life's Journey with
+                    Precision - <br /> Capturing Every Moment, 
+                    Every Statistic, Every Insight!</h1>
+                    <p className='text-white pt-10 text-2xl'> We are a team of passionate individuals who believe in the power of data and its impact on society.
+                    Committed to providing the best tools and resources, we empower you to capture and analyze 
+                    your life's journey. By encapsulating every moment, statistic, and insight, we enable informed 
+                    decisions and a more fulfilling life. We're devoted to guiding you through life's journey with precision, 
+                    eagerly anticipating our role in your story.</p>
+                </div>
+        </div>
+    </div>
     );
 };
 

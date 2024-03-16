@@ -5,6 +5,7 @@ import Location from '../../assets/location.png'
 import WorkingHour from '../../assets/workinghour.png'
 
 const ContactUs = () => {
+
   return (
     <div className='pt-12 flex justify-center center mainContainer'>
       <div className=''>

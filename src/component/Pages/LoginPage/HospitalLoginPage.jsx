@@ -1,26 +1,16 @@
 import React from "react";
 import {useRef, useState, useEffect, useContext } from "react";
 import {useNavigate, Link } from "react-router-dom";
-import FilledButton from '../../../reuseables/bottons/FilledButton/FilledButton'
 import GhostButton from '../../../reuseables/bottons/GhostButton/GhostButton'
 import nurse from '../../../assets/african-doctor-portrait_93675-75219.avif'
 import logo from '../../../assets/VitalLogo.jpeg'
 
 
-// const PWD_REGEX = /^(?=.*[A-Z])(?=.*[!@#$%^&*()_+{}|:`.,/'|"<>?])(?=.*[0-9]).{8,}$/;
-
 
 const HospitalLoginPage = () => {
-  // const path = '/logInHospital'; 
-  // const BASE_URL = `${process.env.REACT_APP_BACKEND_URL}${path}`
-
     const navigate = useNavigate();
-
-    // const {setAuth} = useContext(AuthContext);
-
     const userRef = useRef();
     const errRef = useRef();
-  
     const [email, setemail] = useState('');
     const [password, setPassword] = useState('');
     const [errMsg, setErrMsg] = useState('');
@@ -30,21 +20,15 @@ const HospitalLoginPage = () => {
   
     useEffect (()=> {
       userRef.current.focus()
-  }, []) 
+    }, []) 
   
     useEffect (()=> {
       setErrMsg('')
     }, [email, password]);
 
-
-
-    // const handleSubmit = async(e) => {
-    //   e.preventDefault()
-    // }
   
     const handleSubmit = async (e) =>{
       e.preventDefault();
-
       const obj = {
         email: email,
         password: password
@@ -57,10 +41,7 @@ const HospitalLoginPage = () => {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify(obj)
-        });
-
-        console.log(response.message)
-        
+        });        
         if (response.ok) {
             const data = await response.json();
                 setErrMsg(data.message)
@@ -68,13 +49,11 @@ const HospitalLoginPage = () => {
                 setTimeout(()=>{
                     setSuccessMsg(data.message);
                 }, 1500);
-                // console.log("SUCCESSFUL")
-                navigate("/birthlayout/registerbirth")
+                navigate("/birthlayout/register-birth")
             }
         
         } catch (error) {
             console.error('Error:', error);
-            // setErrMsg(error.message)
             setErrMsg("Incorrect Password");
         }
 
@@ -103,8 +82,6 @@ const HospitalLoginPage = () => {
               <input className="w-[470px] px-5 rounded-lg h-9"
               type='email' 
               id='email'
-              // onFocus={() =il(true)}
-              // onBlur={() => email(fal> emase)}
               placeholder="hospital@email.com"
               ref={userRef}
               autoComplete='off'

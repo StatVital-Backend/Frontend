@@ -12,7 +12,7 @@ const DeathNavBar = () => {
 
       <div className='justify-between px-56 pt-10 flex  mainContainer'>
           <div className=' '>
-              <h1 className='text-blue-400 text-3xl pt-5'>STATVITAL</h1>
+              <h1 className='text-blue-400 text-3xl pt-5'>ANIKULAPO</h1>
           </div>
           <div className='pt-4 '>
               <div className="relative">
@@ -27,9 +27,7 @@ const DeathNavBar = () => {
 
           <div className=' pt-5'>
           <Link to="/birthlayout/registerbirth">
-          <button className="rounded-full bg-blue-400 p-4 flex items-center justify-center">
-            <span className="ml-2 text-[24px] text-white">+ Register Birth</span>
-          </button> 
+         
           </Link>
           </div>
       </div>  
@@ -76,7 +74,7 @@ const DeathNavBar = () => {
         </div >
         </div>
       </div>
-      <h2 className="text-4xl text-blue-950 font-semibold mb-4 pt-8 justify-center center flex uppercase">WELCOME TO ....... MORTUARY</h2>
+      <h2 className="text-4xl text-blue-950 font-semibold mb-4 pt-8 justify-center center flex uppercase">WELCOME TO ANIKULAPO MORTUARY</h2>
 
     </div>
         )

@@ -7,9 +7,6 @@ import { Link, useNavigate } from 'react-router-dom';
 const RegisterDeath = ({ title }) => {
     const { register, watch, formState: { errors } } = useForm();
     const navigate = useNavigate();
-
-
-
     const [deceasedName, setDeceasedName] = useState('');
     const [timeOfDeath, setTimeOfDeath] = useState('');
     const [dateOfDeath, setDateOfDeath] = useState('');
@@ -20,19 +17,18 @@ const RegisterDeath = ({ title }) => {
     const [deceasedResidence, setDeceasedResidence] = useState('');
     const [age, setAge] = useState('');
     const [gender, setGender] = useState('')
+    const [successMsg, setSuccessMsg] = useState('');
 
     const [errMsg, setErrMsg] = useState('');
+    const nigerianStates = [
+        "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", "Cross River",
+        "Delta", "Ebonyi", "Edo", "Ekiti", "Enugu", "Gombe", "Imo", "Jigawa", "Kaduna", "Kano", "Katsina",
+        "Kebbi", "Kogi", "Kwara", "Lagos", "Nasarawa", "Niger", "Ogun", "Ondo", "Osun", "Oyo", "Plateau",
+        "Rivers", "Sokoto", "Taraba", "Yobe", "Zamfara", "FCT Abuja"
+    ];
 
     const handleSubmit = (e) => {
         e.preventDefault() 
-
-    const nigerianStates = [
-            "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", "Cross River",
-            "Delta", "Ebonyi", "Edo", "Ekiti", "Enugu", "Gombe", "Imo", "Jigawa", "Kaduna", "Kano", "Katsina",
-            "Kebbi", "Kogi", "Kwara", "Lagos", "Nasarawa", "Niger", "Ogun", "Ondo", "Osun", "Oyo", "Plateau",
-            "Rivers", "Sokoto", "Taraba", "Yobe", "Zamfara", "FCT Abuja"
-        ];
-
         const RegisterDeath = {
             deceasedName: deceasedName,
             timeOfDeath: timeOfDeath,
@@ -45,10 +41,8 @@ const RegisterDeath = ({ title }) => {
             age: age,
             gender: gender,
         };
-
-        console.log(RegisterDeath)
     
-        fetch('https://frontend-hvlm.onrender.com/api/v1/admin', {
+        fetch('https://tops-chimp-promoted.ngrok-free.app/api/v2/RegisterDeath', {
         method: 'POST',
         headers: {
             'content-Type': 'application/json'
@@ -57,7 +51,8 @@ const RegisterDeath = ({ title }) => {
         })
         .then(response => response.json())
         .then(data => {
-        console.log(data);
+        setSuccessMsg(data.message);
+        navigate('/deathlayout/registerDeath')
         })
         .catch(error => {
         console.error('Error:', error);
@@ -65,15 +60,14 @@ const RegisterDeath = ({ title }) => {
     }
 
     return (
-        <div className="flex justify-center items-center " >  
+        <div className="flex  justify-center blue-950 items-center " >  
         <div className='flex'>    
         <div className="flex ">
-            <div className="bg-white w-[850px] rounded-sm p-6">
+            <div className="bg-white w-[850px] pt-30 rounded-sm p-6">
                    
                 <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-10">
 
                     <div>
-
                         <label htmlFor="deceasedName" className="block text-blue-950  mb-2 text-2xl">Deceased Name </label>
                         <input
                             type="text"
@@ -85,6 +79,7 @@ const RegisterDeath = ({ title }) => {
                             onChange={(e) => setDeceasedName(e.target.value)}
                         />
                     </div>
+
                     <div>
                         <label htmlFor="timeOfDeath" className="block text-blue-950 font mb-2 text-2xl">Time Of Death </label>
                         <input
@@ -110,6 +105,7 @@ const RegisterDeath = ({ title }) => {
                             onChange={(e) => setDateOfDeath(e.target.value)}
                         />
                     </div>
+
                     <div>
                         <label htmlFor="causeOfDeath" className="block text-blue-950 font mb-2 text-2xl">Cause Of Death </label>
                         <input
@@ -148,6 +144,7 @@ const RegisterDeath = ({ title }) => {
                             onChange={(e) => setReceiver(e.target.value)}
                         />
                     </div>
+                    
                     <div>
                         <label htmlFor="placeOfDeath" className="block text-blue-950 font mb-2 text-2xl"> Place Of Death </label>
                         <input
@@ -190,9 +187,9 @@ const RegisterDeath = ({ title }) => {
                             }
                         }}
                         min="0"
-/>
+                        />
+                    </div>
 
-                    </div>                    
                     <div>
                         <label htmlFor="gender" className="block text-blue-950 font mb-2 text-2xl">Gender</label>
                         <select
@@ -211,12 +208,8 @@ const RegisterDeath = ({ title }) => {
                     
                 </form>
                 <div className="flex justify-center item-center ml-44 flex-col gap-2">
-                      <FilledButton text="Sign Up" style= {{width: "500px"}} type="submit"/>
-                        <div className="text-sm flex gap-1">
-                            <p className="mb-4 text-2xl">Already have an account?</p>
-                            <p className="underline text-blue-400  text-2xl cursor-pointer">Sign in</p>
-                        </div>
-                        </div>
+                      <FilledButton text="Register" style= {{width: "500px"}} type="submit"/>
+                </div>
             </div>
 
         </div>

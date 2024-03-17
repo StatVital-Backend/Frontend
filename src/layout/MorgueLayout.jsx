@@ -1,16 +1,16 @@
 import React from 'react'
 import { Outlet } from 'react-router-dom'
 import DeathRegFooter from '../component/Footer/DeathRegFooter'
-import HosDeathNavBar from '../component/DeathNavBar/HosDeathNavBar'
+import MorgueNavBar from '../component/MorgueNavBar/morgueNavBar'
 
-const DeathLayout = () => {
+const MorgueLayout = () => {
   return (
     <div>
-        <HosDeathNavBar/>
+        <MorgueNavBar/>
         <Outlet/>
         <DeathRegFooter/>
     </div>
   )
 }
 
-export default DeathLayout;
+export default MorgueLayout;

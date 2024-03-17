@@ -4,22 +4,25 @@ import { useForm } from "react-hook-form"
 import { Link, useNavigate } from 'react-router-dom';
 
 
-const RegisterDeath = ({ title }) => {
+const HosRegisterDeath = ({ title }) => {
     const { register, watch, formState: { errors } } = useForm();
     const navigate = useNavigate();
+
+
+
     const [deceasedName, setDeceasedName] = useState('');
     const [timeOfDeath, setTimeOfDeath] = useState('');
     const [dateOfDeath, setDateOfDeath] = useState('');
     const [causeOfDeath, setCauseOfDeath] = useState('');
     const [broughtby, setBroughtBy] = useState('');
-    const [receiver, setReceiver] = useState('');
+    const [mortician, setMortician] = useState('');
     const [placeOfDeath, setPlaceOfDeath] = useState('');
     const [deceasedResidence, setDeceasedResidence] = useState('');
     const [age, setAge] = useState('');
     const [gender, setGender] = useState('')
-    const [successMsg, setSuccessMsg] = useState('');
 
     const [errMsg, setErrMsg] = useState('');
+
     const nigerianStates = [
         "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", "Cross River",
         "Delta", "Ebonyi", "Edo", "Ekiti", "Enugu", "Gombe", "Imo", "Jigawa", "Kaduna", "Kano", "Katsina",
@@ -29,20 +32,23 @@ const RegisterDeath = ({ title }) => {
 
     const handleSubmit = (e) => {
         e.preventDefault() 
+
         const RegisterDeath = {
             deceasedName: deceasedName,
             timeOfDeath: timeOfDeath,
             dateOfDeath: dateOfDeath,
             causeOfDeath: causeOfDeath,
             broughtby: broughtby,
-            receiver: receiver,
+            mortician: mortician,
             placeOfDeath: placeOfDeath,
             deceasedResidence: deceasedResidence,
             age: age,
             gender: gender,
         };
+
+        console.log(RegisterDeath)
     
-        fetch('https://tops-chimp-promoted.ngrok-free.app/api/v2/RegisterDeath', {
+        fetch('https://frontend-hvlm.onrender.com/api/v1/admin', {
         method: 'POST',
         headers: {
             'content-Type': 'application/json'
@@ -51,41 +57,42 @@ const RegisterDeath = ({ title }) => {
         })
         .then(response => response.json())
         .then(data => {
-        setSuccessMsg(data.message);
-        navigate('/deathlayout/registerDeath')
+        console.log(data);
         })
         .catch(error => {
         console.error('Error:', error);
         });
     }
+  
+    
 
     return (
-        <div className="flex  justify-center blue-950 items-center " >  
-        <div className='flex'>    
-        <div className="flex ">
-            <div className="bg-white w-[850px] pt-30 rounded-sm p-6">
+        <div className=" flex px-56 pt-2 h-[1200px]" >  
+        <div className='bg-blue-950 h-[1030px] w-full '>    
+        <div className="flex justify-center pt-[30px] items-center h-[1000px]">
+            <div className="bg-white px-[300px] h-[1000px] rounded-sm">
                    
                 <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-10">
 
                     <div>
-                        <label htmlFor="deceasedName" className="block text-blue-950  mb-2 text-2xl">Deceased Name </label>
+
+                        <label htmlFor="deceasedName" className="block text-blue-950 mb-2 text-2xl">Deceased Name </label>
                         <input
                             type="text"
                             id="deceasedName"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             placeholder="Enter Deceased Name"
                             required
                             value={deceasedName}
                             onChange={(e) => setDeceasedName(e.target.value)}
                         />
                     </div>
-
                     <div>
-                        <label htmlFor="timeOfDeath" className="block text-blue-950 font mb-2 text-2xl">Time Of Death </label>
+                        <label htmlFor="timeOfDeath" className="block text-blue-950 font mb-2 text-2xl">Time of Death</label>
                         <input
                             type="time"
                             id="timeOfDeath"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             placeholder="Enter Time Of Death"
                             required
                             value={timeOfDeath}
@@ -98,20 +105,19 @@ const RegisterDeath = ({ title }) => {
                         <input
                             type="date"
                             id="dateOfDeath"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             placeholder="Enter Date Of Death"
                             required
                             value={dateOfDeath}
                             onChange={(e) => setDateOfDeath(e.target.value)}
                         />
                     </div>
-
                     <div>
                         <label htmlFor="causeOfDeath" className="block text-blue-950 font mb-2 text-2xl">Cause Of Death </label>
                         <input
                             type="text"
                             id="causeOfDeath"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             placeholder="Enter Cause Of Death"
                             required
                             value={causeOfDeath}
@@ -124,7 +130,7 @@ const RegisterDeath = ({ title }) => {
                         <input
                             type="text"
                             id="broughtBy"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             placeholder="Enter Brought By"
                             required
                             value={broughtby}
@@ -133,24 +139,23 @@ const RegisterDeath = ({ title }) => {
                     </div>
 
                     <div>
-                        <label htmlFor="receiver" className="block text-blue-950 font mb-2 text-2xl"> Receiver </label>
+                        <label htmlFor="mortician" className="block text-blue-950 font mb-2 text-2xl"> Mortician </label>
                         <input
                             type="text"
-                            id="receiver"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                            placeholder="Enter Receiver's Name"
+                            id="Mortician"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            placeholder="Mortician Full Name"
                             required
-                            value={receiver}
-                            onChange={(e) => setReceiver(e.target.value)}
+                            value={mortician}
+                            onChange={(e) => setMortician(e.target.value)}
                         />
                     </div>
-                    
                     <div>
                         <label htmlFor="placeOfDeath" className="block text-blue-950 font mb-2 text-2xl"> Place Of Death </label>
                         <input
                             type="text"
                             id="placeOfDeath"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             placeholder="Enter Place Of Death"
                             required
                             value={placeOfDeath}
@@ -163,7 +168,7 @@ const RegisterDeath = ({ title }) => {
                         <input
                             type="text"
                             id="deceasedResidence"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             placeholder="Enter Deceased Residence"
                             required
                             value={deceasedResidence}
@@ -174,27 +179,20 @@ const RegisterDeath = ({ title }) => {
                     <div>
                         <label htmlFor="age" className="block text-blue-950 font mb-2 text-2xl"> Age </label>
                         <input
-                        type="number"
-                        id="age"
-                        className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                        placeholder="Enter Deceased Age"
-                        required
-                        value={age}
-                        onChange={(e) => {
-                            const inputAge = parseInt(e.target.value);
-                            if (inputAge >= 0) {
-                                setAge(inputAge);
-                            }
-                        }}
-                        min="0"
+                            type="number"
+                            id="age"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            placeholder="Enter Deceased Age"
+                            required
+                            value={age}
+                            onChange={(e) => setAge(e.target.value)}
                         />
-                    </div>
-
+                    </div>                    
                     <div>
                         <label htmlFor="gender" className="block text-blue-950 font mb-2 text-2xl">Gender</label>
                         <select
                             id="sex"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             value={gender}
                             onChange={(e) => setGender(e.target.value)}
                             required
@@ -203,19 +201,23 @@ const RegisterDeath = ({ title }) => {
                             <option value="male">Male</option>
                             <option value="female">Female</option>
                         </select>
-                    </div>          
+
+                        <div className="pt-20 pl-30">
+                      <FilledButton text="Register" style= {{width: "500px"}} type="submit"/>
+                    </div>
+                    </div>
+
+                    
+                  
                     <p className="text-red-500">{errMsg}</p>
                     
                 </form>
-                <div className="flex justify-center item-center ml-44 flex-col gap-2">
-                      <FilledButton text="Register" style= {{width: "500px"}} type="submit"/>
-                </div>
             </div>
 
         </div>
-        
+
         </div>  
         </div>
     );
 };
-export default RegisterDeath;
+export default HosRegisterDeath;

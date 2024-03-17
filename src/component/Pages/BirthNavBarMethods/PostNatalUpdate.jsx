@@ -6,4 +6,4 @@ const PostNatalUpdate = () => {
   )
 }
 
-export default PostNatalUpdate
+export default PostNatalUpdate;

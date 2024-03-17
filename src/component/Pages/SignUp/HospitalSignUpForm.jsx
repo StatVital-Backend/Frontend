@@ -371,7 +371,7 @@ const HospitalSignUpForm = () => {
                         <input
                             type="text"
                             id="facilityName"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             placeholder="Enter Hospital Name"
                             required
                             value={facilityName}
@@ -383,7 +383,7 @@ const HospitalSignUpForm = () => {
                         <input
                             type="text"
                             id="facilityLocation"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             placeholder="Enter Facility Location"
                             required
                             value={facilityLocation}
@@ -394,7 +394,7 @@ const HospitalSignUpForm = () => {
                         <label htmlFor="facilityType" className="block text-blue-950 font mb-2 text-2xl">Hospital Type</label>
                         <select
                             id="facilityType"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             value={facilityType}
                             onChange={(e) => setFacilityType(e.target.value)}
                             required
@@ -409,7 +409,7 @@ const HospitalSignUpForm = () => {
                         <input
                             type="text"
                             id="certificationNumber"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             placeholder="Enter Certification Number"
                             required
                             value={certificationNumber}
@@ -421,7 +421,7 @@ const HospitalSignUpForm = () => {
                         <input
                             type="email"
                             id="officialEmail"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             placeholder="@hospital.com"
                             required
                             value={officialEmail}
@@ -434,7 +434,7 @@ const HospitalSignUpForm = () => {
                         <input
                             type="tel"
                             id="phoneNumber"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             placeholder="Enter Phone Number"
                             required
                             value={phoneNumber}
@@ -448,7 +448,7 @@ const HospitalSignUpForm = () => {
                         <input
                             type="password"
                             id="password"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             placeholder="Enter Password"
                             onChange={(e) => setPassword(()=> {
                                 return e.target.value
@@ -465,7 +465,7 @@ const HospitalSignUpForm = () => {
                         <input
                             type="password"
                             id="confirmPassword"
-                            className="bg-gray-200 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                            className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             placeholder="Re-enter Password"
                             required
                             value={matchPassword}
@@ -479,7 +479,7 @@ const HospitalSignUpForm = () => {
 
                     </div>
                     <div className="pb-2 ml-[130px]">
-                      <button className ='bg-blue-400 py-3 border-radius text-[20px] text-white font-family:   Georgia Cambria "Times New Roman" Times
+                      <button className ='bg-blue-400 py-3 border-radius text-2xl text-white font-family:   Georgia Cambria "Times New Roman" Times
                          serif line-height: 1.5rem; rounded-2xl' style= {{width: "500px"}} type="submit" >Sign up</button>
                         <div className="text-sm flex gap-3">
                         <p className=" flex  gap-3 text-sm text-blue-950">

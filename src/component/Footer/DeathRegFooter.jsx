@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 const DeathRegFooter = () => {
   return (
 
-    <div className=' '>
-      <div className='bg-blue-950 h-100 flex gap-96 pt-30 ready'>
+    <div className='pt-0'>
+      <div className='bg-blue-950 h-100 flex gap-96 pt-26 ready'>
           <div className='pt-32 r-38'>
         <div className="text-4xl text-white pl-36 font-bold">Ready For Awesome Projects With Us?</div>
 

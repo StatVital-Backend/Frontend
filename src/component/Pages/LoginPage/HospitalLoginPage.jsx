@@ -49,7 +49,7 @@ const HospitalLoginPage = () => {
                 setTimeout(()=>{
                     setSuccessMsg(data.message);
                 }, 1500);
-                navigate("/birthlayout/register-birth")
+                navigate("/birthlayout/registerBirthAndAdd")
             }
         
         } catch (error) {
@@ -79,7 +79,7 @@ const HospitalLoginPage = () => {
             <form onSubmit={handleSubmit}>
               <div className="flex pt-8 flex-col gap-5"> 
               <label htmlFor='username' className="text-white text-2xl">Email</label>
-              <input className="w-[470px] px-5 rounded-lg h-9"
+              <input className="w-[470px] px-5 text-2xl rounded-lg h-9"
               type='email' 
               id='email'
               placeholder="hospital@email.com"
@@ -93,7 +93,7 @@ const HospitalLoginPage = () => {
 
             
               <label htmlFor='password' className="gap-10 flex text-white text-2xl">Password</label>
-              <input className="w-[470px] px-5 h-9 rounded-lg"
+              <input className="w-[470px] px-5 h-9 text-2xl rounded-lg"
               type='password' 
               id='password'
               placeholder="................"

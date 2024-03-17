@@ -42,19 +42,19 @@ const MorgueNavBar = () => {
           </div>
           
           <div className=' pt- 20 addChild'>
-          <Link to="/birthlayout/viewAll">
+          <Link to="">
             <FilledButton text="View All" style={{width: "200px", height: 86}}/>
             </Link>
           </div>
         
-          <div className=' pt- 20 addChild'>
+          {/* <div className=' pt- 20 addChild'>
           <Link to="/deathlayout/registerDeath">
             <FilledButton text="Delete" style={{width: "200px", height: 86}}/>
             </Link>
-          </div>
+          </div> */}
 
           <div className=' pt- 20 UpdateDeathInfo'>
-          <Link to="/deathlayout/update-death-info"> <FilledButton text="Post Partum Update" style={{width: "200px", height: 86}}/>
+          <Link to=""> <FilledButton text="Post Partum Update" style={{width: "200px", height: 86}}/>
           </Link>
           </div>
 

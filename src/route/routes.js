@@ -13,17 +13,16 @@ import DeathLayout from "../layout/DeathLayout";
 import HospitalSignUpForm from "../component/Pages/SignUp/HospitalSignUpForm";
 import ServicePage from "../component/Pages/Service";
 import ServiceLayout from "../layout/ServiceLayout";
-import AddChild from "../component/Pages/BirthNavBarMethods/AddChild";
 import ViewAll from "../component/Pages/Admin/ViewAll";
 import UpdateBirthInfo from "../component/Pages/Admin/UpdateBirthInfo";
 import UpdateDeathInfo from "../component/Pages/Admin/UpdateDeathInfo";
 import RecordSearch from "../component/Pages/Admin/RecordSearch";
 import MortuarySignUpForm from "../component/Pages/SignUp/MorgueSignUpForm";
-import PostNatalUpdate from "../component/Pages/BirthNavBarMethods/PostNatalUpdate";
 import RegisterBirthAndAdd from "../component/Home/RegisterBirth";
 import HosRegisterDeath from "../component/Home/HosRegisterDeath";
 import MorgueReg from "../component/Home/MorgueReg";
 import MorgueLayout from "../layout/MorgueLayout";
+import PostNatalUpdate from "../component/Pages/HosNavBarMethods/PostNatalUpdate";
 
 export const ROUTES = [
     {
@@ -139,6 +138,16 @@ export const ROUTES = [
                 path: "/serviceLayout/servicePage",
                 element: <ServicePage />,
             },
+        ]
+    },
+    {
+        path: "/hospitalregisterDeath",
+        element: <DeathLayout/>,
+        children: [
+            {
+                path: "/hospitalregisterDeath",
+                element: <HosRegisterDeath/>
+            }
         ]
     }
 ]

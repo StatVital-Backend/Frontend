@@ -1,14 +1,16 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import rectangle from '../../assets/Rectangle 778.png'
 import dot2 from '../../assets/dfg 2 (1).png'
 import dot1 from '../../assets/dfg 1.png'
 import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton'
 import { Link } from "react-router-dom";
-import GhostButton from '../../reuseables/bottons/GhostButton/GhostButton'
 import OutlineButton from '../../reuseables/bottons/OutlineButton/OutlineButton'
 
 
 const MorgueNavBar = () => {
+  const [search, setSearch] = useState();
+
+
   return (
     <div className=''> 
 
@@ -18,9 +20,20 @@ const MorgueNavBar = () => {
           </div>
           <div className='pt-4 '>
               <div className="relative">
-                  <input type="search" placeholder="search by.. ID/DOB/Name?" className="border border-blue-400 h-12 border-solid text-blue-950 rounded-3xl w-[600px] py-2 px-4 pl-6 placeholder-gray-900 placeholder-opacity-50 bg-transparent" />
-                      <svg className="absolute right-3 top-1/2 transform -translate-y-1/2 " xmlns="http://www.w3.org/2000/svg" width="20" height="20" >
-                          <path fillRule="evenodd" d="M14.854 13.146a1 1 0 0 1-1.414 1.414l-3.792-3.792a1 1 0 0 1 1.414-1.414l3.792 3.792zM15.207 8a7 7 0 1 1-14 0 7 7 0 0 1 14 0z" clipRule="evenodd" />
+                  <input type="search"
+                  placeholder="search by.. ID/DOB/Name?"
+                  id="search" 
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)} 
+                  className="border border-blue-400 h-12 border-solid text-blue-950 rounded-3xl w-[600px] py-2 px-4 pl-6 placeholder-gray-900 placeholder-opacity-50 bg-transparent" />
+                      <svg className="absolute right-3 top-1/2 transform -translate-y-1/2 "
+                       xmlns="http://www.w3.org/2000/svg" 
+                       width="20" 
+                       height="20" >
+                          <path 
+                          fillRule="evenodd" 
+                          d="M14.854 13.146a1 1 0 0 1-1.414 1.414l-3.792-3.792a1 1 0 0 1 1.414-1.414l3.792 3.792zM15.207 8a7 7 0 1 1-14 0 7 7 0 0 1 14 0z" 
+                          clipRule="evenodd" />
                       </svg>
               </div>
           
@@ -42,7 +55,7 @@ const MorgueNavBar = () => {
           </div>
           
           <div className=' pt- 20 addChild'>
-          <Link to="">
+          <Link to="/morguelayout/viewAll">
             <FilledButton text="View All" style={{width: "200px", height: 86}}/>
             </Link>
           </div>
@@ -54,7 +67,7 @@ const MorgueNavBar = () => {
           </div> */}
 
           <div className=' pt- 20 UpdateDeathInfo'>
-          <Link to=""> <FilledButton text="Post Partum Update" style={{width: "200px", height: 86}}/>
+          <Link to="/morguelayout/update"> <FilledButton text="Post Partum Update" style={{width: "200px", height: 86}}/>
           </Link>
           </div>
 

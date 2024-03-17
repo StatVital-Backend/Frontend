@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton';
+import GhostButton from '../../reuseables/bottons/GhostButton/GhostButton';
+import OutlineButton from '../../reuseables/bottons/OutlineButton/OutlineButton';
 
 
 const RegisterBirthAndAdd = () => {
@@ -9,16 +11,51 @@ const RegisterBirthAndAdd = () => {
     const [lg, setlg] = useState('');
     const [stateOfOrigin, setStateOfOrigin] = useState('');
     const [sex, setSex] = useState('');
+    const [errMsg, setErrMsg] = useState('');
+    const [successMsg, setSuccessMsg] = useState('');
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-    };
+
     const nigerianStates = [
         "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", "Cross River",
         "Delta", "Ebonyi", "Edo", "Ekiti", "Enugu", "Gombe", "Imo", "Jigawa", "Kaduna", "Kano", "Katsina",
         "Kebbi", "Kogi", "Kwara", "Lagos", "Nasarawa", "Niger", "Ogun", "Ondo", "Osun", "Oyo", "Plateau",
         "Rivers", "Sokoto", "Taraba", "Yobe", "Zamfara", "FCT Abuja"
     ];
+
+    const handleSubmit = async (e) =>{
+        e.preventDefault();
+        const fields = {
+            name: name,
+            fatherFullName: fatherFullName,
+            motherFullName: motherFullName,
+            lg:lg,
+            stateOfOrigin: stateOfOrigin,
+            sex: sex
+        }
+        try {
+            const response = await fetch("https://tops-chimp-promoted.ngrok-free.app/api/v1/RegisterChild", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(fields)
+            });        
+            if (response.ok) {
+                const data = await response.json();
+                    setErrMsg(data.message)
+                    console.log(data);
+                    setTimeout(()=>{
+                        setSuccessMsg(data.message);
+                    }, 1500);
+                    // navigate("/birthlayout/registerBirthAndAdd")
+                }
+            
+            } catch (error) {
+                console.error('Error:', error);
+                setErrMsg("Incorrect Password");
+            }
+    };
+    
 
   return (
     <div className='pt-6 '> 

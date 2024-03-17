@@ -46,20 +46,20 @@ const HosDeathNavBar = () => {
 
       <div className=' justify-center pt-6 flex gap-4 mainContainer'>
           <div className=' pt- 20 addChild'>
-          <Link to="">
+          <Link to="/hospitalregisterDeath/registerdeath">
             <FilledButton text="Add " style={{width: "200px", height: 86}}/>
            </Link>
 
           </div>
           
           <div className=' pt- 20 addChild'>
-          <Link to="">
+          <Link to="/hospitalregisterDeath/Viewall">
             <FilledButton text="View All" style={{width: "200px", height: 86}}/>
             </Link>
           </div>
 
           <div className=' pt- 20 UpdateDeathInfo'>
-          <Link to=""> <FilledButton text="Post Partum Update" style={{width: "200px", height: 86}}/>
+          <Link to="/hospitalregisterDeath/update"> <FilledButton text="Post Partum Update" style={{width: "200px", height: 86}}/>
           </Link>
           </div>
 

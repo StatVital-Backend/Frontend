@@ -4,7 +4,6 @@ import dot2 from '../../assets/dfg 2 (1).png'
 import dot1 from '../../assets/dfg 1.png'
 import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton'
 import { Link } from "react-router-dom";
-import RecordSearch from '../Pages/Admin/RecordSearch'
 import OutlineButton from '../../reuseables/bottons/OutlineButton/OutlineButton'
 
 
@@ -19,16 +18,26 @@ const BirthNavBar = () => {
           <div className='pt-4 '>
               <div className="relative">
               <Link to="#">
-                  <input type="search" placeholder="search by.. ID/DOB/Name?" className="border border-blue-400 h-12 border-solid text-blue-950 rounded-3xl w-[600px] py-2 px-4 pl-6 placeholder-gray-900 placeholder-opacity-50 bg-transparent" />
-                      <svg className="absolute right-3 top-1/2 transform -translate-y-1/2 " xmlns="http://www.w3.org/2000/svg" width="20" height="20" >
-                          <path fillRule="evenodd" d="M14.854 13.146a1 1 0 0 1-1.414 1.414l-3.792-3.792a1 1 0 0 1 1.414-1.414l3.792 3.792zM15.207 8a7 7 0 1 1-14 0 7 7 0 0 1 14 0z" clipRule="evenodd" />
+                  <input type="search" 
+                  placeholder="search by.. ID/DOB/Name?" 
+                  className="border border-blue-400 h-12 border-solid text-blue-950 rounded-3xl w-[600px]
+                  py-2 px-4 pl-6 placeholder-gray-900 placeholder-opacity-50 bg-transparent" />
+                      <svg className="absolute right-3 top-1/2 transform -translate-y-1/2 " 
+                      xmlns="http://www.w3.org/2000/svg" 
+                      width="20" 
+                      height="20" >
+                          <path 
+                          fillRule="evenodd" 
+                          d="M14.854 13.146a1 1 0 0 1-1.414 1.414l-3.792-3.792a1 1 0 0 1 1.414-1.414l3.792
+                          3.792zM15.207 8a7 7 0 1 1-14 0 7 7 0 0 1 14 0z" 
+                          clipRule="evenodd" />
                       </svg></Link>
              
               </div>
           </div> 
 
           <div className='flex gap-5 pt-5'>
-          <Link to="/hospitalregisterDeath">
+          <Link to="/hospitalregisterDeath/registerdeath">
           <button className="rounded-full bg-blue-400 p-4 flex items-center justify-center">
             <span className="ml-2 text-[24px] text-bold text-white">+ Register Death</span>
           </button> 
@@ -45,11 +54,11 @@ const BirthNavBar = () => {
           </div>
 
           <div className=' pt- 20 addChild'>
-          <Link to="/birthlayout/ViewAll"><FilledButton text="View All" style={{width: "250px", height: 86}}/> </Link>  
+          <Link to="/birthlayout/viewAll"><FilledButton text="View All" style={{width: "250px", height: 86}}/> </Link>  
           </div>
 
           <div className=' pt- 20 AddChild'>
-           <Link to="/birthlayout/postNatalUpdate"><FilledButton text="Post Natal Update" style={{width: "250px", height: 86}}/> </Link> 
+           <Link to="/birthlayout/update"><FilledButton text="Post Natal Update" style={{width: "250px", height: 86}}/> </Link> 
           </div>
 
           {/* <div className=' pt- 20 AddChild'>

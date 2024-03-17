@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import RegisterChildBirth from '../../Admin/RegisterChidBirth';
 
-function ViewAll() {
+function BirthViewAll() {
   const [RegisterChildBirth, setRegisterChildBirth] = useState([]);
   const [deathRegistrations, setDeathRegistrations] = useState([]);
 
@@ -97,4 +96,4 @@ function ViewAll() {
   );
 }
 
-export default ViewAll;
+export default BirthViewAll;

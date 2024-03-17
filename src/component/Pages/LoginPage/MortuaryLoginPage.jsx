@@ -42,7 +42,7 @@ const MortuaryLoginPage = () => {
                 setTimeout(()=>{
                 setSuccessMsg(data.message);
                 }, 1500);
-                navigate("/deathlayout/morguereg/Adddeceased")
+                navigate("/morguelayout/morguereg/Adddeceased")
             }
         
         } catch (error) {

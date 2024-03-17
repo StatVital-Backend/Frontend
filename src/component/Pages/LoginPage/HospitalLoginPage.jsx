@@ -7,7 +7,7 @@ import logo from '../../../assets/VitalLogo.jpeg'
 
 
 
-const HospitalLoginPage = () => {
+    const HospitalLoginPage = () => {
     const navigate = useNavigate();
     const userRef = useRef();
     const errRef = useRef();
@@ -65,7 +65,6 @@ const HospitalLoginPage = () => {
       <div className='mx-96  center imageDiv'>
         <img className='h-screen justify-center flex image' src={nurse} alt="" />
       </div>
-
 
       <div className="flex flex-col justify-center items-center px-20 py-8 gap-8 loginDiv">
 

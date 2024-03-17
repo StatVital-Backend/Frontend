@@ -13,16 +13,19 @@ import DeathLayout from "../layout/DeathLayout";
 import HospitalSignUpForm from "../component/Pages/SignUp/HospitalSignUpForm";
 import ServicePage from "../component/Pages/Service";
 import ServiceLayout from "../layout/ServiceLayout";
-import ViewAll from "../component/Pages/Admin/ViewAll";
-import UpdateBirthInfo from "../component/Pages/Admin/UpdateBirthInfo";
-import UpdateDeathInfo from "../component/Pages/Admin/UpdateDeathInfo";
 import RecordSearch from "../component/Pages/Admin/RecordSearch";
 import MortuarySignUpForm from "../component/Pages/SignUp/MorgueSignUpForm";
 import RegisterBirthAndAdd from "../component/Home/RegisterBirth";
 import HosRegisterDeath from "../component/Home/HosRegisterDeath";
 import MorgueReg from "../component/Home/MorgueReg";
 import MorgueLayout from "../layout/MorgueLayout";
-import PostNatalUpdate from "../component/Pages/HosNavBarMethods/PostNatalUpdate";
+import Update from "../component/Pages/MorgueNavBarMethods/Update";
+import BirthPostNatalUpdate from "../component/Pages/BirthNavBarNavBarMethods/PostNatalUpdate";
+import BirthViewAll from "../component/Pages/BirthNavBarNavBarMethods/ViewAll";
+import MorgueUpdate from "../component/Pages/MorgueNavBarMethods/Update";
+import MorgueViewAll from "../component/Pages/MorgueNavBarMethods/ViewAll";
+import HosRegPostNatalUpdate from "../component/Pages/HosRegDNavBarMethods/PostNatalUpdate";
+import HosViewAll from "../component/Pages/HosRegDNavBarMethods/ViewAll";
 
 export const ROUTES = [
     {
@@ -90,22 +93,16 @@ export const ROUTES = [
             {
                 path: "/birthlayout/registerBirthAndAdd", 
                 element: <RegisterBirthAndAdd/>,
+            },   
+            {
+                path: "/birthlayout/update",
+                element: <BirthPostNatalUpdate/>
             },
-           
             {
                 path: "/birthlayout/viewAll",
-                element: <ViewAll />
-            },
-            {
-                path: "/birthlayout/update-birth-info",
-                element: <UpdateBirthInfo />,
+                element: <BirthViewAll/>,
             },
             
-            {
-                path:"/birthlayout/postNatalUpdate",
-                element: <PostNatalUpdate/>,
-            },
-
         ]
     },
     {
@@ -113,20 +110,20 @@ export const ROUTES = [
         element: <RecordSearch/>,
     },
     {
-        path: "/deathlayout",
+        path: "/morguelayout",
         element: <MorgueLayout/>,
         children: [
             {
-                path:"/deathlayout/morguereg/Adddeceased",
+                path:"/morguelayout/morguereg/Adddeceased",
                 element: <MorgueReg/>,
             },
             {
-                path:"/deathlayout/update-death-info",
-                element: <UpdateDeathInfo/>,
+                path: "/morguelayout/viewAll",
+                element: <MorgueViewAll/>,
             },
             {
-                path:"/deathlayout/search-records",
-                element: <RecordSearch/>,
+                path: "/morguelayout/update",
+                element: <MorgueUpdate/>,
             },
         ]
     },
@@ -145,8 +142,16 @@ export const ROUTES = [
         element: <DeathLayout/>,
         children: [
             {
-                path: "/hospitalregisterDeath",
+                path: "/hospitalregisterDeath/registerdeath",
                 element: <HosRegisterDeath/>
+            },
+            {
+                path: "/hospitalregisterDeath/update",
+                element: <HosRegPostNatalUpdate/>
+            },
+            {
+                path: "/hospitalregisterDeath/Viewall",
+                element: <HosViewAll/>,
             }
         ]
     }

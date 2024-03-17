@@ -7,9 +7,6 @@ import { Link, useNavigate } from 'react-router-dom';
 const HosRegisterDeath = ({ title }) => {
     const { register, watch, formState: { errors } } = useForm();
     const navigate = useNavigate();
-
-
-
     const [deceasedName, setDeceasedName] = useState('');
     const [timeOfDeath, setTimeOfDeath] = useState('');
     const [dateOfDeath, setDateOfDeath] = useState('');
@@ -20,7 +17,6 @@ const HosRegisterDeath = ({ title }) => {
     const [deceasedResidence, setDeceasedResidence] = useState('');
     const [age, setAge] = useState('');
     const [gender, setGender] = useState('')
-
     const [errMsg, setErrMsg] = useState('');
 
     const nigerianStates = [

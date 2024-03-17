@@ -67,7 +67,7 @@ const HosRegisterDeath = ({ title }) => {
     
 
     return (
-        <div className=" flex px-56 pt-2 h-[1200px]" >  
+        <div className=" flex px-56 pt-2 h-[1070px]" >  
         <div className='bg-blue-950 h-[1030px] w-full '>    
         <div className="flex justify-center pt-[30px] items-center h-[1000px]">
             <div className="bg-white px-[300px] h-[1000px] rounded-sm">

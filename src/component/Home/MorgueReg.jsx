@@ -7,9 +7,6 @@ import { Link, useNavigate } from 'react-router-dom';
 const MorgueReg = ({ title }) => {
     const { register, watch, formState: { errors } } = useForm();
     const navigate = useNavigate();
-
-
-
     const [deceasedName, setDeceasedName] = useState('');
     const [timeOfDeath, setTimeOfDeath] = useState('');
     const [dateOfDeath, setDateOfDeath] = useState('');
@@ -20,7 +17,6 @@ const MorgueReg = ({ title }) => {
     const [deceasedResidence, setDeceasedResidence] = useState('');
     const [age, setAge] = useState('');
     const [gender, setGender] = useState('')
-
     const [errMsg, setErrMsg] = useState('');
 
     const nigerianStates = [
@@ -63,12 +59,9 @@ const MorgueReg = ({ title }) => {
         console.error('Error:', error);
         });
     }
-  
-    
-
     return (
-        <div className=" flex px-56 pt-2 h-[1200px]" >  
-        <div className='bg-blue-950 h-[1030px] w-full '>    
+        <div className=" flex px-56 pt-2 h-[1070px]" >  
+        <div className='bg-blue-950 h-[1030px] w-full  '>    
         <div className="flex justify-center pt-[30px] items-center h-[1000px]">
             <div className="bg-white px-[300px] h-[1000px] rounded-sm">
                    

@@ -5,8 +5,9 @@ import Location from '../../assets/location.png'
 import WorkingHour from '../../assets/workinghour.png'
 
 const ContactUs = () => {
+
   return (
-    <div className='pt-12 flex justify-center center mainContainer'>
+    <div className='pt-12 container w-full flex justify-center center mainContainer'>
       <div className=''>
         <div className='pb-16'>
           <div className='justify-center center flex font-bold font-sans'>

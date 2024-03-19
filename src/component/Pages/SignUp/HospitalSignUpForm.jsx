@@ -562,14 +562,14 @@ const HospitalSignUpForm = () => {
                 </form>
             </div>
 
-                        <FilledButton text="Sign Up" type="submit" onClick={handleButtonClick} />
+                        {/* <FilledButton text="Sign Up" type="submit" onClick={handleButtonClick} />
             <div className="text-sm text-blue-950 mt-4">
                         Already have an Account? <br />
-                        <GhostButton text="Login" />
+                        <GhostButton text="Login" /> */}
                     </div>
                 </div>
             </div>
-        </div>
+        // </div>
     );
 };
 

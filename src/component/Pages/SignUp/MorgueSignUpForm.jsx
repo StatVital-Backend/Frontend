@@ -45,7 +45,8 @@ const HospitalSignUpForm = () => {
         certificationNumber: certificationNumber,
         email: officialEmail,
         phoneNumber: phoneNumber,
-        password: password,}
+        password: password,
+    }
     
     try {
         const response = await fetch("https://tops-chimp-promoted.ngrok-free.app/api/v2/Sign-In-Morgue", {
@@ -69,7 +70,7 @@ const HospitalSignUpForm = () => {
             }
         
         } catch (error) {
-            console.error('Error:', error);
+            // console.error('Error:', error);
             setErrMsg("Network issue")
            }
     };

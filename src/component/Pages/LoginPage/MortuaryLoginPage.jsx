@@ -37,10 +37,10 @@ const MortuaryLoginPage = () => {
         });        
         if (response.ok) {
             const data = await response.json();
-                setErrMsg(data.message)
                 console.log(data);
-                setTimeout(()=>{
                 setSuccessMsg(data.message);
+                setTimeout(()=>{
+                setSuccessMsg('')
                 }, 1500);
                 navigate("/morguelayout/morguereg/Adddeceased")
             }
@@ -50,13 +50,9 @@ const MortuaryLoginPage = () => {
             setErrMsg("Incorrect Password");
         }
     }
-    
-
-
-
 
   return (
-    <div className="flex relative">
+    <div className="md:flex container">
                 <div className='mx-96 imageDiv'>
                     <img className='h-screen image' src={nurse} alt="" w-96 />
                 </div>
@@ -97,6 +93,10 @@ const MortuaryLoginPage = () => {
                             <p className="text-sm font-light text-blue-950">
                                 Dont have an account yet? <a href="/mortuarysignup" className="font-medium hover:underline text-blue-400">Signup here</a>
                             </p>
+                            {successMsg && (
+                                <p className="text-green-500 text-5xl">{successMsg}</p>
+                            )}
+
                             
                             </form>
                         </div>

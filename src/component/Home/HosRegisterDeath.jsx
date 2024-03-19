@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
 import FilledButton from '../../reuseables/bottons/FilledButton/FilledButton';
 import { useForm } from "react-hook-form"
-import { Link, useNavigate } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 
 const HosRegisterDeath = ({ title }) => {
     const { register, watch, formState: { errors } } = useForm();
-    const navigate = useNavigate();
     const [deceasedName, setDeceasedName] = useState('');
     const [timeOfDeath, setTimeOfDeath] = useState('');
     const [dateOfDeath, setDateOfDeath] = useState('');
@@ -18,6 +17,8 @@ const HosRegisterDeath = ({ title }) => {
     const [age, setAge] = useState('');
     const [gender, setGender] = useState('')
     const [errMsg, setErrMsg] = useState('');
+    const [successMsg, setSuccessMsg] = useState('');
+
 
     const nigerianStates = [
         "Abia", "Adamawa", "Akwa Ibom", "Anambra", "Bauchi", "Bayelsa", "Benue", "Borno", "Cross River",
@@ -26,7 +27,7 @@ const HosRegisterDeath = ({ title }) => {
         "Rivers", "Sokoto", "Taraba", "Yobe", "Zamfara", "FCT Abuja"
     ];
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault() 
 
         const RegisterDeath = {
@@ -44,33 +45,57 @@ const HosRegisterDeath = ({ title }) => {
 
         console.log(RegisterDeath)
     
-        fetch('https://frontend-hvlm.onrender.com/api/v1/admin', {
-        method: 'POST',
-        headers: {
-            'content-Type': 'application/json'
-        },
-        body:JSON.stringify(RegisterDeath)
-        })
-        .then(response => response.json())
-        .then(data => {
-        console.log(data);
-        })
-        .catch(error => {
-        console.error('Error:', error);
-        });
-    }
+        try {
+            const response = await fetch("https://tops-chimp-promoted.ngrok-free.app/api/v1/RegisterChild", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(fields)
+            });
+            if (response.ok) {
+                const data = await response.json();
+                setErrMsg(data.message);
+                setSuccessMsg(data.message);
+                setDeceasedName('');
+                setTimeOfDeath('');
+                setDateOfDeath('');
+                setCauseOfDeath('');
+                setBroughtBy('');
+                setMortician('');
+                setPlaceOfDeath('');
+                setDeceasedResidence('');
+                setAge('');
+                setGender('');
+                setTimeout(() => {
+                    setSuccessMsg('');
+                }, 3000);
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            setErrMsg("Network problem");
+        }
+    };
   
     
 
     return (
-        <div className=" flex px-56 pt-2 h-[1070px]" >  
+        <div className=" flex px-56 h-[1070px]" >  
         <div className='bg-blue-950 h-[1030px] w-full '>    
         <div className="flex justify-center pt-[30px] items-center h-[1000px]">
             <div className="bg-white px-[300px] h-[1000px] rounded-sm">
-                   
+            {
+                errMsg && (
+                    <p className='text-red-500 text-3xl'>{errMsg}</p>
+                )
+                }
+                {successMsg && (
+                        <p className="text-green-500 text-5xl">{successMsg}</p>
+                    )}
+            
                 <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-10">
 
-                    <div>
+                    <div className='pt-20'>
 
                         <label htmlFor="deceasedName" className="block text-blue-950 mb-2 text-2xl">Deceased Name </label>
                         <input

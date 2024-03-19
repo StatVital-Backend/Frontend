@@ -19,13 +19,13 @@ import RegisterBirthAndAdd from "../component/Home/RegisterBirth";
 import HosRegisterDeath from "../component/Home/HosRegisterDeath";
 import MorgueReg from "../component/Home/MorgueReg";
 import MorgueLayout from "../layout/MorgueLayout";
-import Update from "../component/Pages/MorgueNavBarMethods/Update";
-import BirthPostNatalUpdate from "../component/Pages/BirthNavBarNavBarMethods/PostNatalUpdate";
-import BirthViewAll from "../component/Pages/BirthNavBarNavBarMethods/ViewAll";
+import BirthPostNatalUpdate from "../component/Pages/BirthNavBarMethods/PostNatalUpdate";
+import BirthViewAll from "../component/Pages/BirthNavBarMethods/ViewAll";
 import MorgueUpdate from "../component/Pages/MorgueNavBarMethods/Update";
 import MorgueViewAll from "../component/Pages/MorgueNavBarMethods/ViewAll";
 import HosRegPostNatalUpdate from "../component/Pages/HosRegDNavBarMethods/PostNatalUpdate";
 import HosViewAll from "../component/Pages/HosRegDNavBarMethods/ViewAll";
+import Search from "../component/Pages/BirthNavBarMethods/Search";
 
 export const ROUTES = [
     {
@@ -101,6 +101,10 @@ export const ROUTES = [
             {
                 path: "/birthlayout/viewAll",
                 element: <BirthViewAll/>,
+            },
+            {
+                path: "/birthlayout/search",
+                element: <Search/>,
             },
             
         ]

@@ -27,7 +27,7 @@ const NavBar = () => {
 
                 <div className='flex gap-16  pt-5 btn'>
                   <Link to="/hospitallogin"><FilledButton text={"LoginAs Hospital"} style={{width: '200px'}}/></Link>
-                <Link to="/hospitalsignup"><OutlineButton text={"LoginAs Mortuary"} style={{width: '200px'}} /></Link> 
+                <Link to="/mortuarylogin"><OutlineButton text={"LoginAs Mortuary"} style={{width: '200px'}} /></Link> 
               </div>
             </div>
         </div>

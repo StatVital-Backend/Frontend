@@ -61,15 +61,15 @@ import logo from '../../../assets/VitalLogo.jpeg'
     
 
   return (
-    <div className="w-full md:flex bg-blue-900 relative">
-      <div className='hidden  md:mx-96 md:block md:center imageDiv'>
-        <img className='h-screen justify-center flex image' src={nurse} alt="" />
+    <div className="flex flex-row bg-blue-900 justify-around">
+      <div className='imageDiv'>
+        <img className='h-screen hidden sm:block' src={nurse} alt="" />
       </div>
 
-      <div className="flex flex-col justify-center items-center py-8 gap-8 loginDiv">
+      <div className="flex items-center py-8 loginDiv">
 
-        <div className=" w-[580px] px-14 h-[800px] pt-10 border border-white-1 rounded-lg">
-        <div className="flex px-20 pb-30 justify-center">
+        <div className=" w-full px-14 h-[800px] pt-10 border border-white-1 rounded-lg">
+        <div className="flex justify-center center">
             <img src={logo} alt=""/>
           </div>
           <h1 className="text-3xl font-extrabold justify-center pt-10 center flex  text-white">HOSPITAL LOGIN</h1>
@@ -78,7 +78,7 @@ import logo from '../../../assets/VitalLogo.jpeg'
             <form onSubmit={handleSubmit}>
               <div className="flex pt-8 items-center justify-center center flex-col gap-5"> 
               <label htmlFor='username' className="text-white text-2xl">Email</label>
-              <input className="w-[300px] md:w-[470px] px-5 text-2xl rounded-lg h-9"
+              <input className="w-full px-5 text-2xl rounded-lg h-9"
               type='email' 
               id='email'
               placeholder="hospital@email.com"
@@ -92,7 +92,7 @@ import logo from '../../../assets/VitalLogo.jpeg'
     
             
               <label htmlFor='password' className="gap-10 flex text-white text-2xl">Password</label>
-              <input className="w-[300px] md:w-[470px] px-5 h-9 text-2xl rounded-lg"
+              <input className="w-full px-5 h-9 text-2xl rounded-lg"
               type='password' 
               id='password'
               placeholder="................"
@@ -106,9 +106,11 @@ import logo from '../../../assets/VitalLogo.jpeg'
 
             </div>  
               <div className="pt-8 grid items-center justify-center">
-              <button className ='w-[300px] md:w-[470px] bg-blue-400 py-3 border-radius text-[20px] text-white font-family:   Georgia Cambria "Times New Roman" Times
-         serif line-height: 1.5rem; rounded-2xl
-                            btn' text="Login" type="submit" >Login</button>
+              <FilledButton text={"Login"} style={{width:"380px"}} />
+
+              {/* <button className ='w-full bg-blue-400 py-3 border-radius text-[20px] text-white font-family:   Georgia Cambria "Times New Roman" Times
+              serif line-height: 1.5rem; rounded-2xl
+                            btn' text="Login" type="submit" >Login</button> */}
               </div>
             </form>
             <p className="flex flex-row gap-4 pt-5 justify-center ceneter text-white">

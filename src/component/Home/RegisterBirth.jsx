@@ -754,7 +754,7 @@ const RegisterBirthAndAdd = () => {
             sex: sex
         };
         try {
-            const response = await fetch("https://tops-chimp-promoted.ngrok-free.app/api/v1/RegisterChild", {
+            const response = await fetch("https://tops-chimp-promoted.ngrok-free.app/api/v1/registerChild", {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -783,6 +783,7 @@ const RegisterBirthAndAdd = () => {
 
     return (
         <div className='pt-6 '>
+          <h2 className="text-4xl text-blue-950 font-semibold mb-4 pt-8 justify-center center flex uppercase">WELCOME TO ...... HOSPITAL</h2>
             <div className=' flex px-56 pt-2 h-[1000px]'>
                 <div className='bg-blue-400 w-full h-[1030px]'>
                     <div className="flex justify-center pt-[30px] items-center  h-[1000px]">
@@ -795,8 +796,7 @@ const RegisterBirthAndAdd = () => {
                         {successMsg && (
                                 <p className="text-green-500 text-5xl justify-center center flex">{successMsg}</p>
                             )}
-
-                            <form onSubmit={handleSubmit}>
+                            <form onSubmit={handleSubmit}>                    
                             <div className="mb-4 pt-24">
                                 <label htmlFor="name" className="block text-blue-900 font mb-2 text-2xl">Full Name</label>
                                 <input

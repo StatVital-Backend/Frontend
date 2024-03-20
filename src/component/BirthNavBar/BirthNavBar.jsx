@@ -17,7 +17,6 @@ const BirthNavBar = () => {
           <div className=' '>
               <h1 className='text-blue-400 text-3xl text-bold pt-5'>KINGS' COURT</h1>
           </div>
-          <h2 className="text-4xl text-blue-950 font-semibold mb-4 pt-8 justify-center center flex uppercase">WELCOME TO ...... HOSPITAL</h2>
 
           <div className='flex gap-5 pt-5'>
           <Link to="/hospitalregisterDeath/registerdeath">

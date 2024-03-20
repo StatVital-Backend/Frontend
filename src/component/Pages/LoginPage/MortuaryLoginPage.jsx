@@ -1,4 +1,5 @@
 import React from 'react'
+import style from './mortuary.module.css'
 import FilledButton from "../../../reuseables/bottons/FilledButton/FilledButton";
 import logo from '../../../assets/VitalLogo.jpeg'
 import nurse from '../../../assets/african-doctor-portrait_93675-75219.avif'
@@ -52,9 +53,9 @@ const MortuaryLoginPage = () => {
     }
 
   return (
-    <div className="md:flex container">
-                <div className='mx-96 imageDiv'>
-                    <img className='h-screen image' src={nurse} alt="" w-96 />
+    <div className="flex flex-row justify-around">
+                <div className=' imageDiv'>
+                    <img className='h-screen hidden sm:block' src={nurse} alt="" w-96 />
                 </div>
 
             <div className="flex items-center px-6 py-8 loginDiv">

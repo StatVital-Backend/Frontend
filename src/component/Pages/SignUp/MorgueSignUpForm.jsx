@@ -77,19 +77,19 @@ const HospitalSignUpForm = () => {
 
     return (
         
-        <div className="  bg-blue-950 h-screen" >  
+        <div className="  h-screen" >  
         <div className='flex'>    
         <div className="flex">
-            <div className="bg-white w-[850px] pt-0 h-screen rounded-sm p-6">
-             <img src={statVitalLogo} alt="Hospital Logo" className="mb-" />
+            <div className="bg-white w-[850px] p-6">
+             <img src={statVitalLogo} alt="Hospital Logo" />
                 <h2 className="text-4xl font-bold text-blue 950 text-center mb-8">MORGUE SIGN UP</h2>
                 <p className="text-red-500">{errMsg}</p>
                 <p className="text-red-500">{successMsg}</p>
 
-                <form onSubmit={handleSubmit} className="grid grid-cols-2 gap-10">
+                <form onSubmit={handleSubmit} className="grid grid-cols-2 sm:block gap-10">
 
                     <div>
-                        <label htmlFor="facilityName" className="block text-blue-950  mb-2 text-2xl">Mortuary Name</label>
+                        <label htmlFor="facilityName" className="block text-blue-950 mb-2 text-2xl">Mortuary Name</label>
                         <input
                             type="text"
                             id="facilityName"
@@ -215,7 +215,7 @@ const HospitalSignUpForm = () => {
             </div>
 
         </div>
-        <div className='content px-32 pt-80'>
+        <div className=' bg-blue-950 px-32 hidden sm:block pt-80 content'>
             <h1 className='text-white flex text-5xl'>
             Navigate Life's Journey with
              Precision - <br /> Capturing Every Moment, 

@@ -834,39 +834,37 @@ const RegisterBirthAndAdd = () => {
                                 />
                             </div>
 
+                            <div className="mb-4">
+                                <label htmlFor="stateOfOrigin" className="block text-blue-900 font mb-2 text-2xl ">State of Origin(Town/Village)</label>
+                                <select
+                                    id="stateOfOrigin"
+                                    value={stateOfOrigin}
+                                    onChange={toggleLGA}
+                                    className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                                    required
+                                >
+                                    <option value="">Select State</option>
+                                    {nigerianStates.map((state, index) => (
+                                        <option key={index} value={state}>{state}</option>
+                                    ))}
+                                </select>
+                            </div>
 
-
-                                <div className="mb-4">
-                                    <label htmlFor="stateOfOrigin" className="block text-blue-900 font mb-2 text-2xl ">State of Origin(Town/Village)</label>
-                                    <select
-                                        id="stateOfOrigin"
-                                        value={stateOfOrigin}
-                                        onChange={toggleLGA}
-                                        className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                                        required
-                                    >
-                                        <option value="">Select State</option>
-                                        {nigerianStates.map((state, index) => (
-                                            <option key={index} value={state}>{state}</option>
-                                        ))}
-                                    </select>
-                                </div>
-
-                                <div className="mb-4">
-                                    <label htmlFor="lg" className="block text-blue-900 font mb-2 text-2xl ">Local Government</label>
-                                    <select
-                                        id="lg"
-                                        value={lg}
-                                        onChange={(e) => setLg(e.target.value)}
-                                        className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
-                                        required
-                                    >
-                                        <option value="">Select Local Government</option>
-                                        {stateOfOrigin &&
-                                            renderLGAs(stateOfOrigin)
-                                        }
-                                    </select>
-                                </div>
+                            <div className="mb-4">
+                                <label htmlFor="lg" className="block text-blue-900 font mb-2 text-2xl ">Local Government</label>
+                                <select
+                                    id="lg"
+                                    value={lg}
+                                    onChange={(e) => setLg(e.target.value)}
+                                    className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
+                                    required
+                                >
+                                    <option value="">Select Local Government</option>
+                                    {stateOfOrigin &&
+                                        renderLGAs(stateOfOrigin)
+                                    }
+                                </select>
+                            </div>
 
                                 <div className="mb-4">
                                     <label htmlFor="sex" className="block text-blue-900 font mb-2 text-2xl">Sex</label>

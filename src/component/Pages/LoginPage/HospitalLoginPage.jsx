@@ -4,6 +4,7 @@ import {useNavigate, Link } from "react-router-dom";
 import GhostButton from '../../../reuseables/bottons/GhostButton/GhostButton'
 import nurse from '../../../assets/african-doctor-portrait_93675-75219.avif'
 import logo from '../../../assets/VitalLogo.jpeg'
+import FilledButton from "../../../reuseables/bottons/FilledButton/FilledButton";
 
 
 
@@ -106,7 +107,7 @@ import logo from '../../../assets/VitalLogo.jpeg'
 
             </div>  
               <div className="pt-8 grid items-center justify-center">
-              <FilledButton text={"Login"} style={{width:"380px"}} />
+              <FilledButton text={"Login"} style={{width:"280px"}} />
 
               {/* <button className ='w-full bg-blue-400 py-3 border-radius text-[20px] text-white font-family:   Georgia Cambria "Times New Roman" Times
               serif line-height: 1.5rem; rounded-2xl

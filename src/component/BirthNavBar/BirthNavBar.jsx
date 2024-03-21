@@ -51,7 +51,7 @@ const BirthNavBar = () => {
       <h1 className='text-4xl justify-center center flex text-blue-950 '></h1>
       <div className='pt-6'>
       <div className="flex relative">
-        <img src={rectangle} alt="Black Image" className="pl-[400px] w-[2000px] " />
+        <img src={rectangle} alt="Black Image" className="pl-[400px] w-[2000px] hidden sm:block" />
         
         <p className='text-4xl z-10 text-white relative right-[750px] top-6'>Birth Registration DashBoard</p>
 

@@ -1,5 +1,4 @@
 import React from 'react'
-import style from './mortuary.module.css'
 import FilledButton from "../../../reuseables/bottons/FilledButton/FilledButton";
 import logo from '../../../assets/VitalLogo.jpeg'
 import nurse from '../../../assets/african-doctor-portrait_93675-75219.avif'

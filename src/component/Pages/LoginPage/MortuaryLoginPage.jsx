@@ -1,4 +1,5 @@
 import React from 'react'
+import style from './mortuary.module.css'
 import FilledButton from "../../../reuseables/bottons/FilledButton/FilledButton";
 import logo from '../../../assets/VitalLogo.jpeg'
 import nurse from '../../../assets/african-doctor-portrait_93675-75219.avif'
@@ -37,10 +38,10 @@ const MortuaryLoginPage = () => {
         });        
         if (response.ok) {
             const data = await response.json();
-                setErrMsg(data.message)
                 console.log(data);
-                setTimeout(()=>{
                 setSuccessMsg(data.message);
+                setTimeout(()=>{
+                setSuccessMsg('')
                 }, 1500);
                 navigate("/morguelayout/morguereg/Adddeceased")
             }
@@ -50,15 +51,11 @@ const MortuaryLoginPage = () => {
             setErrMsg("Incorrect Password");
         }
     }
-    
-
-
-
 
   return (
-    <div className="flex relative">
-                <div className='mx-96 imageDiv'>
-                    <img className='h-screen image' src={nurse} alt="" w-96 />
+    <div className="flex flex-row justify-around">
+                <div className=' imageDiv'>
+                    <img className='h-screen hidden sm:block' src={nurse} alt="" w-96 />
                 </div>
 
             <div className="flex items-center px-6 py-8 loginDiv">
@@ -97,6 +94,10 @@ const MortuaryLoginPage = () => {
                             <p className="text-sm font-light text-blue-950">
                                 Dont have an account yet? <a href="/mortuarysignup" className="font-medium hover:underline text-blue-400">Signup here</a>
                             </p>
+                            {successMsg && (
+                                <p className="text-green-500 text-5xl">{successMsg}</p>
+                            )}
+
                             
                             </form>
                         </div>

@@ -64,39 +64,50 @@ const HospitalSignUpForm = () => {
     const handleSubmit = async (e)=> {
         e.preventDefault();
         const obj = {
-        facilityName: facilityName,
-        facilityLocation: facilityLocation,
-        sector: facilityType,
-        certificationNumber: certificationNumber,
-        email: officialEmail,
-        phoneNumber: phoneNumber,
-        password: password,}    
-    try {
-        const response = await fetch("https://tops-chimp-promoted.ngrok-free.app/api/v1/signUpHospital", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(obj)
-        });
+            facilityName: facilityName,
+            facilityLocation: facilityLocation,
+            sector: facilityType,
+            certificationNumber: certificationNumber,
+            email: officialEmail,
+            phoneNumber: phoneNumber,
+            password: password,
+        }    
 
-        console.log(response.message)
-        
-        if (response.ok) {
-            const data = await response.json();
-                setErrMsg(data.message)
-                console.log(data);
-                setTimeout(()=>{
-                    setSuccessMsg(data.message);
-                }, 1500);
-                navigate("/hospitallogin")
-            }
-        
-        } catch (error) {
-            console.error('Error:', error);
-            setErrMsg("Network issue")
-           }    
-    };
+        const url = "https://tops-chimp-promoted.ngrok-free.app/api/v1/signUpHospital";
+        try {
+            const response = await fetch( url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    facilityName: facilityName,
+                    facilityLocation: facilityLocation,
+                    sector: facilityType,
+                    certificationNumber: certificationNumber,
+                    email: officialEmail,
+                    phoneNumber: phoneNumber,
+                    password: password,
+                }),
+            })
+
+            console.log(response.message)
+            
+            if (response.ok) {
+                const data = await response.json();
+                    setErrMsg(data.message)
+                    console.log(data);
+                    setTimeout(()=>{
+                        setSuccessMsg(data.message);
+                    }, 1500);
+                    navigate("/hospitallogin")
+                }
+            
+            } catch (error) {
+                console.error('Error:', error);
+                setErrMsg("Network issue")
+            }    
+        };
 
     return (
         <div className="  bg-blue-950 h-screen" >  
@@ -150,7 +161,7 @@ const HospitalSignUpForm = () => {
                     <div>
                         <label htmlFor="certificationNumber" className="block text-blue-950 font mb-2 text-2xl">Certification Number</label>
                         <input
-                            type="text"
+                            type="number"
                             id="certificationNumber"
                             className="bg-gray-200 border border-gray-300 text-gray-900 text-2xl rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 w-full py-2.5 px-4"
                             placeholder="Enter Certification Number"

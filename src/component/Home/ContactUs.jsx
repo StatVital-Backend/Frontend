@@ -7,7 +7,7 @@ import WorkingHour from '../../assets/workinghour.png'
 const ContactUs = () => {
 
   return (
-    <div className='pt-12 container w-full flex justify-center center mainContainer'>
+    <div className='pt-12  w-full flex justify-center center mainContainer'>
       <div className=''>
         <div className='pb-16'>
           <div className='justify-center center flex font-bold font-sans'>

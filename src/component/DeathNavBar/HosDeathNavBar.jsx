@@ -33,7 +33,7 @@ const HosDeathNavBar = () => {
           </button> 
           </Link>
             <div className='text-3xl text-bold'>
-              <Link to="/mortuarylogin"><OutlineButton text="Log Out"/> </Link>
+              <Link to="/mortuarylogin"><OutlineButton text="Log Out" style={{width: "200px", height: "70px"}}/> </Link>
             </div>
           </div>
 

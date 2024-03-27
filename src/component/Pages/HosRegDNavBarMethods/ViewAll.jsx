@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-function HosViewAll() {
+function HosRegDeathViewAll() {
   const [deathRegistrations, setDeathRegistrations] = useState([]);
 
   useEffect(() => {
@@ -52,4 +52,4 @@ function HosViewAll() {
   );
 }
 
-export default HosViewAll;
+export default HosRegDeathViewAll;

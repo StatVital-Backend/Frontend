@@ -29,7 +29,7 @@ const MortuaryLoginPage = () => {
       }
 
       try {
-        const response = await fetch("https://tops-chimp-promoted.ngrok-free.app/api/v2/Log-In-Morgue", {
+        const response = await fetch("https://tops-chimp-promoted.ngrok-free.app/api/v2/logInMorgue", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

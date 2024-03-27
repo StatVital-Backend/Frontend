@@ -49,7 +49,7 @@ const HospitalSignUpForm = () => {
     }
     
     try {
-        const response = await fetch("https://tops-chimp-promoted.ngrok-free.app/api/v2/Sign-In-Morgue", {
+        const response = await fetch("https://tops-chimp-promoted.ngrok-free.app/api/v2/signInMorgue", {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'

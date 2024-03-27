@@ -67,7 +67,7 @@ const MorgueNavBar = () => {
           </div> */}
 
           <div className=' pt- 20 UpdateDeathInfo'>
-          <Link to="/morguelayout/update"> <FilledButton text="Post Partum Update" style={{width: "200px", height: 86}}/>
+          <Link to="/morguelayout/search"> <FilledButton text="Search Deceased" style={{width: "200px", height: 86}}/>
           </Link>
           </div>
 
@@ -88,7 +88,6 @@ const MorgueNavBar = () => {
         </div >
         </div>
       </div>
-      <h2 className="text-4xl text-blue-950 font-semibold mb-4 pt-8 justify-center center flex uppercase">WELCOME TO ANIKULAPO MORTUARY</h2>
 
     </div>
         )

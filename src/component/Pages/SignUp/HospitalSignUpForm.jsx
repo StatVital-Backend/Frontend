@@ -113,7 +113,7 @@ const HospitalSignUpForm = () => {
         <div className='flex'>    
         <div className="flex">
             <div className="bg-white w-[850px] pt-0 h-screen rounded-sm p-6">
-             <img src={statVitalLogo} alt="Hospital Logo" className="mb-" />
+             <img src={statVitalLogo} alt="Hospital Logo" />
                 <h2 className="text-4xl font-bold text-blue 950 text-center mb-8">HOSPITAL SIGN UP</h2>
                 <p className="text-red-500">{errMsg}</p>
                 <p className="text-red-500">{successMsg}</p>

@@ -57,11 +57,11 @@ const BirthNavBar = () => {
 
 
         <div className='absolute justify-start top-2 left-[400px]'>
-          <img src={dot1} alt="" className='' />
+          <img src={dot1} alt="" className='hidden sm:block' />
         </div >
 
         <div className='absolute top-2 right-[400px] '>
-          <img src={dot2} alt="" />
+          <img src={dot2} alt="" className='hidden sm:block' />
         </div >
         </div>
       </div>

@@ -34,7 +34,7 @@ const Hero = () => {
 
 
     return (
-        <div className=" flex pt-12 px-30  items-center justify-center bg-hero">
+        <div className="flex pt-12 px-30 items-center justify-center bg-hero">
             <div className="flex px-20 gap-6 items-center max-w-8xl">
                 <div className="w-full md:w-1/2">
                     <h2 className="text-5xl text-center md:text-left text-blue-950 leading-tight font-medium">

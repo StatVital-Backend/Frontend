@@ -78,46 +78,40 @@ import FilledButton from "../../../reuseables/bottons/FilledButton/FilledButton"
 
             <form onSubmit={handleSubmit}>
               <div className="flex pt-8 items-center justify-center center flex-col gap-5"> 
-              <label htmlFor='username' className="text-white text-2xl">Email</label>
-              <input className="w-full px-5 text-2xl rounded-lg h-9"
-              type='email' 
-              id='email'
-              placeholder="hospital@email.com"
-              ref={userRef}
-              autoComplete='off'
-              onChange={(e) => setemail(e.target.value)}
-              value={email}
-              required
-              />
-            
-    
-            
-              <label htmlFor='password' className="gap-10 flex text-white text-2xl">Password</label>
-              <input className="w-full px-5 h-9 text-2xl rounded-lg"
-              type='password' 
-              id='password'
-              placeholder="................"
-              autoComplete='off'
-              onChange={(e) => setPassword(e.target.value)}
-              value={password}
-              required
-              />
+                <label htmlFor='username' className="text-white text-2xl">Email</label>
+                <input className="w-full px-5 text-2xl rounded-lg h-9"
+                type='email' 
+                id='email'
+                placeholder="hospital@email.com"
+                ref={userRef}
+                autoComplete='off'
+                onChange={(e) => setemail(e.target.value)}
+                value={email}
+                required
+                />
+              
+      
+              
+                <label htmlFor='password' className="gap-10 flex text-white text-2xl">Password</label>
+                <input className="w-full px-5 h-9 pb-3 text-2xl rounded-lg"
+                type='password' 
+                id='password'
+                placeholder="................"
+                autoComplete='off'
+                onChange={(e) => setPassword(e.target.value)}
+                value={password}
+                required
+                />
+              </div>  
 
-           
-
-            </div>  
               <div className="pt-8 grid items-center justify-center">
-              <FilledButton text={"Login"} style={{width:"280px"}} />
-
-              {/* <button className ='w-full bg-blue-400 py-3 border-radius text-[20px] text-white font-family:   Georgia Cambria "Times New Roman" Times
-              serif line-height: 1.5rem; rounded-2xl
-                            btn' text="Login" type="submit" >Login</button> */}
+                <FilledButton text={"Login"} style={{width:"280px"}} />
               </div>
             </form>
-            <p className="flex flex-row gap-4 pt-5 justify-center ceneter text-white">
+            <p className="flex flex-row gap-4 pt-5 justify-center text-white">
               Need an Account? <br/>    
               <span className='line'>
-              <Link to="/hospitalsignup"><GhostButton text="Sign up"/> </Link> 
+                <Link to="/hospitalsignup"><GhostButton text="Sign up"/> </Link> 
               </span>
             </p>
           </div>

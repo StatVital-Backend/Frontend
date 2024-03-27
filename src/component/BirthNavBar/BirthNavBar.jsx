@@ -10,6 +10,7 @@ import OutlineButton from '../../reuseables/bottons/OutlineButton/OutlineButton'
 const BirthNavBar = () => {
   const [errMsg, setErrMsg] = useState('');
   const [successMsg, setSuccessMsg] = useState('');
+  const [sex, setSex] = useState('')
 
   return (
     <div className=''> 

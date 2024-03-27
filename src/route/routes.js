@@ -21,11 +21,11 @@ import MorgueReg from "../component/Home/MorgueReg";
 import MorgueLayout from "../layout/MorgueLayout";
 import BirthPostNatalUpdate from "../component/Pages/BirthNavBarMethods/PostNatalUpdate";
 import BirthViewAll from "../component/Pages/BirthNavBarMethods/ViewAll";
-import MorgueUpdate from "../component/Pages/MorgueNavBarMethods/Update";
 import MorgueViewAll from "../component/Pages/MorgueNavBarMethods/ViewAll";
-import HosRegPostNatalUpdate from "../component/Pages/HosRegDNavBarMethods/PostNatalUpdate";
-import HosViewAll from "../component/Pages/HosRegDNavBarMethods/ViewAll";
 import Search from "../component/Pages/BirthNavBarMethods/Search";
+import MorgueSearch from "../component/Pages/MorgueNavBarMethods/Search";
+import HosRegDeathSearch from "../component/Pages/HosRegDNavBarMethods/SearchDeceased";
+import HosRegDeathViewAll from "../component/Pages/HosRegDNavBarMethods/ViewAll";
 
 export const ROUTES = [
     {
@@ -126,8 +126,8 @@ export const ROUTES = [
                 element: <MorgueViewAll/>,
             },
             {
-                path: "/morguelayout/update",
-                element: <MorgueUpdate/>,
+                path: "/morguelayout/search",
+                element: <MorgueSearch/>,
             },
         ]
     },
@@ -150,12 +150,12 @@ export const ROUTES = [
                 element: <HosRegisterDeath/>
             },
             {
-                path: "/hospitalregisterDeath/update",
-                element: <HosRegPostNatalUpdate/>
+                path: "/hospitalregisterDeath/search",
+                element: <HosRegDeathSearch/>
             },
             {
                 path: "/hospitalregisterDeath/Viewall",
-                element: <HosViewAll/>,
+                element: <HosRegDeathViewAll/>,
             }
         ]
     }

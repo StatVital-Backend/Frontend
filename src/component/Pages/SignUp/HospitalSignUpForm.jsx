@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import statVitalLogo from '../../../assets/statVitalLogo.png';
-import FilledButton from '../../../reuseables/bottons/FilledButton/FilledButton';
 import GhostButton from '../../../reuseables/bottons/GhostButton/GhostButton';
 import { useForm } from "react-hook-form"
 import { useNavigate, Link } from 'react-router-dom';

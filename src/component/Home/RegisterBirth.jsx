@@ -761,6 +761,7 @@ const RegisterBirthAndAdd = () => {
                 },
                 body: JSON.stringify(fields)
             });
+            
             if (response.ok) {
                 const data = await response.json();
                 setErrMsg(data.message);

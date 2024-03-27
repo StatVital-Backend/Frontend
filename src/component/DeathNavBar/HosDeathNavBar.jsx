@@ -58,8 +58,8 @@ const HosDeathNavBar = () => {
             </Link>
           </div>
 
-          <div className=' pt- 20 UpdateDeathInfo'>
-          <Link to="/hospitalregisterDeath/update"> <FilledButton text="Post Partum Update" style={{width: "200px", height: 86}}/>
+          <div className=' pt- 20 Search'>
+          <Link to="/hospitalregisterDeath/search"> <FilledButton text="Search Deceased" style={{width: "200px", height: 86}}/>
           </Link>
           </div>
 
